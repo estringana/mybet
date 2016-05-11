@@ -21,12 +21,11 @@ $factory->define(App\User::class, function (Faker\Generator $faker)
     ];
 });
 
-
 $factory->define(App\Models\Championship::class, function (Faker\Generator $faker) 
 {
     return [
 	'name' => $faker->name,
-	'code' => $faker->unique,
+	'code' => uniqid(),
 	'start_date' => $faker->dateTimeBetween('+1 day', '+1 month'),
 	'end_date' => $faker->dateTimeBetween('+1 month', '+2 month'),
 	'created_at' => $faker->dateTime(),
@@ -73,3 +72,10 @@ $factory->defineAs(App\Models\Championship::class,'ended', function (Faker\Gener
     	);
 });
 
+$factory->define(App\Models\Team::class, function (Faker\Generator $faker) 
+{
+    return [
+        'name' => $faker->name,
+        'code' => uniqid()
+    ];
+});
