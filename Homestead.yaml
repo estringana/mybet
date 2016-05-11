@@ -17,7 +17,7 @@ folders:
 
 sites:
     - map: miporra.app
-      to: "/home/vagrant/miporra/public"
+      to: "/home/vagrant/miporra/miporra/public"
 
 databases:
     - miporra
