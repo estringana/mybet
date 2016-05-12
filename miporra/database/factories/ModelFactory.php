@@ -79,3 +79,11 @@ $factory->define(App\Models\Team::class, function (Faker\Generator $faker)
         'code' => uniqid()
     ];
 });
+
+$factory->define(App\Models\Round::class, function (Faker\Generator $faker) 
+{
+    return [
+        'name' => $faker->name,
+        'order' => rand(0,1000)
+    ];
+});

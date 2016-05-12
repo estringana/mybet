@@ -47,7 +47,10 @@ class TeamsTableSeeder extends Seeder
         	DB::table('teams')->insert([
                 'name' => $team,
                 'code' => $this->codify($team),
-                'championship_id' => App\Models\Championship::first()->id,
+                'championship_id' => 
+                    App\Models\Championship::where('code', '=', 'euro2016')
+                    ->firstOrFail()
+                    ->id,
     	   'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
     	   'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
 	]);
