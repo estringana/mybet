@@ -28,4 +28,15 @@ class TeamTest extends TestCase
 
         $this->assertTrue($team->championship->code == $championship->code);        
     }
+
+    /** @test */
+    public function team_has_championship()
+    {
+        $team = factory(App\Models\Team::class)->make();
+        $championship = factory(App\Models\Championship::class)->create();
+
+        $team->addToChampionship($championship);
+
+        $this->assertTrue($team->hasChampionship());        
+    }
 }

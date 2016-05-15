@@ -18,6 +18,8 @@ class CreateRoundsTable extends Migration
             $table->integer('order');
             $table->integer('championship_id')->unsigned()->nullable();
             $table->timestamps();
+
+            $table->foreign('championship_id')->references('id')->on('championships');
         });
     }
 
