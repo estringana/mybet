@@ -15,6 +15,10 @@ class Team extends Model
         return $this->belongsToMany('App\Models\Round');
     }
 
+    public function players(){
+        return $this->hasMany('App\Models\Player');
+    }
+
     public function addToChampionship(Championship $championship)
     {
         $this->championship()->associate($championship);
@@ -23,5 +27,10 @@ class Team extends Model
     public function hasChampionship()
     {
         return ! is_null($this->championship);
+    }
+
+    public function addPlayer(Player $player)
+    {
+        $this->players()->save($player);
     }
 }

@@ -39,4 +39,35 @@ class TeamTest extends TestCase
 
         $this->assertTrue($team->hasChampionship());        
     }
+
+    /** @test */
+    public function it_return_same_players_added()
+    {
+        $team = factory(App\Models\Team::class)->create();    
+        $player = factory(App\Models\Player::class)->create();   
+
+        $team->addPlayer($player);
+        
+        $this->assertEquals($team->players->toArray(), [$player->toArray()]);
+    }
+
+    
+    public function it_return_same_subscribed_teams()
+    {
+        $players = factory(App\Models\Players::class, 2)->create();    
+        $team = factory(App\Models\team::class)->create();   
+
+        $team->addPlayer($players[0]);
+        $team->addPlayer($players[1]);
+        
+        $this->assertEquals(
+            $team->players->toArray(), 
+            [
+                $players[0]->toArray(),
+                $players[1]->toArray()
+            ]
+        );
+
+        $this->assertCount(2,$team->players);
+    }
 }

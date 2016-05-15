@@ -100,3 +100,10 @@ $factory->define(App\Models\Match::class, function (Faker\Generator $faker)
             'round_id' => null,
     ];
 });
+
+$factory->define(App\Models\Player::class, function (Faker\Generator $faker) 
+{
+    return [
+            'name' => $faker->name
+    ];
+});
