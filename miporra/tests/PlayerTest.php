@@ -91,6 +91,6 @@ class PlayerTest extends TestCase
         $match->addGoal($goal02);
         $match->addGoal($goal03);
 
-        $this->assertTrue($player->countableGoals() == 2);
+        $this->assertTrue($player->countableGoals == 2);
     }
 }

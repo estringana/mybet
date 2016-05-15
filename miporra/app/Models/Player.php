@@ -16,7 +16,7 @@ class Player extends Model
         return $this->hasMany('App\Models\Goal');
     }
 
-    public function countableGoals()
+    public function getCountableGoalsAttribute()
     {
         $goals = 0;
 
