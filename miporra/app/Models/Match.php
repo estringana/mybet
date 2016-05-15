@@ -31,6 +31,11 @@ class Match extends Model
         return $this->belongsTo('App\Models\Round');
     }
 
+    public function goals()
+    {
+        return $this->hasMany('App\Models\Goal');
+    }
+
     public function addTeams(Team $local, Team $away)
     {
         $this->local()->associate($local);
@@ -51,6 +56,11 @@ class Match extends Model
 
         $this->local_score = $local;
         $this->away_score = $away;
+    }
+
+    public function addGoal(Goal $goal)
+    {
+        $this->goals()->save($goal);
     }
 
     protected function guardAgainstScoreNotProvidedYet()
