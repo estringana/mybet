@@ -87,3 +87,16 @@ $factory->define(App\Models\Round::class, function (Faker\Generator $faker)
         'order' => rand(0,1000)
     ];
 });
+
+
+$factory->define(App\Models\Match::class, function (Faker\Generator $faker) 
+{
+    return [
+            'date' => $faker->dateTimeBetween('1 month', '3 month'),
+            'local_score' => null,
+            'away_score' => null,
+            'local_team_id' => null,
+            'away_team_id' => null,
+            'round_id' => null,
+    ];
+});
