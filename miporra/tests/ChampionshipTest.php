@@ -109,10 +109,13 @@ class ChampionshipTest extends TestCase
     {
         $user = factory(App\Models\User::class)->create();    
         $championship = factory(App\Models\Championship::class)->create();   
+        $bet = new App\Models\Bet();
 
-        $championship->addUser($user);
+        $bet->associateUser($user);
+
+        $championship->addBet($bet);
         
-        $this->assertEquals($championship->users()->firstOrFail()->id, $user->id);
+        $this->assertEquals($championship->bets()->firstOrFail()->user->id, $user->id);
     }
 
     /** @test */
@@ -120,18 +123,41 @@ class ChampionshipTest extends TestCase
     {
         $users = factory(App\Models\User::class, 2)->create();    
         $championship = factory(App\Models\Championship::class)->create();   
+        $bet01 = new App\Models\Bet();
+        $bet02 = new App\Models\Bet();
 
-        $championship->addUser($users[0]);
-        $championship->addUser($users[1]);
+        $bet01->associateUser($users[0]);
+        $bet02->associateUser($users[1]);
+
+        $championship->addBet($bet01);
+        $championship->addBet($bet02);
         
         $this->assertEquals(
-            $championship->users->lists(['id'])->toArray(), 
+            $championship->bets->lists(['user_id'])->toArray(), 
             [
                 $users[0]->id,
                 $users[1]->id
             ]
         );
 
-        $this->assertCount(2,$championship->users);
+        $this->assertCount(2,$championship->bets);
+    }
+
+    /** @test */
+    public function it_can_not_be_the_same_users_twice_on_a_championship()
+    {
+        $user = factory(App\Models\User::class)->create();    
+        $championship = factory(App\Models\Championship::class)->create();   
+        $bet01 = new App\Models\Bet();
+        $bet02 = new App\Models\Bet();
+
+        $bet01->associateUser($user);
+        $bet02->associateUser($user);
+
+        $championship->addBet($bet01);        
+
+        $this->setExpectedException('\App\Exceptions\UserTwiceOnChampionshipException');
+
+        $championship->addBet($bet02);
     }
 }
