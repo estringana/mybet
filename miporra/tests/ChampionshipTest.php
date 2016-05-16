@@ -103,4 +103,35 @@ class ChampionshipTest extends TestCase
 
         $this->assertCount(2,$championship->rounds);
     }
+
+    /** @test */
+    public function it_return_same_added_user()
+    {
+        $user = factory(App\Models\User::class)->create();    
+        $championship = factory(App\Models\Championship::class)->create();   
+
+        $championship->addUser($user);
+        
+        $this->assertEquals($championship->users()->firstOrFail()->id, $user->id);
+    }
+
+    /** @test */
+    public function it_return_same_added_users()
+    {
+        $users = factory(App\Models\User::class, 2)->create();    
+        $championship = factory(App\Models\Championship::class)->create();   
+
+        $championship->addUser($users[0]);
+        $championship->addUser($users[1]);
+        
+        $this->assertEquals(
+            $championship->users->lists(['id'])->toArray(), 
+            [
+                $users[0]->id,
+                $users[1]->id
+            ]
+        );
+
+        $this->assertCount(2,$championship->users);
+    }
 }

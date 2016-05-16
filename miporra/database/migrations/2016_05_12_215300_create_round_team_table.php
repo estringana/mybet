@@ -16,6 +16,9 @@ class CreateRoundTeamTable extends Migration
             $table->integer('round_id')->unsigned();
             $table->integer('team_id')->unsigned();
             $table->primary(['round_id', 'team_id']);
+
+            $table->foreign('round_id')->references('id')->on('rounds');
+            $table->foreign('team_id')->references('id')->on('teams');
         });
     }
 

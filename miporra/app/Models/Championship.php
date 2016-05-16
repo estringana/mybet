@@ -17,6 +17,11 @@ class Championship extends Model
         return $this->hasMany('App\Models\Round');
     }
 
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\User');
+    }
+
     public function inProgress()
     {
         return Carbon::now() >= $this->start_date && Carbon::now() <= $this->end_date;
@@ -30,4 +35,7 @@ class Championship extends Model
         $this->rounds()->save($round);
     }
 
+    public function addUser(User $user){
+        $this->users()->save($user);
+    }
 }
