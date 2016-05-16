@@ -109,13 +109,13 @@ class ChampionshipTest extends TestCase
     {
         $user = factory(App\Models\User::class)->create();    
         $championship = factory(App\Models\Championship::class)->create();   
-        $bet = new App\Models\Bet();
+        $coupon = new App\Models\Coupon();
 
-        $bet->associateUser($user);
+        $coupon->associateUser($user);
 
-        $championship->addBet($bet);
+        $championship->addCoupon($coupon);
         
-        $this->assertEquals($championship->bets()->firstOrFail()->user->id, $user->id);
+        $this->assertEquals($championship->coupons()->firstOrFail()->user->id, $user->id);
     }
 
     /** @test */
@@ -123,24 +123,24 @@ class ChampionshipTest extends TestCase
     {
         $users = factory(App\Models\User::class, 2)->create();    
         $championship = factory(App\Models\Championship::class)->create();   
-        $bet01 = new App\Models\Bet();
-        $bet02 = new App\Models\Bet();
+        $coupon01 = new App\Models\Coupon();
+        $coupon02 = new App\Models\Coupon();
 
-        $bet01->associateUser($users[0]);
-        $bet02->associateUser($users[1]);
+        $coupon01->associateUser($users[0]);
+        $coupon02->associateUser($users[1]);
 
-        $championship->addBet($bet01);
-        $championship->addBet($bet02);
+        $championship->addCoupon($coupon01);
+        $championship->addCoupon($coupon02);
         
         $this->assertEquals(
-            $championship->bets->lists(['user_id'])->toArray(), 
+            $championship->coupons->lists(['user_id'])->toArray(), 
             [
                 $users[0]->id,
                 $users[1]->id
             ]
         );
 
-        $this->assertCount(2,$championship->bets);
+        $this->assertCount(2,$championship->coupons);
     }
 
     /** @test */
@@ -148,16 +148,16 @@ class ChampionshipTest extends TestCase
     {
         $user = factory(App\Models\User::class)->create();    
         $championship = factory(App\Models\Championship::class)->create();   
-        $bet01 = new App\Models\Bet();
-        $bet02 = new App\Models\Bet();
+        $coupon01 = new App\Models\Coupon();
+        $coupon02 = new App\Models\Coupon();
 
-        $bet01->associateUser($user);
-        $bet02->associateUser($user);
+        $coupon01->associateUser($user);
+        $coupon02->associateUser($user);
 
-        $championship->addBet($bet01);        
+        $championship->addCoupon($coupon01);        
 
         $this->setExpectedException('\App\Exceptions\UserTwiceOnChampionshipException');
 
-        $championship->addBet($bet02);
+        $championship->addCoupon($coupon02);
     }
 }

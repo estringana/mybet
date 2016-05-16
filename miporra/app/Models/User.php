@@ -24,8 +24,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function bets()
+    public function coupons()
     {
-        return $this->hasMany('App\Models\Bet');
+        return $this->hasMany('App\Models\Coupon');
     }
 }

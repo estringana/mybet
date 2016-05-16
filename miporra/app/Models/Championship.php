@@ -17,9 +17,9 @@ class Championship extends Model
         return $this->hasMany('App\Models\Round');
     }
 
-    public function bets()
+    public function coupons()
     {
-        return $this->hasMany('App\Models\Bet');
+        return $this->hasMany('App\Models\Coupon');
     }
 
     public function inProgress()
@@ -36,18 +36,18 @@ class Championship extends Model
         $this->rounds()->save($round);
     }
 
-    private function guardAgainstUserTwiceOnChampionship(Bet $bet)
+    private function guardAgainstUserTwiceOnChampionship(Coupon $coupon)
     {
-        if ( $this->bets()->where('user_id',$bet->user_id)->count() > 0 )
+        if ( $this->coupons()->where('user_id',$coupon->user_id)->count() > 0 )
         {
             throw new \App\Exceptions\UserTwiceOnChampionshipException();
         }
     }
 
-    public function addBet(Bet $bet)
+    public function addCoupon(Coupon $coupon)
     {
-        $this->guardAgainstUserTwiceOnChampionship($bet);
+        $this->guardAgainstUserTwiceOnChampionship($coupon);
 
-        $this->bets()->save($bet);
+        $this->coupons()->save($coupon);
     }
 }

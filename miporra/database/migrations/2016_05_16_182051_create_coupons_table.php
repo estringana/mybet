@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBetsTable extends Migration
+class CreateCouponsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateBetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bets', function (Blueprint $table) {
+        Schema::create('coupons', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('championship_id')->unsigned();
             $table->integer('user_id')->unsigned();
@@ -32,6 +32,6 @@ class CreateBetsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('bets');
+        Schema::drop('coupons');
     }
 }
