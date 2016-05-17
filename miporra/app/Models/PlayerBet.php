@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PlayerBet extends Model implements \App\Interfaces\Betable
 {
-    const POINTS_PER_GOAL = 1;
+    const POINTS = 1;
 
     public function player()
     {
@@ -20,6 +20,6 @@ class PlayerBet extends Model implements \App\Interfaces\Betable
 
     public function getPointsAttribute()
     {
-        return PlayerBet::POINTS_PER_GOAL * $this->player->countableGoals;
+        return PlayerBet::POINTS * $this->player->countableGoals;
     }
 }

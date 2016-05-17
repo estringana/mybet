@@ -46,7 +46,7 @@ class PlayerBetTest extends TestCase
         $match->addGoal($goal01);
         $match->addGoal($goal02);
 
-        $this->assertEquals(2 * App\Models\PlayerBet::POINTS_PER_GOAL , $matchBet->points);
+        $this->assertEquals(2 * App\Models\PlayerBet::POINTS , $matchBet->points);
     }
 
     /** @test */

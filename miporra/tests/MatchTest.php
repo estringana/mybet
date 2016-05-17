@@ -90,4 +90,34 @@ class MatchTest extends TestCase
 
         $match->addScore('2',3);
     }
+
+    /** @test */
+    public function it_should_say_1_with_2_1_score()    
+    {
+        $match = factory(App\Models\Match::class)->create();
+
+        $match->addScore(2,1);
+
+        $this->assertTrue($match->get1X2() == App\Models\Match::SIGN_1);
+    }
+
+     /** @test */
+    public function it_should_say_2_with_1_4_score()    
+    {
+        $match = factory(App\Models\Match::class)->create();
+
+        $match->addScore(1,4);
+
+        $this->assertTrue($match->get1X2() == App\Models\Match::SIGN_2);
+    }
+
+    /** @test */
+    public function it_should_say_X_with_score_3_3()    
+    {
+        $match = factory(App\Models\Match::class)->create();
+
+        $match->addScore(3,3);
+
+        $this->assertTrue($match->get1X2() == App\Models\Match::SIGN_X);
+    }
 }

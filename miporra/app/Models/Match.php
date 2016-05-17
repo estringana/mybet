@@ -11,6 +11,10 @@ class Match extends Model
     const AWAY = 'away';
     const DRAW = 'draw';
 
+    const SIGN_1 = '1';
+    const SIGN_X = 'X';
+    const SIGN_2 = '2';
+
     public function championship()
     {
         return $this->belongsTo('App\Models\Championship');
@@ -86,6 +90,21 @@ class Match extends Model
         else
         {
             return Match::DRAW;
+        }
+    }
+
+    public function get1X2()
+    {
+        switch ($this->winner()) {
+            case Match::LOCAL:
+                return Match::SIGN_1;
+                break;
+            case Match::DRAW:
+                return Match::SIGN_X;
+                break;
+            default:
+                return Match::SIGN_2;
+                break;
         }
     }
 
