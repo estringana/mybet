@@ -93,4 +93,12 @@ class PlayerTest extends TestCase
 
         $this->assertTrue($player->countableGoals == 2);
     }
+
+    /** @test */
+    public function it_returns_0_when_no_goals()
+    {
+        $player = factory(App\Models\Player::class)->create();
+
+        $this->assertTrue($player->countableGoals == 0);        
+    }
 }

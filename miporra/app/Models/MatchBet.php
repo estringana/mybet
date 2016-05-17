@@ -11,8 +11,13 @@ class MatchBet extends Model implements \App\Interfaces\Betable
         return $this->belongsTo('App\Models\Match');
     }
 
-    public function associatePlayer(Match $match)
+    public function associateMatch(Match $match)
     {
         $this->match->associate($match);
+    }
+
+    public function getPointsAttribute()
+    {
+        
     }
 }

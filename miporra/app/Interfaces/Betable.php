@@ -2,4 +2,6 @@
 
 namespace App\Interfaces;
 
-interface Betable{}
+interface Betable{
+    public function getPointsAttribute();
+}
