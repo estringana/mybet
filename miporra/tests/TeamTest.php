@@ -51,11 +51,11 @@ class TeamTest extends TestCase
         $this->assertEquals($team->players->toArray(), [$player->toArray()]);
     }
 
-    
+    /** @test */
     public function it_return_same_subscribed_teams()
     {
-        $players = factory(App\Models\Players::class, 2)->create();    
-        $team = factory(App\Models\team::class)->create();   
+        $players = factory(App\Models\Player::class, 2)->create();    
+        $team = factory(App\Models\Team::class)->create();   
 
         $team->addPlayer($players[0]);
         $team->addPlayer($players[1]);
