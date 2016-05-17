@@ -107,3 +107,13 @@ $factory->define(App\Models\Player::class, function (Faker\Generator $faker)
             'name' => $faker->name
     ];
 });
+
+$factory->define(App\Models\Bet::class, function (Faker\Generator $faker) 
+{
+    return [
+        'bettype_id' => 0,
+        'bettype_type' => '',
+        'created_at' => $faker->dateTime(),
+        'updated_at' => $faker->dateTime()
+    ];
+});

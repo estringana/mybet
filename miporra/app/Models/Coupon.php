@@ -16,8 +16,18 @@ class Coupon extends Model
         return $this->belongsTo('App\Models\User');
     }
 
+    public function bets()
+    {
+        return $this->hasMany('App\Models\Bet');
+    }
+
     public function associateUser(User $user)
     {
         $this->user()->associate($user);
+    }
+
+    public function addBet(Bet $bet)
+    {
+        $this->bets()->save($bet);
     }
 }
