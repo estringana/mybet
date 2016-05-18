@@ -15,6 +15,7 @@ class CreateMatchBetsTable extends Migration
         Schema::create('matchBets', function (Blueprint $table) {
            $table->increments('id');
             $table->integer('match_id')->unsigned();
+            $table->enum('prediction', ['1', 'X', '2']);
             $table->timestamps();
 
             $table->foreign('match_id')->references('id')->on('players');
