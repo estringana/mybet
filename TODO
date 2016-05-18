@@ -1,3 +1,6 @@
 TODO
 -------------------------------
 - Change subtypes attributes on the migration to be morph --> $table->morphs('taggable');
+- Move subtypes of bet Models into another folder
+- Remove test examples
+- Refactor tests

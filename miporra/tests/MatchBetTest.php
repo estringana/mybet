@@ -9,6 +9,8 @@ use App\Models\MatchBet;
 
 class MatchBetTest extends TestCase
 {
+    use DatabaseTransactions;
+    
     protected $matchBet;
     protected $match;
 

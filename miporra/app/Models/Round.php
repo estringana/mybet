@@ -48,4 +48,24 @@ class Round extends Model
 
         $this->teams()->save($team);
     }
+
+    protected function guardAgaisntInvalidPoints($points)
+    {
+        if ( ! is_int($points) || $points <= 0)
+        {
+            throw new \App\Exceptions\InvalidPointsException();;
+        }
+    }
+
+    public function setPoints($points)
+    {
+        $this->guardAgaisntInvalidPoints($points);
+
+        $this->points = $points;
+    }
+
+    public function hasTeam(Team $team)
+    {
+        return $this->teams()->where('team_id',$team->id)->count() > 0;
+    }
 }

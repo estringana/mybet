@@ -24,6 +24,7 @@ class RoundsTableSeeder extends Seeder
             DB::table('rounds')->insert([
                 'name' => $round['name'],
                 'order' => $round['order'],
+                'points' => $round['order'],
                 'championship_id' => 
                     App\Models\Championship::where('code', '=', 'euro2016')
                     ->firstOrFail()

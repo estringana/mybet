@@ -16,6 +16,7 @@ class CreateRoundsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('order');
+            $table->integer('points');
             $table->integer('championship_id')->unsigned()->nullable();
             $table->timestamps();
 
