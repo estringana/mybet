@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.home');
+});
+
+
+Route::get('/{locale}', function ($locale) {
+    App::setLocale($locale);
+
+    return view('pages.home');
 });
