@@ -25,6 +25,6 @@ class PlayerBet extends Model implements \App\Interfaces\Betable, \App\Interface
 
     public function getIdentification()
     {
-        return $this->player->id;
+        return \App\Interfaces\Identifiable::NO_IDENTIFICATION;
     }
 }

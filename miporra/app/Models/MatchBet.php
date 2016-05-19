@@ -62,6 +62,6 @@ class MatchBet extends Model implements \App\Interfaces\Betable, \App\Interfaces
 
     public function getIdentification()
     {
-        return $this->match->id;
+        return \App\Interfaces\Identifiable::NO_IDENTIFICATION;
     }
 }

@@ -17,9 +17,9 @@ class Championship extends Model
         return $this->hasMany('App\Models\Round');
     }
 
-    public function configuration()
+    public function configurations()
     {
-        return $this->hasOne('App\Models\betConfiguration');
+        return $this->hasMany('App\Models\betConfiguration');
     }
 
     public function coupons()
@@ -58,6 +58,24 @@ class Championship extends Model
 
     public function addConfiguration(BetConfiguration $betConfiguration)
     {
-        $this->configuration()->save($betConfiguration);
+        $this->configurations()->save($betConfiguration);
+    }
+
+    public function pointsForMappingIdentifiedBy($bet_mapping_class, $identifier_of_bet)
+    {
+        return $this->configurations()
+            ->where('bet_mapping_class',$bet_mapping_class)
+            ->where('identifier_of_bet',$identifier_of_bet)
+            ->firstOrFail()
+            ->points_per_guess;
+    }
+
+    public function betsAllowedForMappingIdentifiedBy($bet_mapping_class, $identifier_of_bet)
+    {
+        return $this->configurations()
+            ->where('bet_mapping_class',$bet_mapping_class)
+            ->where('identifier_of_bet',$identifier_of_bet)
+            ->firstOrFail()
+            ->number_of_bets;
     }
 }

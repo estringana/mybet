@@ -60,17 +60,4 @@ class BetTest extends TestCase
 
         $bet->getIdentification();
     }
-
-     /** @test */
-    public function it_get_the_right_identification_from_a_subtype()
-    {
-        $bet = new App\Models\Bet();
-        $matchBet = new App\Models\MatchBet();
-        $match = factory(App\Models\Match::class)->create();
-
-        $matchBet->associateMatch($match);        
-        $bet->addBettype($matchBet);
-
-        $this->assertEquals($bet->getIdentification(),$match->id);
-    }
 }

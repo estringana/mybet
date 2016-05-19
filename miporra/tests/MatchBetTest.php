@@ -76,6 +76,6 @@ class MatchBetTest extends TestCase
         $matchBet->associateMatch($match);        
         $bet->addBettype($matchBet);
 
-        $this->assertEquals($bet->getIdentification(),$match->id);
+        $this->assertEquals($bet->getIdentification(), \App\Interfaces\Identifiable::NO_IDENTIFICATION);
     }
 }

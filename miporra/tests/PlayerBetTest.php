@@ -72,6 +72,6 @@ class PlayerBetTest extends TestCase
 
         $bet->addBettype($matchBet);
 
-        $this->assertEquals($bet->getIdentification(),$player->id);
+        $this->assertEquals($bet->getIdentification(), \App\Interfaces\Identifiable::NO_IDENTIFICATION);
     }
 }

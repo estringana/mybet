@@ -20,7 +20,7 @@ class BetConfigurationTableSeeder extends Seeder
                 'order' => 1, 
                 'number_of_bets' => 36,
                 'points_per_guess' => 1,
-                'identifier_of_bet' => App\Models\Round::where('identifier','=','GroupStage')->firstOrFail()->id,
+                'identifier_of_bet' => \App\Interfaces\Identifiable::NO_IDENTIFICATION,
                 'championship_id' => $championship_id
             ],
             [ 
@@ -60,7 +60,7 @@ class BetConfigurationTableSeeder extends Seeder
                 'order' => 6, 
                 'number_of_bets' => 8,
                 'points_per_guess' => 1,
-                'identifier_of_bet' => null,
+                'identifier_of_bet' => \App\Interfaces\Identifiable::NO_IDENTIFICATION,
                 'championship_id' => $championship_id
             ]
         ];
