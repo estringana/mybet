@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PlayerBet extends Model implements \App\Interfaces\Betable
+class PlayerBet extends Model implements \App\Interfaces\Betable, \App\Interfaces\Identifiable
 {
     const POINTS = 1;
 
@@ -21,5 +21,10 @@ class PlayerBet extends Model implements \App\Interfaces\Betable
     public function getPointsAttribute()
     {
         return PlayerBet::POINTS * $this->player->countableGoals;
+    }
+
+    public function getIdentification()
+    {
+        return $this->player->id;
     }
 }

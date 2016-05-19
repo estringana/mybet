@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class RoundBet extends Model implements \App\Interfaces\Betable
+class RoundBet extends Model implements \App\Interfaces\Betable, \App\Interfaces\Identifiable
 {
     public function round()
     {
@@ -34,5 +34,10 @@ class RoundBet extends Model implements \App\Interfaces\Betable
         }
 
         return 0;
+    }
+
+    public function getIdentification()
+    {
+        return $this->round->id;
     }
 }

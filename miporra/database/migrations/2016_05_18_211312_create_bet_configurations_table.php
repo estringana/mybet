@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRoundsTable extends Migration
+class CreateBetConfigurationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,13 @@ class CreateRoundsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rounds', function (Blueprint $table) {
+        Schema::create('bet_configurations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('identifier')->unique();
+            $table->string('bet_mapping_class');
             $table->integer('order');
-            $table->integer('points');
+            $table->integer('number_of_bets');
+            $table->integer('points_per_guess');
+            $table->integer('identifier_of_bet')->nullable();
             $table->integer('championship_id')->unsigned()->nullable();
             $table->timestamps();
 
@@ -32,6 +33,6 @@ class CreateRoundsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('rounds');
+        Schema::drop('bet_configurations');
     }
 }

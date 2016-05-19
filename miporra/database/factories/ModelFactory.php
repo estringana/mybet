@@ -84,6 +84,7 @@ $factory->define(App\Models\Round::class, function (Faker\Generator $faker)
 {
     return [
         'name' => $faker->name,
+        'identifier' => str_random(10),
         'order' => rand(0,1000),
         'points' => rand(1,5)
     ];

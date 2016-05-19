@@ -60,4 +60,18 @@ class PlayerBetTest extends TestCase
 
         $this->assertEquals(0 , $matchBet->points);
     }
+
+    /** @test */
+    public function it_get_the_right_identification_from_playerbet_subtype()
+    {
+        $bet = new App\Models\Bet();        
+        $matchBet = new App\Models\PlayerBet();
+        $player = factory(App\Models\Player::class)->create();
+
+        $matchBet->associatePlayer($player);
+
+        $bet->addBettype($matchBet);
+
+        $this->assertEquals($bet->getIdentification(),$player->id);
+    }
 }

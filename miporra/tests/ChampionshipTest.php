@@ -160,4 +160,15 @@ class ChampionshipTest extends TestCase
 
         $championship->addCoupon($coupon02);
     }
+
+    /** @test */
+    public function it_can_add_configuration()
+    {
+        $championship = factory(App\Models\Championship::class)->create();   
+        $betConfiguration = new App\Models\BetConfiguration();
+
+        $championship->addConfiguration($betConfiguration);
+
+        $this->assertEquals($betConfiguration->id, $betConfiguration->id);
+    }
 }

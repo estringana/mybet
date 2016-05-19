@@ -67,4 +67,15 @@ class RoundBetTest extends TestCase
     {
         $this->assertEquals(0,$this->roundBet->points);
     }
+
+
+    /** @test */
+    public function it_get_the_right_identification_from_roundbet_subtype()
+    {
+        $bet = new App\Models\Bet();        
+
+        $bet->addBettype($this->roundBet);
+
+        $this->assertEquals($bet->getIdentification() , $this->round->id);
+    }
 }

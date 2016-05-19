@@ -1,5 +1,8 @@
 TODO
 -------------------------------
+- Remove points from Round table
+- Remove points from Match
+- Remove points from Goal
 - Change subtypes attributes on the migration to be morph --> $table->morphs('taggable');
 - Move subtypes of bet Models into another folder
 - Remove test examples

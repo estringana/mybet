@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MatchBet extends Model implements \App\Interfaces\Betable
+class MatchBet extends Model implements \App\Interfaces\Betable, \App\Interfaces\Identifiable
 {
     const POINTS = 1;
 
@@ -47,8 +47,7 @@ class MatchBet extends Model implements \App\Interfaces\Betable
         catch (\App\Exceptions\ScoreNotProvidedYetException $exception)
         {
             return false;
-        }
-        
+        }        
     }
 
     public function getPointsAttribute()
@@ -59,5 +58,10 @@ class MatchBet extends Model implements \App\Interfaces\Betable
         }
 
         return 0;
+    }
+
+    public function getIdentification()
+    {
+        return $this->match->id;
     }
 }

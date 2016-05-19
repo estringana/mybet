@@ -17,6 +17,11 @@ class Championship extends Model
         return $this->hasMany('App\Models\Round');
     }
 
+    public function configuration()
+    {
+        return $this->hasOne('App\Models\betConfiguration');
+    }
+
     public function coupons()
     {
         return $this->hasMany('App\Models\Coupon');
@@ -49,5 +54,10 @@ class Championship extends Model
         $this->guardAgainstUserTwiceOnChampionship($coupon);
 
         $this->coupons()->save($coupon);
+    }
+
+    public function addConfiguration(BetConfiguration $betConfiguration)
+    {
+        $this->configuration()->save($betConfiguration);
     }
 }
