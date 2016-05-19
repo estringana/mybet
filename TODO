@@ -1,9 +1,8 @@
 TODO
 -------------------------------
-- Change the bets to say if are ok or not but the points are caculated on the coupon
-- Remove points from Round table
-- Remove points from Match
-- Remove points from Goal
+- Caculated on the coupon
+- Add method to coupon to avoid add more bets of a type than the limit
+- Find better name for getPointsAttribute
 - Change subtypes attributes on the migration to be morph --> $table->morphs('taggable');
 - Move subtypes of bet Models into another folder
 - Remove test examples

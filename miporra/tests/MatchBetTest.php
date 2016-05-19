@@ -47,16 +47,9 @@ class MatchBetTest extends TestCase
          $this->match->addScore(5,1);
          $this->matchBet->setPrediction(Match::SIGN_1);
 
-         $this->assertEquals(MatchBet::POINTS, $this->matchBet->points);
+         $this->assertEquals(1, $this->matchBet->points);
      }    
 
-     /** @test */
-     public function it_return_exception_if_invalid_prediction()
-     {
-        $this->setExpectedException('\App\Exceptions\InvalidPredictionException');
-
-        $this->matchBet->setPrediction('B');
-     }
 
      /** @test */
      public function it_returns_0_if_match_has_no_score_yet()
@@ -64,6 +57,14 @@ class MatchBetTest extends TestCase
          $this->matchBet->setPrediction(Match::SIGN_1);
 
          $this->assertEquals(0, $this->matchBet->points);
+     }
+     
+     /** @test */
+     public function it_return_exception_if_invalid_prediction()
+     {
+        $this->setExpectedException('\App\Exceptions\InvalidPredictionException');
+
+        $this->matchBet->setPrediction('B');
      }
 
      /** @test */

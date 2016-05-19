@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class Coupon extends Model
 {
@@ -19,6 +20,23 @@ class Coupon extends Model
     public function bets()
     {
         return $this->hasMany('App\Models\Bet');
+    }
+
+    public function typesOfBet()
+    {
+        return $this->bets
+            ->groupBy('bettype_type')
+            ->keys();
+    }
+
+    public function betsOfType($type)
+    {
+        return $this->bets()->where('bettype_type', '=', $type);
+    }
+
+    public function numberOfbetsOfType($type)
+    {
+        return $this->betsOfType($type)->count();
     }
 
     public function associateUser(User $user)

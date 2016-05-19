@@ -59,7 +59,7 @@ class RoundBetTest extends TestCase
         $this->round->setPoints(3);
         $this->round->addTeam($this->team);
 
-        $this->assertEquals($this->round->points,$this->roundBet->points);
+        $this->assertEquals(1,$this->roundBet->points);
     }
 
     /** @test */

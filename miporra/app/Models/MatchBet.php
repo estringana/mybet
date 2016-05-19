@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class MatchBet extends Model implements \App\Interfaces\Betable, \App\Interfaces\Identifiable
 {
-    const POINTS = 1;
-
     public function match()
     {
         return $this->belongsTo('App\Models\Match');
@@ -54,7 +52,7 @@ class MatchBet extends Model implements \App\Interfaces\Betable, \App\Interfaces
     {
         if ( $this->isPredictionGuessed() )
         {            
-            return MatchBet::POINTS;
+            return 1;
         }
 
         return 0;

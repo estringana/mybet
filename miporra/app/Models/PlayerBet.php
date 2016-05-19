@@ -20,7 +20,7 @@ class PlayerBet extends Model implements \App\Interfaces\Betable, \App\Interface
 
     public function getPointsAttribute()
     {
-        return PlayerBet::POINTS * $this->player->countableGoals;
+        return $this->player->countableGoals;
     }
 
     public function getIdentification()

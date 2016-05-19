@@ -30,7 +30,7 @@ class RoundBet extends Model implements \App\Interfaces\Betable, \App\Interfaces
     {
         if ( $this->round->hasTeam($this->team) )
         {
-            return $this->round->points;
+            return 1;
         }
 
         return 0;
