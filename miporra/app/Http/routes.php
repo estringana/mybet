@@ -12,11 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('pages.home');
+    return redirect('/en');
 });
 
 
 Route::get('/{locale}', function ($locale) {
+    if (! in_array($locale, ['es','en'])){
+        return redirect('/en');
+    }
     App::setLocale($locale);
 
     return view('pages.home');
