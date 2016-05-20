@@ -5,8 +5,7 @@
       <a class="navbar-brand" href="#">{{ trans('messages.title') }}</a>
     </div>
     <p class="navbar-text navbar-right">
-        <a href="/es/"><img src="{{ asset('/images/spain.icon.png') }}"></a>
-        <a href="/en/"><img src="{{ asset('/images/uk.icon.png') }}"></a>
+        @include('skeleton.menu.languageSelector')
     </p>
   </div><!-- /.container -->
 </nav>

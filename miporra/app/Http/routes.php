@@ -11,16 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return redirect('/en');
-});
+ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
+    {
+        Route::auth();
 
+        Route::get('/coupon/create', [
+                'middleware' => 'auth',
+               'uses' => 'CouponController@create'
+        ]);
 
-Route::get('/{locale}', function ($locale) {
-    if (! in_array($locale, ['es','en'])){
-        return redirect('/en');
-    }
-    App::setLocale($locale);
-
-    return view('pages.home');
-});
+        Route::get('/', function()
+        {
+            return view('pages.home');
+        });
+    });
