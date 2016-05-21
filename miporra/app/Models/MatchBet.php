@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class MatchBet extends Model implements \App\Interfaces\Betable, \App\Interfaces\Identifiable, \App\Interfaces\Fillable
 {
-    protected $table = 'playerBets';
+    protected $table = 'matchBets';
     
     public function match()
     {

@@ -55,6 +55,7 @@ class Coupon extends Model
         {
             for ($i=0; $i < $configuration->number_of_bets; $i++) { 
                 $betType = new $configuration->bet_mapping_class();
+
                 $betType->setIdentification($configuration->identifier_of_bet);
 
                 $betType->save();

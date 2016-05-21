@@ -4,6 +4,9 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
+use App\Models\PlayerBet;
+use App\Models\Championship;
+
 class CouponTest extends TestCase
 {
     use DatabaseTransactions;
@@ -22,7 +25,7 @@ class CouponTest extends TestCase
     public function it_return_same_added_bet()
     {
         $user = factory(App\Models\User::class)->create();    
-        $championship = factory(App\Models\Championship::class)->create();   
+        $championship = factory(Championship::class)->create();   
         $coupon = new App\Models\Coupon();
         $bet = factory(App\Models\Bet::class)->make();   
 
@@ -38,7 +41,7 @@ class CouponTest extends TestCase
     public function it_return_same_added_bets()
     {
         $user = factory(App\Models\User::class)->create();    
-        $championship = factory(App\Models\Championship::class)->create();   
+        $championship = factory(Championship::class)->create();   
         $coupon = new App\Models\Coupon();
         $bets = factory(App\Models\Bet::class,2)->make();   
 
@@ -59,7 +62,7 @@ class CouponTest extends TestCase
     /** @test */
     public function it_returns_types_A_and_B_when_asking_for_types()
     {
-        $championship = factory(App\Models\Championship::class)->create();   
+        $championship = factory(Championship::class)->create();   
         $user = factory(App\Models\User::class)->create();
         $coupon = new App\Models\Coupon();
         $betA = factory(App\Models\Bet::class)->make(['bettype_type'=>'A']);   
@@ -82,7 +85,7 @@ class CouponTest extends TestCase
     /** @test */
     public function it_returns_right_bets_when_asking_for_bets_of_type_B()
     {
-        $championship = factory(App\Models\Championship::class)->create();   
+        $championship = factory(Championship::class)->create();   
         $user = factory(App\Models\User::class)->create();
         $coupon = new App\Models\Coupon();
         $betA = factory(App\Models\Bet::class)->make(['bettype_type'=>'A']);   
@@ -105,7 +108,7 @@ class CouponTest extends TestCase
     /** @test */
     public function it_returns_2_when_asking_for_bets_of_type_B_count()
     {
-        $championship = factory(App\Models\Championship::class)->create();   
+        $championship = factory(Championship::class)->create();   
         $user = factory(App\Models\User::class)->create();
         $coupon = new App\Models\Coupon();
         $betA = factory(App\Models\Bet::class)->make(['bettype_type'=>'A']);   
@@ -138,5 +141,33 @@ class CouponTest extends TestCase
         $coupon->createEmtpyBets();
 
         $this->assertEquals(74, $coupon->bets->count());
+    }
+
+    protected function playerbetsAllowedOnChampionship(Championship $championship)
+    {
+        return  $championship
+            ->configurations()
+            ->where('bet_mapping_class','=','App\Models\PlayerBet')
+            ->first()
+            ->number_of_bets;      
+    }
+
+    /** @test */
+    public function it_does_not_create_more_player_bets_than_necesary()
+    {    
+        $championship = create_real_championship();
+
+        $current_player_bets = PlayerBet::all()->count(); 
+        $allowed_bets = $this->playerbetsAllowedOnChampionship($championship);
+        $expted_bets_after_create_them = $current_player_bets + $allowed_bets;
+
+        $user = factory(App\Models\User::class)->create();
+        $coupon = new App\Models\Coupon();
+        $coupon->associateUser($user);
+        $championship->addCoupon($coupon);        
+
+        $coupon->createEmtpyBets();
+
+        $this->assertEquals($expted_bets_after_create_them, PlayerBet::all()->count());
     }
 }

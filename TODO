@@ -5,6 +5,7 @@ TODO
 - Test isEmpty and isFilled
 - When creating coupon. Associate matches??
 - Add check to avoid createEmtpyBets be called twice
+- Create a middle layer for stop the ability of editing teams once it in progress the championship
 - Caculated on the coupon
 - Add method to coupon to avoid add more bets of a type than the limit
 - Find better name for getPointsAttribute
