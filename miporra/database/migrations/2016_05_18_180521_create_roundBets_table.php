@@ -15,7 +15,7 @@ class CreateRoundBetsTable extends Migration
         Schema::create('roundBets', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('round_id')->unsigned();
-            $table->integer('team_id')->unsigned();
+            $table->integer('team_id')->unsigned()->nullable();
             $table->timestamps();
 
             $table->foreign('round_id')->references('id')->on('rounds');

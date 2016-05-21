@@ -6,4 +6,5 @@ interface Identifiable{
     const NO_IDENTIFICATION = 0;
 
     public function getIdentification();
+    public function setIdentification($id);
 }

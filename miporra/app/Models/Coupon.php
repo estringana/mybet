@@ -48,4 +48,25 @@ class Coupon extends Model
     {
         $this->bets()->save($bet);
     }
+
+    public function createBets()
+    {
+        foreach ($this->championship->configurations as $configuration)
+        {
+            for ($i=0; $i < $configuration->number_of_bets; $i++) { 
+                $betType = new $configuration->bet_mapping_class();
+                $betType->setIdentification($configuration->identifier_of_bet);
+
+                $betType->save();
+
+                $bet = new Bet();
+
+                $this->addBet($bet);
+
+                $bet->addBettype($betType);
+                $bet->save();                
+            }
+        }
+    }
+
 }

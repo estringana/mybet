@@ -1,5 +1,7 @@
 TODO
 -------------------------------
+- Test isEmpty and isFilled
+- When creating coupon. Associate matches??
 - Caculated on the coupon
 - Add method to coupon to avoid add more bets of a type than the limit
 - Find better name for getPointsAttribute

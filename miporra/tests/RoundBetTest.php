@@ -78,4 +78,14 @@ class RoundBetTest extends TestCase
 
         $this->assertEquals($bet->getIdentification() , $this->round->id);
     }
+
+    /** @test */
+    public function it_does_save_identify()
+    {
+        $round = factory(App\Models\Round::class)->create();
+
+        $this->roundBet->setIdentification($round->id);
+
+        $this->assertEquals($this->roundBet->getIdentification(), $round->id);
+    }
 }

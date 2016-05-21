@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PlayerBet extends Model implements \App\Interfaces\Betable, \App\Interfaces\Identifiable
+class PlayerBet extends Model implements \App\Interfaces\Betable, \App\Interfaces\Identifiable, \App\Interfaces\Fillable
 {
     const POINTS = 1;
 
@@ -28,5 +28,17 @@ class PlayerBet extends Model implements \App\Interfaces\Betable, \App\Interface
     public function getIdentification()
     {
         return \App\Interfaces\Identifiable::NO_IDENTIFICATION;
+    }
+
+    public function setIdentification($id){}
+
+    public function isEmpty()
+    {
+        return is_null($this->player);
+    }
+
+    public function isFilled()
+    {
+        return ! $this->isEmpty();
     }
 }

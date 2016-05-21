@@ -4,8 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class RoundBet extends Model implements \App\Interfaces\Betable, \App\Interfaces\Identifiable
+class RoundBet extends Model implements \App\Interfaces\Betable, \App\Interfaces\Identifiable, \App\Interfaces\Fillable
 {
+    protected $table = 'roundBets';
+
     public function round()
     {
         return $this->belongsTo('App\Models\Bet');
@@ -36,8 +38,23 @@ class RoundBet extends Model implements \App\Interfaces\Betable, \App\Interfaces
         return 0;
     }
 
+    public function setIdentification($id){
+        $round = Round::find($id);
+        $this->associateRound($round);
+    }
+
     public function getIdentification()
     {
         return $this->round->id;
+    }
+
+    public function isEmpty()
+    {
+        return is_null($this->team);
+    }
+
+    public function isFilled()
+    {
+        return ! $this->isEmpty();
     }
 }

@@ -124,4 +124,19 @@ class CouponTest extends TestCase
             2
         );
     }
+
+    /** @test */
+    public function it_create_an_coupon_with_all_empty_bets()
+    {
+        $championship = create_real_championship();
+        
+        $user = factory(App\Models\User::class)->create();
+        $coupon = new App\Models\Coupon();
+        $coupon->associateUser($user);
+        $championship->addCoupon($coupon);        
+
+        $coupon->createBets();
+
+        $this->assertEquals(74, $coupon->bets->count());
+    }
 }

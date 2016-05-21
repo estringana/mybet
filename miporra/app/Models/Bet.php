@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use \App\Interfaces\Fillable;
 use \App\Interfaces\Betable;
 use \App\Interfaces\Identifiable;
 
-class Bet extends Model implements Identifiable
+class Bet extends Model implements Identifiable, Fillable
 {
     public function coupon()
     {
@@ -27,6 +28,11 @@ class Bet extends Model implements Identifiable
         return ! is_null($this->bettype);
     }
 
+    public function setIdentification($id)
+    {
+        $this->bettype->setIdentification($id);
+    }
+
     public function getIdentification()
     {
         if ( ! $this->hasSubtype() )
@@ -35,5 +41,15 @@ class Bet extends Model implements Identifiable
         }
 
         return $this->bettype->getIdentification();
+    }
+
+    public function isEmpty()
+    {
+        return $this->bettype->isEmpty();
+    }
+
+    public function isFilled()
+    {
+        return $this->bettype->isFilled();
     }
 }

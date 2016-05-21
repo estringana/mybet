@@ -79,4 +79,13 @@ class MatchBetTest extends TestCase
 
         $this->assertEquals($bet->getIdentification(), \App\Interfaces\Identifiable::NO_IDENTIFICATION);
     }
+
+    /** @test */
+    public function it_does_not_save_identify()
+    {
+        $matchBet = new App\Models\MatchBet();
+        $matchBet->setIdentification('valueToNotBeSaved');
+
+        $this->assertEquals($matchBet->getIdentification(), \App\Interfaces\Identifiable::NO_IDENTIFICATION);
+    }
 }

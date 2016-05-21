@@ -14,7 +14,7 @@ class CreatePlayerBetsTable extends Migration
     {
         Schema::create('playerBets', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('player_id')->unsigned();
+            $table->integer('player_id')->unsigned()->nullable();
             $table->timestamps();
 
             $table->foreign('player_id')->references('id')->on('players');

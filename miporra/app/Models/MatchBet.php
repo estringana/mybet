@@ -4,8 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MatchBet extends Model implements \App\Interfaces\Betable, \App\Interfaces\Identifiable
+class MatchBet extends Model implements \App\Interfaces\Betable, \App\Interfaces\Identifiable, \App\Interfaces\Fillable
 {
+    protected $table = 'playerBets';
+    
     public function match()
     {
         return $this->belongsTo('App\Models\Match');
@@ -58,8 +60,20 @@ class MatchBet extends Model implements \App\Interfaces\Betable, \App\Interfaces
         return 0;
     }
 
+    public function setIdentification($id){}
+
     public function getIdentification()
     {
         return \App\Interfaces\Identifiable::NO_IDENTIFICATION;
+    }
+
+    public function isEmpty()
+    {
+        return is_null($this->$this->prediction);
+    }
+
+    public function isFilled()
+    {
+        return ! $this->isEmpty();
     }
 }

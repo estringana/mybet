@@ -31,7 +31,7 @@ class PlayerBetTest extends TestCase
     /** @test */
     public function it_counts_goals_from_a_player_bet_when_player_has_goals()
     {
-        $matchBet = new App\Models\PlayerBet();
+        $playerBet = new App\Models\PlayerBet();
         
         $goal01 = new App\Models\Goal();
         $goal02 = new App\Models\Goal();
@@ -41,37 +41,46 @@ class PlayerBetTest extends TestCase
         $goal01->addPlayer($player);
         $goal02->addPlayer($player);
 
-        $matchBet->associatePlayer($player);
+        $playerBet->associatePlayer($player);
 
         $match->addGoal($goal01);
         $match->addGoal($goal02);
 
-        $this->assertEquals(2 , $matchBet->points);
+        $this->assertEquals(2 , $playerBet->points);
     }
 
     /** @test */
     public function it_returns_0_from_a_player_bet_when_no_goals()
     {
-        $matchBet = new App\Models\PlayerBet();
+        $playerBet = new App\Models\PlayerBet();
 
         $player = factory(App\Models\Player::class)->create();
 
-        $matchBet->associatePlayer($player);
+        $playerBet->associatePlayer($player);
 
-        $this->assertEquals(0 , $matchBet->points);
+        $this->assertEquals(0 , $playerBet->points);
     }
 
     /** @test */
     public function it_get_the_right_identification_from_playerbet_subtype()
     {
         $bet = new App\Models\Bet();        
-        $matchBet = new App\Models\PlayerBet();
+        $playerBet = new App\Models\PlayerBet();
         $player = factory(App\Models\Player::class)->create();
 
-        $matchBet->associatePlayer($player);
+        $playerBet->associatePlayer($player);
 
-        $bet->addBettype($matchBet);
+        $bet->addBettype($playerBet);
 
         $this->assertEquals($bet->getIdentification(), \App\Interfaces\Identifiable::NO_IDENTIFICATION);
+    }
+
+    /** @test */
+    public function it_does_not_save_identify()
+    {
+        $playerBet = new App\Models\PlayerBet();
+        $playerBet->setIdentification('valueToNotBeSaved');
+
+        $this->assertEquals($playerBet->getIdentification(), \App\Interfaces\Identifiable::NO_IDENTIFICATION);
     }
 }
