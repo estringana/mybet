@@ -8,6 +8,8 @@ class PlayerBet extends Model implements \App\Interfaces\Betable, \App\Interface
 {
     const POINTS = 1;
 
+    protected $table = 'playerBets';
+
     public function player()
     {
         return $this->belongsTo('App\Models\Player');

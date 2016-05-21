@@ -22,10 +22,23 @@ class Championship extends Model
         return $this->hasMany('App\Models\betConfiguration');
     }
 
+    public function players()
+    {
+        return $this->hasManyThrough(
+            'App\Models\Player', 'App\Models\Team'
+        );
+    }
+
     public function coupons()
     {
         return $this->hasMany('App\Models\Coupon');
     }
+
+    public function scopeActive($query)
+    {
+        return $query->where('active', true)->firstOrFail();
+    }
+
 
     public function inProgress()
     {

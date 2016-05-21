@@ -15,9 +15,14 @@
     {
         Route::auth();
 
-        Route::get('/coupon/create', [
-                'middleware' => 'auth',
-               'uses' => 'CouponController@create'
+        Route::get('/coupon/manage/players', [
+            'middleware' => 'auth',
+            'uses' => 'Coupon\PlayersController@index'
+        ]);
+
+        Route::post('/coupon/manage/players/store', [
+            'middleware' => 'auth',
+            'uses' => 'Coupon\PlayersController@store'
         ]);
 
         Route::get('/', function()

@@ -11,4 +11,11 @@ use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 class Controller extends BaseController
 {
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
+
+    protected $championship;
+
+    public function __construct()
+    {       
+       $this->championship = \App\Models\Championship::active();
+   }
 }

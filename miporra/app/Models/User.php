@@ -28,4 +28,27 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Coupon');
     }
+
+    protected function createCouponForUserOnChampionshio(Championship $championship)
+    {
+            $coupon = new Coupon();
+            $coupon->associateUser($this);
+            $championship->addCoupon($coupon);
+            $coupon->save();
+
+            return $coupon;
+    }
+
+    public function couponOfChampionsip(Championship $championship)
+    {
+        try {
+            $coupon = $this->coupons()->where('championship_id',$championship->id)->firstOrFail();
+        }
+        catch (\Exception $e)
+        {
+            $coupon = $this->createCouponForUserOnChampionshio($championship);
+        }
+
+        return $coupon;
+    }
 }

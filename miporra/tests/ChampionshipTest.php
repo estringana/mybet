@@ -234,4 +234,22 @@ class ChampionshipTest extends TestCase
             $betConfigurationsForCheck->number_of_bets
         );
     }
+
+    /** @test */
+    public function it_return_all_the_player_who_belong_to_the_subscribed_teams()
+    {
+        $team_a = factory(App\Models\Team::class)->create();    
+        $team_b = factory(App\Models\Team::class)->create();    
+        $player_a = factory(App\Models\Player::class)->create();    
+        $player_b = factory(App\Models\Player::class)->create();    
+        $championship = factory(App\Models\Championship::class)->create();   
+
+        $team_a->addPlayer($player_a);
+        $team_b->addPlayer($player_b);
+
+        $championship->subscribeTeam($team_a);
+        $championship->subscribeTeam($team_b);        
+
+        $this->assertCount(2,$championship->players);
+    }
 }
