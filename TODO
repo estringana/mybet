@@ -1,7 +1,10 @@
 TODO
 -------------------------------
+- On the player repository test and fix when empty player on funciton players
+- Check if a coupon is filled and valid
 - Test isEmpty and isFilled
 - When creating coupon. Associate matches??
+- Add check to avoid createEmtpyBets be called twice
 - Caculated on the coupon
 - Add method to coupon to avoid add more bets of a type than the limit
 - Find better name for getPointsAttribute

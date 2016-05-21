@@ -36,6 +36,8 @@ class User extends Authenticatable
             $championship->addCoupon($coupon);
             $coupon->save();
 
+            $coupon->createEmtpyBets();
+
             return $coupon;
     }
 

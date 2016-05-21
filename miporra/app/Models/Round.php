@@ -34,7 +34,7 @@ class Round extends Model
 
         if ($team->championship->id !== $this->championship->id)
         {
-            throw new \App\Exceptions\ChampionshipDontMatchException();;
+            throw new \App\Exceptions\ChampionshipDontMatchException();
         }
     }
 

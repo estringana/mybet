@@ -135,7 +135,7 @@ class CouponTest extends TestCase
         $coupon->associateUser($user);
         $championship->addCoupon($coupon);        
 
-        $coupon->createBets();
+        $coupon->createEmtpyBets();
 
         $this->assertEquals(74, $coupon->bets->count());
     }

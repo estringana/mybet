@@ -1,27 +1,28 @@
 @extends('pages.layout')
 
 @section('content')
-<div class="jumbotron">
-  <h1>Create your bet - Players step</h1>
-  <p>Pick {{$bets_allowed}} player for your team. Remember that your should be picking player you think they will score</p>
+<div class="page-header">
+    <h1>Players</h1>
 </div>
-<form class="form-horizontal" method="POST" action="players/store">
-  {{ csrf_field() }}
-    @for ($i = 0; $i < $bets_allowed; $i++)
-        <div class="form-group">
-        <label for="inputEmail3" class="col-sm-2 control-label">Player {{$i+1}}:</label>
-        <div class="col-sm-10">
-          <select class="form-control selectpicker" name="player[{{$i}}]" data-live-search="true">                
-                @foreach ($players as $player)
-                    <option data-subtext="{{ $player->team->name }}" value="{{ $player->id }}">{{$player->name}}</option>
-                @endforeach
-            </select>
-            </div>
-        </div>  
-    @endfor
-
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary pull-right">Next step</button>
-    </div>
-</form>
+<table class="table table-responsive table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Team</th>
+        </tr>
+    </thead>
+    <tbody>
+      @foreach($players as $key => $player)
+            <tr>
+                <th scope="row">{{ $key }}</th>
+                <td>{{ $player->name }}</td>
+                <td>{{ $player->team->name }}</td>
+            </tr>
+      @endforeach
+  </tbody>
+</table> 
+<a class="btn btn-primary btn-lg pull-right" href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(),'/coupon/players/update') }}" role="button">
+            Change your players
+</a>
 @stop

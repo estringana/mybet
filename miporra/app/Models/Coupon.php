@@ -49,7 +49,7 @@ class Coupon extends Model
         $this->bets()->save($bet);
     }
 
-    public function createBets()
+    public function createEmtpyBets()
     {
         foreach ($this->championship->configurations as $configuration)
         {

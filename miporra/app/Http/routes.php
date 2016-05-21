@@ -15,14 +15,19 @@
     {
         Route::auth();
 
-        Route::get('/coupon/manage/players', [
+        Route::get('/coupon/players/update', [
             'middleware' => 'auth',
             'uses' => 'Coupon\PlayersController@index'
         ]);
 
-        Route::post('/coupon/manage/players/store', [
+        Route::post('/coupon/players/store', [
             'middleware' => 'auth',
             'uses' => 'Coupon\PlayersController@store'
+        ]);
+
+        Route::get('/coupon/players/', [
+            'middleware' => 'auth',
+            'uses' => 'Coupon\PlayersController@show'
         ]);
 
         Route::get('/', function()

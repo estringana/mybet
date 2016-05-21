@@ -5,9 +5,18 @@ namespace App\Http\Controllers\Coupon;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use \App\Models\Player;
+use \App\Repositories\PlayerBetsRepository;
 
 class PlayersController extends \App\Http\Controllers\Controller
 {    
+    protected $repository;
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->repository = new PlayerBetsRepository($this->getCoupon());         
+    }
     protected function getCoupon()
     {       
         return \Auth::user()->couponOfChampionsip($this->championship);
@@ -23,43 +32,36 @@ class PlayersController extends \App\Http\Controllers\Controller
         $players = $this->getPlayersByName();
         $bets_allowed = 8;
 
-        return view('coupons.players')
+        return view('coupons.players.edit')
         ->with(
                 compact(['players','bets_allowed'])
         );
     }
-
-    protected function createBet(Player $player)
-    {
-            $bet = new \App\Models\Bet();  
-            $playerBet = new \App\Models\PlayerBet();
-
-            $playerBet->associatePlayer($player);            
-            $playerBet->save();
-
-            $bet->addBettype($playerBet);
-
-            return $bet;
-    }
-
+    
     public function store(Request $request)
     {
         $this->validate($request, [
             'player' => 'required|array'
         ]);
 
-        $coupon = $this->getCoupon();
+        $players = $request->get('player');
 
-        foreach ($request->get('player') as $id) {
-            $player = Player::findOrFail($id)->first();
-            
-            $bet = $this->createBet($player);
+        $repository = new \App\Repositories\PlayerBetsRepository($this->getCoupon());
 
-            $coupon->addBet($bet);
-        }
+       $repository->updatePlayersBetsFromValues($players);        
 
-        $coupon->save();
+       $request->session()->flash('status', 'Players have been saved!');
 
-        return redirect('/')->with('status', 'Players have been saved');
+        return redirect('/coupon/players');
+    }
+
+    public function show()
+    {
+        $players = $this->repository->players();
+
+        return view('coupons.players')
+        ->with(
+                compact(['players'])
+        );
     }
 }
