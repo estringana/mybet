@@ -1,5 +1,14 @@
 <?php
 
+function create_real_matches_for_round(App\Models\BetConfiguration $configuration)
+{
+    $matches = factory(App\Models\Match::class,$configuration->number_of_bets)->create();
+
+    $matches->each(function ($match, $key) use ($configuration) {
+        $configuration->round->addMatch($match);
+    });
+}
+
 function create_real_championship_rounds()
 {
     $rounds = [];
@@ -35,6 +44,8 @@ function create_real_championship_configurations($championship_id)
             'round_id' => App\Models\Round::where('championship_id','=',$championship_id)
                     ->where('identifier','=','GroupStageTest')->firstOrFail()->id,
     ]);
+
+    create_real_matches_for_round($configurations[0]);
 
      $configurations[] = factory(App\Models\BetConfiguration::class)->create([
              'bet_mapping_class' => 'App\Models\RoundBet', 
@@ -97,5 +108,4 @@ function create_real_championship()
     }
 
     return $championship;
-
 }

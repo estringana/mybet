@@ -18,7 +18,7 @@ class CreateMatchBetsTable extends Migration
             $table->enum('prediction', ['1', 'X', '2'])->nullable();
             $table->timestamps();
 
-            $table->foreign('match_id')->references('id')->on('players');
+            $table->foreign('match_id')->references('id')->on('matches');
         });
     }
 

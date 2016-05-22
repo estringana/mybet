@@ -194,4 +194,27 @@ class RoundTest extends TestCase
 
         $this->assertFalse($round->hasTeam($team));
     }
+
+    /** @test */
+    public function it_can_have_a_match()
+    {
+        $match = factory(App\Models\Match::class)->create();    
+        $round = factory(App\Models\Round::class)->create(); 
+
+        $round->addMatch($match);
+        
+        $this->assertEquals($round->matches->first()->id, $match->id);
+    }
+
+    /** @test */
+    public function it_can_have_matches()
+    {
+        $matches = factory(App\Models\Match::class,2)->create();    
+        $round = factory(App\Models\Round::class)->create(); 
+
+        $round->addMatch($matches[0]);
+        $round->addMatch($matches[1]);
+        
+        $this->assertEquals($round->matches->lists(['id']), $matches->lists(['id']));
+    }
 }

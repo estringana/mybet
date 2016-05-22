@@ -10,4 +10,14 @@ class BetConfiguration extends Model
     {
         return $this->belongsTo('App\Models\Championship');
     }
+
+    public function round()
+    {
+        return $this->belongsTo('App\Models\Round');
+    }
+
+    public function associateRound(Round $round)
+    {
+           $this->round()->associate($round);
+    }
 }

@@ -143,6 +143,27 @@ class CouponTest extends TestCase
         $this->assertEquals(74, $coupon->bets->count());
     }
 
+    /** @test */
+    public function it_associate_all_the_matches_when_creating_coupon_with_empty_bets()
+    {
+        $championship = create_real_championship();
+        
+        $user = factory(App\Models\User::class)->create();
+        $coupon = new App\Models\Coupon();
+        $coupon->associateUser($user);
+        $championship->addCoupon($coupon);        
+
+        $coupon->createEmtpyBets();
+
+        $match_bets = $coupon->betsOfType('App\Models\MatchBet')->get();
+
+        $empty = $match_bets->first(function ($key, $matchBet) {
+                return $matchBet->bettype->match_id == null;
+        });
+
+        $this->assertTrue(is_null($empty));
+    }
+
     protected function playerbetsAllowedOnChampionship(Championship $championship)
     {
         return  $championship

@@ -1,5 +1,8 @@
 TODO
 -------------------------------
+- Remove relationship between championship and matches
+- Move from coupon the create of empty bets.
+- Do something to verify that the amount of matches is the same as the allowed_bets_on the configuration
 - On the player repository test and fix when empty player on funciton players
 - Check if a coupon is filled and valid
 - Test isEmpty and isFilled

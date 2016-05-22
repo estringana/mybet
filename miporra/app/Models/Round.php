@@ -15,12 +15,16 @@ class Round extends Model
         return $this->belongsToMany('App\Models\Team');
     }
 
+    public function matches(){
+        return $this->hasMany('App\Models\Match');
+    }
+
     public function assignToChampionship(Championship $championship)
     {
         $this->championship()->associate($championship);
     }
 
-    public function guardAgaisntChampionship(Team $team)
+    protected function guardAgaisntChampionship(Team $team)
     {
         if ( ! $this->hasChampionship())
         {
@@ -47,6 +51,10 @@ class Round extends Model
         $this->guardAgaisntChampionship($team);
 
         $this->teams()->save($team);
+    }
+
+    public function addMatch(Match $match){
+        $this->matches()->save($match);
     }
 
     protected function guardAgaisntInvalidPoints($points)

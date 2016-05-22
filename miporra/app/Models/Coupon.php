@@ -60,16 +60,33 @@ class Coupon extends Model
         $this->bets()->save($bet);
     }
 
-    protected function createEmtpyMatchBets($allowed_number_of_bets)
+    protected function createEmtpyMatchBets(BetConfiguration $configuration)
     {
-           
+           if ($configuration->round->matches->count() !== $configuration->number_of_bets)
+           {
+                throw new \Exception('Matches dont match configuration bets');
+           }
+
+            foreach ($configuration->round->matches as $match) {
+                $betType = new $configuration->bet_mapping_class();
+
+                $betType->setIdentification($configuration->round_id);
+
+                $betType->associateMatch($match);
+
+                $betType->save();
+
+                $bet = new Bet();
+
+                $this->addBet($bet);
+
+                $bet->addBettype($betType);
+                $bet->save();
+            }
     }
 
-    public function createEmtpyBets()
-    {
-        foreach ($this->championship->configurations as $configuration)
-        {
-            for ($i=0; $i < $configuration->number_of_bets; $i++) { 
+    protected function createEmptySubtypeBets(BetConfiguration $configuration){
+        for ($i=0; $i < $configuration->number_of_bets; $i++) { 
                 $betType = new $configuration->bet_mapping_class();
 
                 $betType->setIdentification($configuration->round_id);
@@ -83,7 +100,20 @@ class Coupon extends Model
                 $bet->addBettype($betType);
                 $bet->save();                
             }
-        }
     }
 
+    public function createEmtpyBets()
+    {
+        foreach ($this->championship->configurations as $configuration)
+        {
+            if ($configuration->bet_mapping_class == MatchBet::class){
+                $this->createEmtpyMatchBets($configuration);
+            }
+            else
+            {
+                $this->createEmptySubtypeBets($configuration);
+            }
+
+        }
+    }
 }
