@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(),'/login') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ Url::get('/login') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -54,7 +54,7 @@
                                     <i class="fa fa-btn fa-sign-in"></i>Login
                                 </button>
 
-                                <a class="btn btn-link" href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), '/password/reset') }}">Forgot Your Password?</a>
+                                <a class="btn btn-link" href="{{ Url::get( '/password/reset') }}">Forgot Your Password?</a>
                             </div>
                         </div>
                     </form>

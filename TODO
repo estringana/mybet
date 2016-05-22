@@ -3,6 +3,7 @@ TODO
 - On the player repository test and fix when empty player on funciton players
 - Check if a coupon is filled and valid
 - Test isEmpty and isFilled
+- Check if the player send exists
 - When creating coupon. Associate matches??
 - Add check to avoid createEmtpyBets be called twice
 - Create a middle layer for stop the ability of editing teams once it in progress the championship

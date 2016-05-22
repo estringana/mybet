@@ -15,6 +15,11 @@
     {
         Route::auth();
 
+        Route::get('/coupon/', [
+            'middleware' => 'auth',
+            'uses' => 'CouponController@index'
+        ]);
+
         Route::get('/coupon/players/update', [
             'middleware' => 'auth',
             'uses' => 'Coupon\PlayersController@index'

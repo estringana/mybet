@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use \App\Models\Player;
 use \App\Repositories\PlayerBetsRepository;
+use \App\Http\Requests\PlayerBetsRequest;
 
 class PlayersController extends \App\Http\Controllers\Controller
 {    
@@ -32,23 +33,19 @@ class PlayersController extends \App\Http\Controllers\Controller
         $players = $this->getPlayersByName();
         $bets_allowed = 8;
 
+        $selected_players = $this->repository->players()->lists(['id']);
+
         return view('coupons.players.edit')
         ->with(
-                compact(['players','bets_allowed'])
+                compact(['players','bets_allowed','selected_players'])
         );
     }
     
-    public function store(Request $request)
+    public function store(PlayerBetsRequest $request)
     {
-        $this->validate($request, [
-            'player' => 'required|array'
-        ]);
+        $players = $request->except('_token');
 
-        $players = $request->get('player');
-
-        $repository = new \App\Repositories\PlayerBetsRepository($this->getCoupon());
-
-       $repository->updatePlayersBetsFromValues($players);        
+       $this->repository->updatePlayersBetsFromValues($players);        
 
        $request->session()->flash('status', 'Players have been saved!');
 

@@ -22,7 +22,7 @@
       @endforeach
   </tbody>
 </table> 
-<a class="btn btn-primary btn-lg pull-right" href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(),'/coupon/players/update') }}" role="button">
+<a class="btn btn-primary btn-lg pull-right" href="{{ Url::get('/coupon/players/update') }}" role="button">
             Change your players
 </a>
 @stop
