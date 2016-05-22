@@ -170,4 +170,63 @@ class CouponTest extends TestCase
 
         $this->assertEquals($expted_bets_after_create_them, PlayerBet::all()->count());
     }
+
+    /** @test */
+    public function it_should_return_true_if_all_the_bet_of_a_type_are_completed()
+    {
+        $championship = factory(Championship::class)->create();   
+        $user = factory(App\Models\User::class)->create();
+        $coupon = new App\Models\Coupon();
+        $coupon->associateUser($user);
+        $championship->addCoupon($coupon);
+        $coupon->save();
+
+        $bet = new App\Models\Bet();        
+        $player = factory(App\Models\Player::class)->create();
+        $playerBet = new App\Models\PlayerBet();
+        $playerBet->associatePlayer($player);
+        $playerBet->save();
+        $bet->addBettype($playerBet);
+        $coupon->addBet($bet);
+        $bet->save();
+
+        $bet2 = new App\Models\Bet();        
+        $playerBet2 = new App\Models\PlayerBet();
+        $playerBet2->associatePlayer($player);
+        $playerBet2->save();
+        $bet2->addBettype($playerBet2);
+        $coupon->addBet($bet2);
+        $bet2->save();
+
+        $this->assertTrue($coupon->isTypeCompleted(\App\Repositories\PlayerBetsRepository::PLAYER_BETS_TYPE));
+    }
+
+    /** @test */
+    public function it_should_return_false_if_a_bet_of_a_type_is_not_completed()
+    {
+        $championship = factory(Championship::class)->create();   
+        $user = factory(App\Models\User::class)->create();
+        $coupon = new App\Models\Coupon();
+        $coupon->associateUser($user);
+        $championship->addCoupon($coupon);
+        $coupon->save();
+
+        $bet = new App\Models\Bet();        
+        $player = factory(App\Models\Player::class)->create();
+        $playerBet = new App\Models\PlayerBet();
+        $playerBet->associatePlayer($player);
+        $playerBet->save();
+        $bet->addBettype($playerBet);
+        $coupon->addBet($bet);
+        $bet->save();
+
+        $bet2 = new App\Models\Bet();        
+        $playerBet2 = new App\Models\PlayerBet();
+        $playerBet2->save();
+        $bet2->addBettype($playerBet2);
+        $coupon->addBet($bet2);
+        $bet2->save();
+
+        $this->assertFalse($coupon->isTypeCompleted(\App\Repositories\PlayerBetsRepository::PLAYER_BETS_TYPE));
+    }
 }

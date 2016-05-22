@@ -6,7 +6,7 @@
     </div>
     @if(Auth::check())
         <ul class="nav navbar-nav">
-            <li><a href="#">Your bet</a></li>
+            <li><a href="{{Url::get('coupon')}}">Your bet</a></li>
         </ul>
     @endif
     <ul class="nav navbar-nav navbar-right">

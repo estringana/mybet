@@ -1,6 +1,3 @@
-@extends('pages.layout')
-
-@section('content')
 <div class="page-header">
     <h1>Players</h1>
 </div>
@@ -25,4 +22,3 @@
 <a class="btn btn-primary btn-lg pull-right" href="{{ Url::get('/coupon/players/update') }}" role="button">
             Change your players
 </a>
-@stop

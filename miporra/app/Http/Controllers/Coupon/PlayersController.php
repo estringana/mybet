@@ -18,6 +18,7 @@ class PlayersController extends \App\Http\Controllers\Controller
 
         $this->repository = new PlayerBetsRepository($this->getCoupon());         
     }
+    
     protected function getCoupon()
     {       
         return \Auth::user()->couponOfChampionsip($this->championship);
@@ -50,15 +51,5 @@ class PlayersController extends \App\Http\Controllers\Controller
        $request->session()->flash('status', 'Players have been saved!');
 
         return redirect('/coupon/players');
-    }
-
-    public function show()
-    {
-        $players = $this->repository->players();
-
-        return view('coupons.players')
-        ->with(
-                compact(['players'])
-        );
     }
 }

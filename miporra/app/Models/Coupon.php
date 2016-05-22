@@ -34,6 +34,17 @@ class Coupon extends Model
         return $this->bets()->where('bettype_type', '=', $type);
     }
 
+    public function isTypeCompleted($type)
+    {
+           $bets = $this->betsOfType($type)->get();
+
+           $empty = $bets->first(function ($key, $bet) {
+                return $bet->isEmpty();
+            });
+
+           return is_null($empty);
+    }
+
     public function numberOfbetsOfType($type)
     {
         return $this->betsOfType($type)->count();
