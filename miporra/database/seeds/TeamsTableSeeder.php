@@ -6,7 +6,7 @@ use Carbon\Carbon;
 class TeamsTableSeeder extends Seeder
 {
     private function codify($name){
-        return strtolower(str_replace(' ','_',$name));
+        return strtolower(str_replace(' ','',$name));
     }
 
     /**
