@@ -73,22 +73,4 @@ class Championship extends Model
     {
         $this->configurations()->save($betConfiguration);
     }
-
-    public function pointsForMappingIdentifiedBy($bet_mapping_class, $identifier_of_bet)
-    {
-        return $this->configurations()
-            ->where('bet_mapping_class',$bet_mapping_class)
-            ->where('identifier_of_bet',$identifier_of_bet)
-            ->firstOrFail()
-            ->points_per_guess;
-    }
-
-    public function betsAllowedForMappingIdentifiedBy($bet_mapping_class, $identifier_of_bet)
-    {
-        return $this->configurations()
-            ->where('bet_mapping_class',$bet_mapping_class)
-            ->where('identifier_of_bet',$identifier_of_bet)
-            ->firstOrFail()
-            ->number_of_bets;
-    }
 }

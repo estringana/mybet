@@ -127,7 +127,6 @@ $factory->define(App\Models\BetConfiguration::class, function (Faker\Generator $
                 'bet_mapping_class' => uniqid(), 
                 'order' => rand(1,100), 
                 'number_of_bets' => rand(1,100),
-                'points_per_guess' => rand(1,20),
-                'identifier_of_bet' => rand(1,20),
+                'points_per_guess' => rand(1,20)
     ];
 });

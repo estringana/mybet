@@ -23,7 +23,7 @@ function create_real_championship_rounds()
     return $rounds;
 }
 
-function create_real_championship_configurations()
+function create_real_championship_configurations($championship_id)
 {
     $configurations = [];
 
@@ -31,7 +31,9 @@ function create_real_championship_configurations()
             'bet_mapping_class' => 'App\Models\MatchBet', 
             'order' => 1, 
             'number_of_bets' => 36,
-            'points_per_guess' => 1
+            'points_per_guess' => 1,
+            'round_id' => App\Models\Round::where('championship_id','=',$championship_id)
+                    ->where('identifier','=','GroupStageTest')->firstOrFail()->id,
     ]);
 
      $configurations[] = factory(App\Models\BetConfiguration::class)->create([
@@ -39,7 +41,8 @@ function create_real_championship_configurations()
             'order' => 2, 
             'number_of_bets' => 16,
             'points_per_guess' => 2,
-            'identifier_of_bet' => App\Models\Round::where('identifier','=','RoundOf16Test')->firstOrFail()->id,
+            'round_id' => App\Models\Round::where('championship_id','=',$championship_id)
+                    ->where('identifier','=','RoundOf16Test')->firstOrFail()->id,
     ]);
 
     $configurations[] = factory(App\Models\BetConfiguration::class)->create([
@@ -47,7 +50,8 @@ function create_real_championship_configurations()
             'order' => 3, 
             'number_of_bets' => 8,
             'points_per_guess' => 3,
-            'identifier_of_bet' => App\Models\Round::where('identifier','=','QuarterFinalsTest')->firstOrFail()->id,
+            'round_id' => App\Models\Round::where('championship_id','=',$championship_id)
+                    ->where('identifier','=','QuarterFinalsTest')->firstOrFail()->id,
     ]);
 
     $configurations[] = factory(App\Models\BetConfiguration::class)->create([
@@ -55,7 +59,8 @@ function create_real_championship_configurations()
             'order' => 4, 
             'number_of_bets' => 4,
             'points_per_guess' => 4,
-            'identifier_of_bet' => App\Models\Round::where('identifier','=','SemiFinalsTest')->firstOrFail()->id,
+            'round_id' => App\Models\Round::where('championship_id','=',$championship_id)
+                    ->where('identifier','=','SemiFinalsTest')->firstOrFail()->id,
     ]);
 
     $configurations[] = factory(App\Models\BetConfiguration::class)->create([
@@ -63,7 +68,8 @@ function create_real_championship_configurations()
             'order' => 5, 
             'number_of_bets' => 2,
             'points_per_guess' => 4,
-            'identifier_of_bet' => App\Models\Round::where('identifier','=','FinalTest')->firstOrFail()->id,
+            'round_id' => App\Models\Round::where('championship_id','=',$championship_id)
+                    ->where('identifier','=','FinalTest')->firstOrFail()->id,
     ]);
 
     $configurations[] = factory(App\Models\BetConfiguration::class)->create([
@@ -85,7 +91,7 @@ function create_real_championship()
         $championship->addRound($round);
     }
 
-    $configurations = create_real_championship_configurations();
+    $configurations = create_real_championship_configurations($championship->id);
     foreach ($configurations as $configuration) {
         $championship->addConfiguration($configuration);
     }

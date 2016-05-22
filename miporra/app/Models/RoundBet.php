@@ -39,7 +39,7 @@ class RoundBet extends Model implements \App\Interfaces\Betable, \App\Interfaces
     }
 
     public function setIdentification($id){
-        $round = Round::find($id);
+        $round = Round::find($id);    
         $this->associateRound($round);
     }
 

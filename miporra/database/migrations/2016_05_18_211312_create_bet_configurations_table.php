@@ -18,11 +18,12 @@ class CreateBetConfigurationsTable extends Migration
             $table->integer('order');
             $table->integer('number_of_bets');
             $table->integer('points_per_guess');
-            $table->integer('identifier_of_bet')->nullable();
+            $table->integer('round_id')->unsigned()->nullable();
             $table->integer('championship_id')->unsigned()->nullable();
             $table->timestamps();
 
             $table->foreign('championship_id')->references('id')->on('championships');
+            $table->foreign('round_id')->references('id')->on('rounds');
         });
     }
 

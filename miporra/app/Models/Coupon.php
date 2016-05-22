@@ -60,6 +60,11 @@ class Coupon extends Model
         $this->bets()->save($bet);
     }
 
+    protected function createEmtpyMatchBets($allowed_number_of_bets)
+    {
+           
+    }
+
     public function createEmtpyBets()
     {
         foreach ($this->championship->configurations as $configuration)
@@ -67,7 +72,7 @@ class Coupon extends Model
             for ($i=0; $i < $configuration->number_of_bets; $i++) { 
                 $betType = new $configuration->bet_mapping_class();
 
-                $betType->setIdentification($configuration->identifier_of_bet);
+                $betType->setIdentification($configuration->round_id);
 
                 $betType->save();
 

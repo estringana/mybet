@@ -193,49 +193,6 @@ class ChampionshipTest extends TestCase
     }
 
     /** @test */
-    public function it_will_tell_me_the_points_of_a_spefic_round()
-    {
-        $championship = factory(App\Models\Championship::class)->create();   
-        $betConfigurations = factory(App\Models\BetConfiguration::class,3)->create();
-        $betConfigurationsForCheck = factory(App\Models\BetConfiguration::class)->create();
-
-        $championship->addConfiguration($betConfigurations[0]);
-        $championship->addConfiguration($betConfigurations[1]);
-        $championship->addConfiguration($betConfigurations[2]);
-        $championship->addConfiguration($betConfigurationsForCheck);
-
-        $this->assertEquals(
-            $championship->pointsForMappingIdentifiedBy(
-                    $betConfigurationsForCheck->bet_mapping_class,
-                    $betConfigurationsForCheck->identifier_of_bet                    
-                ),
-            $betConfigurationsForCheck->points_per_guess
-        );
-    }
-
-
-    /** @test */
-    public function it_will_tell_me_the_bets_of_a_spefic_round()
-    {
-        $championship = factory(App\Models\Championship::class)->create();   
-        $betConfigurations = factory(App\Models\BetConfiguration::class,3)->create();
-        $betConfigurationsForCheck = factory(App\Models\BetConfiguration::class)->create();
-
-        $championship->addConfiguration($betConfigurations[0]);
-        $championship->addConfiguration($betConfigurations[1]);
-        $championship->addConfiguration($betConfigurations[2]);
-        $championship->addConfiguration($betConfigurationsForCheck);
-
-        $this->assertEquals(
-            $championship->betsAllowedForMappingIdentifiedBy(
-                    $betConfigurationsForCheck->bet_mapping_class,
-                    $betConfigurationsForCheck->identifier_of_bet                    
-                ),
-            $betConfigurationsForCheck->number_of_bets
-        );
-    }
-
-    /** @test */
     public function it_return_all_the_player_who_belong_to_the_subscribed_teams()
     {
         $team_a = factory(App\Models\Team::class)->create();    

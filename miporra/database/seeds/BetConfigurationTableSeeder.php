@@ -20,7 +20,8 @@ class BetConfigurationTableSeeder extends Seeder
                 'order' => 1, 
                 'number_of_bets' => 36,
                 'points_per_guess' => 1,
-                'identifier_of_bet' => \App\Interfaces\Identifiable::NO_IDENTIFICATION,
+                'round_id' => App\Models\Round::where('championship_id','=',$championship_id)
+                    ->where('identifier','=','GroupStage')->firstOrFail()->id,
                 'championship_id' => $championship_id
             ],
             [ 
@@ -28,7 +29,8 @@ class BetConfigurationTableSeeder extends Seeder
                 'order' => 2, 
                 'number_of_bets' => 16,
                 'points_per_guess' => 2,
-                'identifier_of_bet' => App\Models\Round::where('identifier','=','RoundOf16')->firstOrFail()->id,
+                'round_id' => App\Models\Round::where('championship_id','=',$championship_id)
+                    ->where('identifier','=','RoundOf16')->firstOrFail()->id,
                 'championship_id' => $championship_id
             ],
             [ 
@@ -36,7 +38,8 @@ class BetConfigurationTableSeeder extends Seeder
                 'order' => 3, 
                 'number_of_bets' => 8,
                 'points_per_guess' => 3,
-                'identifier_of_bet' => App\Models\Round::where('identifier','=','QuarterFinals')->firstOrFail()->id,
+                'round_id' => App\Models\Round::where('championship_id','=',$championship_id)
+                    ->where('identifier','=','QuarterFinals')->firstOrFail()->id,
                 'championship_id' => $championship_id
             ],
             [ 
@@ -44,7 +47,8 @@ class BetConfigurationTableSeeder extends Seeder
                 'order' => 4, 
                 'number_of_bets' => 4,
                 'points_per_guess' => 4,
-                'identifier_of_bet' => App\Models\Round::where('identifier','=','SemiFinals')->firstOrFail()->id,
+                'round_id' => App\Models\Round::where('championship_id','=',$championship_id)
+                    ->where('identifier','=','SemiFinals')->firstOrFail()->id,
                 'championship_id' => $championship_id
             ],
             [ 
@@ -52,7 +56,8 @@ class BetConfigurationTableSeeder extends Seeder
                 'order' => 5, 
                 'number_of_bets' => 2,
                 'points_per_guess' => 4,
-                'identifier_of_bet' => App\Models\Round::where('identifier','=','Final')->firstOrFail()->id,
+                'round_id' => App\Models\Round::where('championship_id','=',$championship_id)
+                    ->where('identifier','=','Final')->firstOrFail()->id,
                 'championship_id' => $championship_id
             ],
             [ 
@@ -60,7 +65,7 @@ class BetConfigurationTableSeeder extends Seeder
                 'order' => 6, 
                 'number_of_bets' => 8,
                 'points_per_guess' => 1,
-                'identifier_of_bet' => \App\Interfaces\Identifiable::NO_IDENTIFICATION,
+                'round_id' => null,
                 'championship_id' => $championship_id
             ]
         ];
@@ -73,7 +78,7 @@ class BetConfigurationTableSeeder extends Seeder
                 'number_of_bets' => $configuration['number_of_bets'], 
                 'points_per_guess' => $configuration['points_per_guess'], 
                 'championship_id' => $configuration['championship_id'], 
-                'identifier_of_bet' => $configuration['identifier_of_bet'], 
+                'round_id' => $configuration['round_id'], 
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]);
