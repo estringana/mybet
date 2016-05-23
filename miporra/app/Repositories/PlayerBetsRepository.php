@@ -11,64 +11,82 @@ class PlayerBetsRepository
     const PLAYER_BETS_TYPE = 'App\Models\PlayerBet';
 
     protected $coupon;
+    protected $bets;
 
     public function __construct(Coupon $coupon)
     {
         $this->coupon = $coupon;
+        $this->championship = $coupon->championship;
     }
 
     protected function getCoupon()
     {
         return $this->coupon;
-    }    
-
-    protected function numberOfBets()
-    {
-        return $this->getCoupon()->numberOfbetsOfType(PlayerBetsRepository::PLAYER_BETS_TYPE);
-    }
-
-    protected function guardAgainstInvalidNumberOfPlayers($values)
-    {
-        if ( count($values) !==  $this->numberOfBets() )
-        {
-            throw new \App\Exceptions\NumberOfPlayetBetsDontMatchException();
-        }
     }
 
     protected function getPlayerBets()
     {
-           return $this->getCoupon()->betsOfType(PlayerBetsRepository::PLAYER_BETS_TYPE);
+            if ( is_null($this->bets) )
+            {
+                $this->bets = $this->getCoupon()->subBetsOfType(PlayerBetsRepository::PLAYER_BETS_TYPE);
+            }
+
+            return $this->bets;
     }
 
-    protected function getPlayerFromId($id)
+    public function bets()
     {
-        return Player::findOrFail($id);
+        return $this->getPlayerBets();
     }
 
-    public function updatePlayersBetsFromValues($values)
-    {
-        $this->guardAgainstInvalidNumberOfPlayers($values);
+    protected function findBet($id){
+            $bet = $this->getPlayerBets()->first(function($key, $bet) use($id){
+                return $bet->id == $id;
+            });
 
-        foreach ($this->getPlayerBets()->get() as $bet) {
-            $player = $this->getPlayerFromId( array_shift($values) );
+            if ( is_null($bet) )
+            {
+                throw new \App\Exceptions\BetNotFoundException();
+            }
 
-            $bet->bettype->associatePlayer($player);
-
-            $bet->bettype->save();
-        }
+            return $bet;       
     }
 
     public function players()
     {
-            $players = [];
+        return $this->championship->players;
+    }
 
-            foreach ($this->getPlayerBets()->get() as $bet) {
-                if ( $bet->isFilled() )
-                {
-                    $players[] = $bet->bettype->player;
-                }                
-            }
+    protected function getPlayer($player_id)
+    {
+           $player = $this->players()->first(function ($key, $player) use ($player_id) {
+                return $player->id == $player_id;
+           });
 
-            return collect($players);
+        if ( is_null($player) )
+        {
+            throw new \App\Exceptions\PlayerNotFoundException();
+        }
+
+           return $player;
+    }
+
+    public function save($id, $value)
+    {
+        $playerbet = $this->findBet($id);
+        
+        if ( is_null($value) || empty($value) )
+        {
+            $playerbet->disassociatePlayer();
+        }
+        else
+        {
+            $player = $this->getPlayer($value);
+            
+            $playerbet->associatePlayer($player);            
+        }
+
+
+        $playerbet->save();
     }
 }

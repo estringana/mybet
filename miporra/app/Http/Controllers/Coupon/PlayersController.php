@@ -26,30 +26,45 @@ class PlayersController extends \App\Http\Controllers\Controller
 
     protected function getPlayersByName()
     {
-        return $this->championship->players->sortBy('name');
+        return $this->repository->players()->sortBy('name');
     }
 
     public function index()
     {
         $players = $this->getPlayersByName();
-        $bets_allowed = 8;
 
-        $selected_players = $this->repository->players()->lists(['id']);
+        $playerBets = $this->repository->bets();
 
         return view('coupons.players.edit')
         ->with(
-                compact(['players','bets_allowed','selected_players'])
+                compact(['players','playerBets'])
         );
     }
-    
-    public function store(PlayerBetsRequest $request)
+
+    public function store(Request $request)
     {
-        $players = $request->except('_token');
+        $saved_completely = true;
+        $message = 'Players have been saved!';
 
-       $this->repository->updatePlayersBetsFromValues($players);        
+         $this->validate($request, [
+                'bet.*' => 'numeric',
+            ]);
+           
+           $userBets = $this->repository->bets();
 
-       $request->session()->flash('status', 'Players have been saved!');
+           foreach($request->input('bet') as $id => $value){
+                try{
+                    $this->repository->save($id,$value);
+                }
+                catch (\Exception $e)
+                {
+                    $saved_completely = false;
+                    $message = 'Players has been partially saved.';
+                }
+           }
+            
+            $request->session()->flash('status', $message);
 
-        return redirect('/coupon');
+           return redirect('/coupon');
     }
 }

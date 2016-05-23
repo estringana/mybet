@@ -28,12 +28,12 @@ class CouponController extends Controller
 
     public function index()
     {
-        $players = $this->playersRepository->players();
+        $playerBets = $this->playersRepository->bets();
         $matchBets = $this->matchRepository->bets();
 
         return view('coupons.view')
         ->with(
-                compact(['players','matchBets'])
+                compact(['playerBets','matchBets'])
         );   
     }
 }

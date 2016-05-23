@@ -10,11 +10,11 @@
         </tr>
     </thead>
     <tbody>
-      @foreach($players as $key => $player)
+      @foreach($playerBets as $key => $bet)
             <tr>
-                <th scope="row">{{ $key }}</th>
-                <td>{{ $player->name }}</td>
-                <td>{{ $player->team->name }}</td>
+                <th scope="row">{{ $key+1 }}</th>
+                <td>{{ $bet->isFilled() ? $bet->player->name : '' }}</td>
+                <td class="bet">{!! $bet->isFilled() ? $bet->player->team->name : '<span class="pending-bet label label-danger">Pending</span>' !!}</td>
             </tr>
       @endforeach
   </tbody>

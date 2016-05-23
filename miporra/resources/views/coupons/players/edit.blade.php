@@ -3,7 +3,7 @@
 @section('content')
 <div class="jumbotron">
   <h1>Create your bet - Players step</h1>
-  <p>Pick {{$bets_allowed}} player for your team. Remember that your should be picking player you think they will score</p>
+  <p>Pick {{$playerBets->count()}} player for your team. Remember that your should be picking player you think they will score</p>
 </div>
 <div class="alert alert-info" role="alert">
   <ul>
@@ -15,21 +15,21 @@
 
 <form class="form-horizontal" method="POST" action="store">
   {{ csrf_field() }}
-    @for ($i = 0; $i < $bets_allowed; $i++)
-        <div class="form-group {{ $errors->has('player_'.$i) ? ' has-error' : '' }}">
-          <select class="form-control selectpicker" name="player_{{$i}}" data-live-search="true">                
+    @foreach($playerBets as $playerBet)
+        <div class="form-group">
+          <select class="form-control selectpicker" name="bet[{{$playerBet->id}}]" data-live-search="true">
                 <option value="">Pick a player...</option>
                 @foreach ($players as $player)
                     <option data-subtext="{{ $player->team->name }}" 
                             value="{{ $player->id }}" 
-                            {{old('player_'.$i) == $player->id ? 'selected' : ''}}
-                            {{ old('player_'.$i) == null && ! $errors->has('player_'.$i) && isset($selected_players[$i]) && $selected_players[$i] == $player->id ? 'selected' : ''}}>
+                            {{old('bet['.$playerBet->id.']') == $player->id ? 'selected' : ''}}
+                            {{ old('bet['.$playerBet->id.']') == null && ! $errors->has('bet['.$playerBet->id.']') && $playerBet->isFilled() && $playerBet->player->id == $player->id ? 'selected' : ''}}>
                         {{$player->name}}
                     </option>
                 @endforeach
             </select>
         </div>  
-    @endfor
+    @endforeach
 
     <div class="form-group">
       <button type="submit" class="btn btn-primary pull-right">Save players</button>

@@ -20,6 +20,11 @@ class PlayerBet extends Model implements \App\Interfaces\Betable, \App\Interface
         $this->player()->associate($player);
     }
 
+     public function disassociatePlayer()
+    {
+        $this->player_id = null;
+    }
+
     public function getPointsAttribute()
     {
         return $this->player->countableGoals;

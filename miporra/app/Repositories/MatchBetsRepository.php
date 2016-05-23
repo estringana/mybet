@@ -39,7 +39,7 @@ class MatchBetsRepository
 
             if ( is_null($bet) )
             {
-                throw new \App\Exceptions\MatchBetNotFoundException();
+                throw new \App\Exceptions\BetNotFoundException();
             }
 
             return $bet;       

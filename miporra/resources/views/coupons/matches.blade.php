@@ -18,11 +18,11 @@
                 <td>{{ $matchBet->match->date }}</td>
                 <td>{{ $matchBet->match->local->name }}</td>
                 <td>{{ $matchBet->match->away->name }}</td>
-                <td>
+                <td class="bet">
                     {!! 
                         $matchBet->isFilled() ? 
                             $matchBet->prediction : 
-                            '<span class="label label-danger">Pending</span>'
+                            '<span class="pending-bet label label-danger">Pending</span>'
                     !!}
                 </td>
             </tr>

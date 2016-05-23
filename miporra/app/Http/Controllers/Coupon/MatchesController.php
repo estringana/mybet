@@ -35,6 +35,9 @@ class MatchesController extends \App\Http\Controllers\Controller
 
     public function store(Request $request)
     {
+        $saved_completely = true;
+        $message = 'Matches have been saved!';
+
          $this->validate($request, [
                 'bet.*' => 'in:1,X,2',
             ]);
@@ -42,8 +45,17 @@ class MatchesController extends \App\Http\Controllers\Controller
            $userBets = $this->repository->bets();
 
            foreach($request->input('bet') as $id => $value){
-                $this->repository->save($id,$value);
+                try{
+                    $this->repository->save($id,$value);
+                }
+                catch (\Exception $e)
+                {
+                    $saved_completely = false;
+                    $message = 'Matches has been partially saved.';
+                }
            }
+            
+            $request->session()->flash('status', $message);
 
            return redirect('/coupon');
     }
