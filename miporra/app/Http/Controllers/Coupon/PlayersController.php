@@ -50,6 +50,6 @@ class PlayersController extends \App\Http\Controllers\Controller
 
        $request->session()->flash('status', 'Players have been saved!');
 
-        return redirect('/coupon/players');
+        return redirect('/coupon');
     }
 }

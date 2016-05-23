@@ -17,7 +17,7 @@
   {{ csrf_field() }}
     @for ($i = 0; $i < $bets_allowed; $i++)
         <div class="form-group {{ $errors->has('player_'.$i) ? ' has-error' : '' }}">
-          <select class="form-control selectpickera" name="player_{{$i}}" data-live-search="true">                
+          <select class="form-control selectpicker" name="player_{{$i}}" data-live-search="true">                
                 <option value="">Pick a player...</option>
                 @foreach ($players as $player)
                     <option data-subtext="{{ $player->team->name }}" 
