@@ -1,5 +1,6 @@
 TODO
 -------------------------------
+- Check, refactor and test commit ee38c1b
 - MatchBetsRepository needs to be tested
 - Move all the getCoupon to a provider called Championship or something
 - Remove relationship between championship and matches
