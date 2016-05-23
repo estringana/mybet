@@ -30,10 +30,17 @@
             'uses' => 'Coupon\PlayersController@store'
         ]);
 
-        Route::get('/coupon/players/', [
+        Route::get('/coupon/matches/update', [
             'middleware' => 'auth',
-            'uses' => 'Coupon\PlayersController@show'
+            'uses' => 'Coupon\MatchesController@index'
         ]);
+
+         Route::post('/coupon/matches/store', [
+            'middleware' => 'auth',
+            'uses' => 'Coupon\MatchesController@store'
+        ]);
+
+        
 
         Route::get('/', function()
         {

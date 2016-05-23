@@ -129,6 +129,44 @@ class CouponTest extends TestCase
     }
 
     /** @test */
+    public function it_returns_right_subtypebets_when_asking_for_bets_of_type_Matchbet()
+    {
+        $championship = factory(Championship::class)->create();   
+        $user = factory(App\Models\User::class)->create();
+        $coupon = new App\Models\Coupon();
+
+        $coupon->associateUser($user);
+        $championship->addCoupon($coupon);
+        $coupon->save();
+
+        $betA = factory(App\Models\Bet::class)->make();   
+        $coupon->addBet($betA);        
+        $matchBetA = new App\Models\MatchBet();
+        $matchBetA->save();
+        $betA->addBettype($matchBetA);
+        $betA->save();
+        
+        $betB = factory(App\Models\Bet::class)->make();   
+        $coupon->addBet($betB);
+        $matchBetB = new App\Models\MatchBet(); 
+        $matchBetB->save();
+        $betB->addBettype($matchBetB);
+        $betB->save();
+        
+        $betPlayer = factory(App\Models\Bet::class)->make();
+        $coupon->addBet($betPlayer);
+        $playerBet = new App\Models\PlayerBet();
+        $playerBet->save();
+        $betPlayer->addBettype($playerBet);
+        $betPlayer->save();
+
+        $this->assertEquals(
+            $coupon->subBetsOfType(App\Models\MatchBet::class)->pluck('id')->toArray(),
+            [ $matchBetA->id, $matchBetB->id ]
+        );
+    }
+
+    /** @test */
     public function it_create_an_coupon_with_all_empty_bets()
     {
         $championship = create_real_championship();

@@ -32,7 +32,7 @@
     @endfor
 
     <div class="form-group">
-      <button type="submit" class="btn btn-primary pull-right">Next step</button>
+      <button type="submit" class="btn btn-primary pull-right">Save players</button>
     </div>
 </form>
 @stop

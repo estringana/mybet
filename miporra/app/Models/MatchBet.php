@@ -69,7 +69,7 @@ class MatchBet extends Model implements \App\Interfaces\Betable, \App\Interfaces
 
     public function isEmpty()
     {
-        return is_null($this->$this->prediction);
+        return is_null($this->prediction);
     }
 
     public function isFilled()

@@ -1,5 +1,7 @@
 TODO
 -------------------------------
+- MatchBetsRepository needs to be tested
+- Move all the getCoupon to a provider called Championship or something
 - Remove relationship between championship and matches
 - Move from coupon the create of empty bets.
 - Do something to verify that the amount of matches is the same as the allowed_bets_on the configuration
