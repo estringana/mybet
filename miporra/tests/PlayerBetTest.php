@@ -29,6 +29,23 @@ class PlayerBetTest extends TestCase
     }
 
     /** @test */
+    public function it_can_disassociate_player()
+    {
+        $playerBet = new App\Models\PlayerBet();
+        $player = factory(App\Models\Player::class)->create();
+
+        $playerBet->associatePlayer($player);
+
+        $playerBet->save();
+
+        $this->assertTrue($playerBet->player->id == $player->id);
+
+        $playerBet->disassociatePlayer();        
+
+        $this->assertEquals(null, $playerBet->player);
+    }
+
+    /** @test */
     public function it_counts_goals_from_a_player_bet_when_player_has_goals()
     {
         $playerBet = new App\Models\PlayerBet();

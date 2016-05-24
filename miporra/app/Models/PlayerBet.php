@@ -22,7 +22,7 @@ class PlayerBet extends Model implements \App\Interfaces\Betable, \App\Interface
 
      public function disassociatePlayer()
     {
-        $this->player_id = null;
+        $this->player()->dissociate();
     }
 
     public function getPointsAttribute()
