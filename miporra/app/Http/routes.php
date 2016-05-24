@@ -35,9 +35,19 @@
             'uses' => 'Coupon\MatchesController@index'
         ]);
 
-         Route::post('/coupon/matches/store', [
+        Route::post('/coupon/matches/store', [
             'middleware' => 'auth',
             'uses' => 'Coupon\MatchesController@store'
+        ]);
+
+        Route::get('/coupon/round/{round}/update', [
+            'middleware' => 'auth',
+            'uses' => 'Coupon\RoundsController@index'
+        ]);
+
+        Route::post('/coupon/round/store', [
+            'middleware' => 'auth',
+            'uses' => 'Coupon\RoundsController@store'
         ]);
 
         

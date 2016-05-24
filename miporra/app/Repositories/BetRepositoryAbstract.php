@@ -8,7 +8,6 @@ use App\Models\Match;
 abstract class BetRepositoryAbstract
 {
     protected $coupon;
-    protected $bets = null;
 
     abstract protected function getIdentifier();
 
@@ -44,12 +43,7 @@ abstract class BetRepositoryAbstract
 
     public function bets()
     {
-        if ( is_null($this->bets) )
-            {
-                $this->bets = $this->getCoupon()->subBetsOfType($this->getIdentifier());
-            }
-
-            return $this->bets;
+            return $this->getCoupon()->subBetsOfType($this->getIdentifier());
     }
 
 }

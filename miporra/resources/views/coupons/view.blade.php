@@ -12,5 +12,9 @@
     <div class="panel-group" id="bets" role="tablist" aria-multiselectable="true">
       @include('coupons.players')
       @include('coupons.matches')
+      @include('coupons.rounds', [ 'bets' => $roundOf16Bets, 'title' => 'Round of 16' ])
+      @include('coupons.rounds', [ 'bets' => $quarterFinalsBets, 'title' => 'Quarter finals' ])
+      @include('coupons.rounds', [ 'bets' => $semiFinals, 'title' => 'Semi Finals' ])
+      @include('coupons.rounds', [ 'bets' => $final, 'title' => 'Final' ])
     </div>
 @stop

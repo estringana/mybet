@@ -20,7 +20,7 @@ class PlayerBet extends Model implements \App\Interfaces\Betable, \App\Interface
         $this->player()->associate($player);
     }
 
-     public function disassociatePlayer()
+    public function disassociatePlayer()
     {
         $this->player()->dissociate();
     }

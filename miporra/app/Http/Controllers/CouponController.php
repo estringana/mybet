@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Repositories\PlayerBetsRepository;
 use App\Repositories\MatchBetsRepository;
+use App\Repositories\RoundBetsRepository;
 
 class CouponController extends Controller
 {
@@ -19,6 +20,7 @@ class CouponController extends Controller
 
         $this->playersRepository = new PlayerBetsRepository($this->getCoupon());         
         $this->matchRepository = new MatchBetsRepository($this->getCoupon());         
+        $this->roundRepository = new RoundBetsRepository($this->getCoupon());         
     }
 
     protected function getCoupon()
@@ -28,12 +30,14 @@ class CouponController extends Controller
 
     public function index()
     {
-        $playerBets = $this->playersRepository->bets();
-        $matchBets = $this->matchRepository->bets();
+        $data['playerBets'] = $this->playersRepository->bets();
+        $data['matchBets'] = $this->matchRepository->bets();
+        $data['roundOf16Bets'] = $this->roundRepository->betsOfRound(2);
+        $data['quarterFinalsBets'] = $this->roundRepository->betsOfRound(3);
+        $data['semiFinals'] = $this->roundRepository->betsOfRound(4);
+        $data['final'] = $this->roundRepository->betsOfRound(5);
 
         return view('coupons.view')
-        ->with(
-                compact(['playerBets','matchBets'])
-        );   
+        ->with($data);   
     }
 }

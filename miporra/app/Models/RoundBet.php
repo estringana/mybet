@@ -26,7 +26,12 @@ class RoundBet extends Model implements \App\Interfaces\Betable, \App\Interfaces
     public function associateTeam(Team $team)
     {
         $this->team()->associate($team);
-    }    
+    }
+
+    public function disassociateTeam()
+    {
+        $this->team()->dissociate();
+    }
 
     public function getPointsAttribute()
     {
