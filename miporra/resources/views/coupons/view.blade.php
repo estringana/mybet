@@ -9,6 +9,8 @@
                 @include('coupons.progress') 
        </p>
     </div>
-    @include('coupons.players')
-    @include('coupons.matches')
+    <div class="panel-group" id="bets" role="tablist" aria-multiselectable="true">
+      @include('coupons.players')
+      @include('coupons.matches')
+    </div>
 @stop
