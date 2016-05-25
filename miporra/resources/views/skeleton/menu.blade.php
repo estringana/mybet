@@ -6,16 +6,16 @@
     </div>
     @if(Auth::check())
         <ul class="nav navbar-nav">
-            <li><a href="{{Url::get('/coupon')}}">Your bet</a></li>
+            <li><a href="{{Url::get('/coupon')}}">{{ trans('messages.yourbet') }}</a></li>
         </ul>
     @endif
     <ul class="nav navbar-nav navbar-right">
         <li>
             @if(Auth::check())
-                <li><a href="{{Url::get('/logout')}}">Log out</a></li>
+                <li><a href="{{Url::get('/logout')}}">{{ trans('auth.logout') }}</a></li>
             @else
-                <li><a href="{{Url::get('/register')}}">Register</a>
-                <li><a href="{{Url::get('/login')}}">Log in</a></li>
+                <li><a href="{{Url::get('/register')}}">{{ trans('auth.register') }}</a>
+                <li><a href="{{Url::get('/login')}}">{{ trans('auth.login') }}</a></li>
             @endif
         </li>
             @include('skeleton.menu.languageSelector')        

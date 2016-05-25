@@ -160,6 +160,7 @@ return [
         * Custom
         */
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
+        Barryvdh\TranslationManager\ManagerServiceProvider::class
 
 
     ],

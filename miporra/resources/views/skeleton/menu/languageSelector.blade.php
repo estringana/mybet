@@ -1,5 +1,5 @@
 <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Language<span class="caret"></span></a>
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ trans('messages.language') }}<span class="caret"></span></a>
      <ul class="dropdown-menu">
     @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
             <li>
