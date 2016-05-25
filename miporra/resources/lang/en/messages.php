@@ -25,7 +25,7 @@ return array (
   'team' => 'Team',
   'Changeyourplayers' => 'Change your players',
   'Changeyourteamsonthisround' => 'Change your teams on this round',
-  'Thisisyourbet' => 'This is your bet',
+  'Thisisyourbet' => 'This is your bet.',
   'Besureyoufinishitbeforetheenddate' => 
   array (
     '' => 'Be sure you finish it before the end date.',
