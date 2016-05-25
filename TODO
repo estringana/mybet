@@ -7,6 +7,7 @@ TODO
 - Do something to verify that the amount of matches is the same as the allowed_bets_on the configuration
 - On the player repository test and fix when empty player on funciton players
 - On the player finish test it_should_set_the_prediction_given_an_id_even_if_bet_had_already_another_player. Tried before but not succeed. What it is meant to test, works but not able to test it.
+- On the round finish test it_should_set_the_prediction_given_an_id_even_if_bet_had_already_another_team. Tried before but not succeed. What it is meant to test, works but not able to test it.
 - Check if a coupon is filled and valid
 - Test isEmpty and isFilled
 - Check if the player send exists
