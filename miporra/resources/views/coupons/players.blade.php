@@ -1,7 +1,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <a role="button" data-toggle="collapse" data-parent="#bets" href="#players" aria-expanded="false" aria-controls="players">Players</a>
+            <a role="button" data-toggle="collapse" data-parent="#bets" href="#players" aria-expanded="false" aria-controls="players">{{ trans('messages.players') }}</a>
         </h4>        
     </div>
     <div class="panel-body collapse" id="players">
@@ -9,8 +9,8 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Name</th>
-                    <th>Team</th>
+                    <th>{{ trans('messages.name') }}</th>
+                    <th>{{ trans('messages.team') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,7 +24,7 @@
           </tbody>
         </table> 
         <a class="btn btn-primary btn-lg pull-right" href="{{ Url::get('/coupon/players/update') }}" role="button">
-                    Change your players
+                    {{ trans('messages.Changeyourplayers') }}
         </a>
     </div>
 </div>

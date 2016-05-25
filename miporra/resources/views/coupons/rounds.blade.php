@@ -9,7 +9,7 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Team</th>
+                    <th>{{ trans('messages.team') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,8 +22,8 @@
               @endforeach
           </tbody>
         </table> 
-        <a class="btn btn-primary btn-lg pull-right" href="{{ Url::get('/coupon/round/'.strtolower(str_replace(' ','',$title)).'/update') }}" role="button">
-                    Change your teams on this round
+        <a class="btn btn-primary btn-lg pull-right" href="{{ Url::get('/coupon/round/'.strtolower(str_replace(' ','',$title)).'/update') }}" role="button">                    
+                    {{ trans('messages.Changeyourteamsonthisround') }}
         </a>
     </div>
 </div>

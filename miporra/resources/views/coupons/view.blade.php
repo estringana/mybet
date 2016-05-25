@@ -2,10 +2,12 @@
 
 @section('content')
         <div class="jumbotron">
-      <h1>Your bet</h1>
-      <p>This is your bet. Be sure you finish it before the end date.</p>
+      <h1>{{ trans('messages.yourbet') }}</h1>
+      <p></p>
+      <p>{{ trans('messages.Thisisyourbet')}}{{ trans('messages.Besureyoufinishitbeforetheenddate.') }}
+</p>
       <p>
-            <i>Progress of your bet</i>
+            <i>{{ trans('messages.progressofyourbet') }}</i>
                 @include('coupons.progress') 
        </p>
     </div>

@@ -15,4 +15,20 @@ return array (
   'name' => 'Name',
   'berightback' => 'Be Right Back!',
   'language' => 'Language',
+  'Matchesonfirststage' => 'Matches on the first stage',
+  'date' => 'Date',
+  'local' => 'Local',
+  'away' => 'Away',
+  'bet' => 'Bet',
+  'Changeyourmatches' => 'Change your matches',
+  'players' => 'Players',
+  'team' => 'Team',
+  'Changeyourplayers' => 'Change your players',
+  'Changeyourteamsonthisround' => 'Change your teams on this round',
+  'Thisisyourbet' => 'This is your bet',
+  'Besureyoufinishitbeforetheenddate' => 
+  array (
+    '' => 'Be sure you finish it before the end date.',
+  ),
+  'progressofyourbet' => 'Progress of your bet',
 );
