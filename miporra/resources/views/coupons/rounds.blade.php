@@ -13,9 +13,10 @@
                 </tr>
             </thead>
             <tbody>
+              <?php $i = 1; ?>
               @foreach($bets as $key => $bet)
                     <tr>
-                        <th scope="row">{{ $key+1 }}</th>
+                        <th scope="row">{{ $i++ }}</th>
                         <td class="bet">{!! $bet->isFilled() ? $bet->team->name : '<span class="pending-bet label label-danger">Pending</span>' !!}</td>
                     </tr>
               @endforeach

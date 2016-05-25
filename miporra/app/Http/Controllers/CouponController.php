@@ -36,6 +36,8 @@ class CouponController extends Controller
         $data['quarterFinalsBets'] = $this->roundRepository->betsOfRound(3);
         $data['semiFinals'] = $this->roundRepository->betsOfRound(4);
         $data['final'] = $this->roundRepository->betsOfRound(5);
+        $data['champion'] = $this->roundRepository->betsOfRound(6);
+        $data['runnersup'] = $this->roundRepository->betsOfRound(7);
 
         return view('coupons.view')
         ->with($data);   

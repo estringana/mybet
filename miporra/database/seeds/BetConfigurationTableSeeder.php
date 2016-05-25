@@ -61,6 +61,24 @@ class BetConfigurationTableSeeder extends Seeder
                 'championship_id' => $championship_id
             ],
             [ 
+                'bet_mapping_class' => 'App\Models\RoundBet', 
+                'order' => 6, 
+                'number_of_bets' => 1,
+                'points_per_guess' => 10,
+                'round_id' => App\Models\Round::where('championship_id','=',$championship_id)
+                    ->where('identifier','=','Champion')->firstOrFail()->id,
+                'championship_id' => $championship_id
+            ],
+            [ 
+                'bet_mapping_class' => 'App\Models\RoundBet', 
+                'order' => 7, 
+                'number_of_bets' => 1,
+                'points_per_guess' => 5,
+                'round_id' => App\Models\Round::where('championship_id','=',$championship_id)
+                    ->where('identifier','=','Runnersup')->firstOrFail()->id,
+                'championship_id' => $championship_id
+            ],
+            [ 
                 'bet_mapping_class' => 'App\Models\PlayerBet', 
                 'order' => 6, 
                 'number_of_bets' => 8,

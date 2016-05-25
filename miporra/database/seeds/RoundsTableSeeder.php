@@ -17,7 +17,9 @@ class RoundsTableSeeder extends Seeder
             ['order' => 2, 'name' => 'Round of 16', 'identifier' => 'RoundOf16'],
             ['order' => 3, 'name' => 'Quarter-Finals', 'identifier' => 'QuarterFinals'],
             ['order' => 4, 'name' => 'Semi-Finals', 'identifier' => 'SemiFinals'],
-            ['order' => 5, 'name' => 'Final', 'identifier' => 'Final']
+            ['order' => 5, 'name' => 'Final', 'identifier' => 'Final'],
+            ['order' => 6, 'name' => 'Champion', 'identifier' => 'Champion'],
+            ['order' => 7, 'name' => 'Runners-up', 'identifier' => 'Runnersup']
         ];
 
         foreach ($rounds as $round) {

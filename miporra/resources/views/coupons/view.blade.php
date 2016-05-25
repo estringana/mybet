@@ -16,5 +16,7 @@
       @include('coupons.rounds', [ 'bets' => $quarterFinalsBets, 'title' => 'Quarter finals' ])
       @include('coupons.rounds', [ 'bets' => $semiFinals, 'title' => 'Semi Finals' ])
       @include('coupons.rounds', [ 'bets' => $final, 'title' => 'Final' ])
+      @include('coupons.rounds', [ 'bets' => $champion, 'title' => 'Champion' ])
+      @include('coupons.rounds', [ 'bets' => $runnersup, 'title' => 'Runners-up' ])
     </div>
 @stop
