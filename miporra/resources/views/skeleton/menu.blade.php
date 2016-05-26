@@ -4,11 +4,13 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="#">{{ trans('messages.title') }}</a>       
     </div>
+    <ul class="nav navbar-nav">
     @if(Auth::check())
-        <ul class="nav navbar-nav">
             <li><a href="{{Url::get('/coupon')}}">{{ trans('messages.yourbet') }}</a></li>
-        </ul>
+            <li><a href="{{Url::get('/table')}}">{{ trans('messages.table') }}</a></li>
     @endif
+        <li><a href="{{Url::get('/matches')}}">{{ trans('messages.matches') }}</a></li>
+    </ul>
     <ul class="nav navbar-nav navbar-right">
         <li>
             @if(Auth::check())

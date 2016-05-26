@@ -20,6 +20,16 @@
             'uses' => 'CouponController@index'
         ]);
 
+        Route::get('/table', [
+            'middleware' => 'auth',
+            'uses' => 'TableController@index'
+        ]);
+
+        Route::get('/matches', [
+            'middleware' => 'auth',
+            'uses' => 'MatchesController@index'
+        ]);
+
         Route::get('/coupon/players/update', [
             'middleware' => 'auth',
             'uses' => 'Coupon\PlayersController@index'
@@ -48,14 +58,7 @@
         Route::post('/coupon/round/store', [
             'middleware' => 'auth',
             'uses' => 'Coupon\RoundsController@store'
-        ]);
-
-        Route::get('/table', [
-            'middleware' => 'auth',
-            'uses' => 'TableController@index'
-        ]);
-
-        
+        ]);        
 
         Route::get('/', function()
         {

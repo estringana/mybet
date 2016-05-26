@@ -44,18 +44,4 @@ class CouponController extends Controller
         return view('coupons.view')
         ->with($data);   
     }
-
-    public function test()
-    {
-        $data['playerBets'] = $this->playersRepository->points();
-        $data['matchBets'] = $this->matchRepository->points();
-        $data['roundOf16Bets'] = $this->roundRepository->pointsOfRound(2);
-        $data['quarterFinalsBets'] = $this->roundRepository->pointsOfRound(3);
-        $data['semiFinals'] = $this->roundRepository->pointsOfRound(4);
-        $data['final'] = $this->roundRepository->pointsOfRound(5);
-        $data['champion'] = $this->roundRepository->pointsOfRound(6);
-        $data['runnersup'] = $this->roundRepository->pointsOfRound(7);
-
-       dd($data);
-    }
 }

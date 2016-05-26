@@ -10,6 +10,12 @@ class TableController extends Controller
 {
     public function index()
     {
-           echo "A";
+           $table = new \App\Championship\TableGenerator($this->championship);
+
+           return view('championship.pages.table')
+                ->with([ 
+                    'table' => $table->generate(),
+                    'championship' => $this->championship
+                ]);
     }
 }

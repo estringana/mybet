@@ -1,6 +1,6 @@
 TODO
 -------------------------------
-- Fix it_should_get_the_points_of_roundtype_on_round_id
+- Go with matches
 - Move all the getCoupon to a provider called Championship or something
 - Remove relationship between championship and matches
 - Move from coupon the create of empty bets.
