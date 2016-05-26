@@ -27,6 +27,11 @@ class PlayerBet extends Model implements \App\Interfaces\Betable, \App\Interface
 
     public function getPointsAttribute()
     {
+        if ( $this->isEmpty() )
+        {
+            return 0;
+        }
+
         return $this->player->countableGoals;
     }
 

@@ -10,7 +10,7 @@ class RoundBet extends Model implements \App\Interfaces\Betable, \App\Interfaces
 
     public function round()
     {
-        return $this->belongsTo('App\Models\Bet');
+        return $this->belongsTo('App\Models\Round');
     }
 
     public function team()
@@ -35,7 +35,7 @@ class RoundBet extends Model implements \App\Interfaces\Betable, \App\Interfaces
 
     public function getPointsAttribute()
     {
-        if ( $this->round->hasTeam($this->team) )
+        if ( $this->hasRound() && $this->isFilled() && $this->round->hasTeam($this->team) )
         {
             return 1;
         }
@@ -61,5 +61,10 @@ class RoundBet extends Model implements \App\Interfaces\Betable, \App\Interfaces
     public function isFilled()
     {
         return ! $this->isEmpty();
+    }
+
+    public function hasRound()
+    {
+           return ! is_null($this->round);
     }
 }

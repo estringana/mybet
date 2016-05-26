@@ -227,6 +227,7 @@ class RoundBetsRepositoryTest extends TestCase
         );
     }
     
+    /** @test */
     public function it_should_get_the_points_of_roundtype_on_round_id()
     {
         $betConfiguration = App\Models\BetConfiguration::where('championship_id',$this->championship->id)->where('bet_mapping_class',App\Repositories\RoundBetsRepository::ROUND_BETS_TYPE)->firstOrFail();
