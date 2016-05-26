@@ -1,5 +1,6 @@
 TODO
 -------------------------------
+- Fix it_should_get_the_points_of_roundtype_on_round_id
 - Move all the getCoupon to a provider called Championship or something
 - Remove relationship between championship and matches
 - Move from coupon the create of empty bets.
@@ -9,8 +10,6 @@ TODO
 - On the round finish test it_should_set_the_prediction_given_an_id_even_if_bet_had_already_another_team. Tried before but not succeed. What it is meant to test, works but not able to test it.
 - Check if a coupon is filled and valid
 - Test isEmpty and isFilled
-- Check if the player send exists
-- When creating coupon. Associate matches??
 - Add check to avoid createEmtpyBets be called twice
 - Create a middle layer for stop the ability of editing teams once it in progress the championship
 - Caculated on the coupon

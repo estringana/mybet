@@ -184,4 +184,38 @@ class PlayerBetsRepositoryTest extends TestCase
 
         $this->assertEquals(0, $is_it_founded->count());
     }
+
+    /** @test */
+    public function it_should_get_the_points_of_playertype()
+    {
+        $championship = create_real_championship();
+        $coupon = create_coupon($championship);
+        $this->repository = new App\Repositories\PlayerBetsRepository($coupon);
+        $points_on_championship = $championship->getPointsOfTypeIdentifyBy(PlayerBetsRepository::PLAYER_BETS_TYPE);
+
+        $playerBet_with_2_points = create_playerbet_with_points(2);
+        $playerBet_with_2_points->save();
+
+        $bet = new App\Models\Bet();
+        $bet->addBettype($playerBet_with_2_points);
+        $coupon->addBet($bet);
+        $bet->save();
+
+        $this->assertEquals(2*$points_on_championship,$this->repository->points());
+    }
+
+    /** @test */
+    public function it_should_get_0_points_of_playertype_if_no_foals()
+    {
+        $championship = create_real_championship();
+        $coupon = create_coupon($championship);
+        $this->repository = new App\Repositories\PlayerBetsRepository($coupon);
+        $points_on_championship = $championship->getPointsOfTypeIdentifyBy(PlayerBetsRepository::PLAYER_BETS_TYPE);
+
+        $bet = new App\Models\Bet();
+        $coupon->addBet($bet);
+        $bet->save();
+
+        $this->assertEquals(0,$this->repository->points());
+    }
 }

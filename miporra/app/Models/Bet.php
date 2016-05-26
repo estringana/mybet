@@ -6,7 +6,7 @@ use \App\Interfaces\Fillable;
 use \App\Interfaces\Betable;
 use \App\Interfaces\Identifiable;
 
-class Bet extends Model implements Identifiable, Fillable
+class Bet extends Model implements Identifiable, Fillable, \App\Interfaces\Betable
 {
     public function coupon()
     {
@@ -50,5 +50,25 @@ class Bet extends Model implements Identifiable, Fillable
     public function isFilled()
     {
         return $this->bettype->isFilled();
+    }
+
+    protected function guardAgainstAccessingToSubtypeWhenNotExists()
+    {
+        if ( ! $this->hasSubtype() )
+        {
+            throw new \App\Exceptions\MissingSubtypeException();
+        }
+    }
+
+    public function getPointsAttribute()
+    {
+        $this->guardAgainstAccessingToSubtypeWhenNotExists();
+
+        if ( $this->isEmpty() )
+        {
+            return 0;
+        }
+
+        return $this->bettype->points;
     }
 }

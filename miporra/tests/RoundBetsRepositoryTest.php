@@ -25,7 +25,7 @@ class RoundBetsRepositoryTest extends TestCase
     {
         parent::setUp();
 
-        $this->championship = factory(App\Models\Championship::class)->create();
+        $this->championship = create_real_championship();
         $this->user = factory(App\Models\User::class)->create();
         $this->coupon = new App\Models\Coupon();
         $this->coupon->associateUser($this->user);
@@ -52,10 +52,10 @@ class RoundBetsRepositoryTest extends TestCase
         $this->repository = new App\Repositories\RoundBetsRepository($this->coupon);
     }
 
-    protected function create_a_team_which_is_on_the_championship()
+    protected function create_a_team_which_is_on_the_championship($championship)
     {
         $team = factory(App\Models\Team::class)->create();
-        $this->championship->subscribeTeam($team);
+        $championship->subscribeTeam($team);
 
         return $team;
     }
@@ -74,7 +74,7 @@ class RoundBetsRepositoryTest extends TestCase
         $this->coupon->addBet($bet);
         $bet->save();
 
-        $team = $this->create_a_team_which_is_on_the_championship();
+        $team = $this->create_a_team_which_is_on_the_championship($this->championship);
 
         $this->repository->save($roundBet->id, $team->id);
 
@@ -87,7 +87,7 @@ class RoundBetsRepositoryTest extends TestCase
     /** @test */
     public function it_should_unset_the_prediction_given_an_id_and_null()
     {    
-        $round = $this->create_a_team_which_is_on_the_championship();        
+        $round = $this->create_a_team_which_is_on_the_championship($this->championship);        
         $this->repository->save($this->roundBet_on_bet->id, $round->id);
 
         $loaded_bet = App\Models\RoundBet::find($this->roundBet_on_bet->id);
@@ -104,7 +104,7 @@ class RoundBetsRepositoryTest extends TestCase
     /** @test */
     public function it_should_unset_the_prediction_given_an_id_and_an_empty_string()
     {    
-        $round = $this->create_a_team_which_is_on_the_championship();        
+        $round = $this->create_a_team_which_is_on_the_championship($this->championship);        
         $this->repository->save($this->roundBet_on_bet->id, $round->id);
 
         $loaded_bet = App\Models\RoundBet::find($this->roundBet_on_bet->id);
@@ -170,7 +170,7 @@ class RoundBetsRepositoryTest extends TestCase
         $coupon->addBet($bet);
         $bet->save();
 
-        $team = $this->create_a_team_which_is_on_the_championship();
+        $team = $this->create_a_team_which_is_on_the_championship($this->championship);
 
         $this->setExpectedException('\App\Exceptions\BetNotFoundException');
 
@@ -180,7 +180,7 @@ class RoundBetsRepositoryTest extends TestCase
     /** @test */
     public function it_should_thrown_an_exception_when_saving_an_id_which_dont_exists_at_all()
     {
-        $team = $this->create_a_team_which_is_on_the_championship();
+        $team = $this->create_a_team_which_is_on_the_championship($this->championship);
 
         $this->setExpectedException('\App\Exceptions\BetNotFoundException');
 
@@ -225,5 +225,54 @@ class RoundBetsRepositoryTest extends TestCase
             $this->repository->betsOfRound($round->id)->lists(['id'])->toArray(),
             [$roundBet->id, $roundBet2->id]
         );
+    }
+    
+    public function it_should_get_the_points_of_roundtype_on_round_id()
+    {
+        $betConfiguration = App\Models\BetConfiguration::where('championship_id',$this->championship->id)->where('bet_mapping_class',App\Repositories\RoundBetsRepository::ROUND_BETS_TYPE)->firstOrFail();
+
+        $bet = new App\Models\Bet();        
+        $roundBet = new App\Models\RoundBet();
+        $round = factory(App\Models\Round::class)->create();
+        $this->championship->addRound($round);
+        $round->save();
+        $roundBet->associateRound($round);
+        $roundBet->save();
+        $bet->addBettype($roundBet);
+        $this->coupon->addBet($bet);
+        $bet->save();
+
+        $bet2 = new App\Models\Bet();        
+        $roundBet2 = new App\Models\RoundBet();
+        $roundBet2->associateRound($round);
+        $roundBet2->save();
+        $bet2->addBettype($roundBet2);
+        $this->coupon->addBet($bet2);
+        $bet2->save();
+
+        $betConfiguration->round_id = $round->id;
+        $betConfiguration->save();
+
+        $team = $this->create_a_team_which_is_on_the_championship($this->championship);
+        $team1 = $this->create_a_team_which_is_on_the_championship($this->championship);
+        $this->championship->save();
+
+        $round->addTeam($team);
+        $round->addTeam($team1);
+
+        $roundBet->associateTeam($team);
+        $roundBet2->associateTeam($team1);
+
+        $round->save();
+        $roundBet->save();
+        $roundBet2->save();
+
+        $points_on_championship =
+            $this->championship->getPointsOfTypeIdentifyBy(
+                App\Repositories\RoundBetsRepository::ROUND_BETS_TYPE,
+                $round->id
+            );
+
+        $this->assertEquals(2*$points_on_championship,$this->repository->pointsOfRound($round->id));
     }
 }

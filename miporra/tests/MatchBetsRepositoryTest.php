@@ -120,4 +120,44 @@ class MatchBetsRepositoryTest extends TestCase
 
         $this->repository->save(1234567, 'X');
     }
+
+    /** @test */
+    public function it_should_get_the_points_of_matchtype()
+    {
+        $championship = create_real_championship();
+        $coupon = create_coupon($championship);
+        $this->repository = new App\Repositories\MatchBetsRepository($coupon);
+        $points_on_championship = $championship->getPointsOfTypeIdentifyBy(MatchBetsRepository::MATCH_BETS_TYPE);
+
+        $matchBet_with_points = create_matchbet_with_points();
+        $matchBet_with_points->save();
+        $bet = new App\Models\Bet();
+        $bet->addBettype($matchBet_with_points);
+        $coupon->addBet($bet);
+        $bet->save();
+
+        $matchBet_with_points2 = create_matchbet_with_points();
+        $matchBet_with_points2->save();
+        $bet2 = new App\Models\Bet();
+        $bet2->addBettype($matchBet_with_points2);
+        $coupon->addBet($bet2);
+        $bet2->save();
+
+        $this->assertEquals(2*$points_on_championship,$this->repository->points());
+    }
+
+    /** @test */
+    public function it_should_get_0_points_of_matchtype_if_no_goals()
+    {
+        $championship = create_real_championship();
+        $coupon = create_coupon($championship);
+        $this->repository = new App\Repositories\MatchBetsRepository($coupon);
+        $points_on_championship = $championship->getPointsOfTypeIdentifyBy(MatchBetsRepository::MATCH_BETS_TYPE);
+
+        $bet = new App\Models\Bet();
+        $coupon->addBet($bet);
+        $bet->save();
+
+        $this->assertEquals(0,$this->repository->points());
+    }
 }

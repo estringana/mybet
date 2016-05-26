@@ -60,4 +60,72 @@ class BetTest extends TestCase
 
         $bet->getIdentification();
     }
+
+    /** @test */
+    public function it_should_return_0_points_if_subtype_empty()
+    {
+        $user = factory(App\Models\User::class)->create();    
+        $championship = factory(App\Models\Championship::class)->create();   
+        $coupon = new App\Models\Coupon();
+        $bet = factory(App\Models\Bet::class)->make();   
+
+        $coupon->associateUser($user);
+        $championship->addCoupon($coupon);
+
+        $coupon->addBet($bet); 
+
+        $playerBet = new App\Models\PlayerBet();
+        $playerBet->save();
+
+        $bet->addBettype($playerBet);
+
+        $bet->save();
+
+        $this->assertEquals(0, $bet->points);
+    }
+
+    /** @test */
+    public function it_should_return_the_points_of_the_subtype()
+    {
+        $user = factory(App\Models\User::class)->create();    
+        $championship = factory(App\Models\Championship::class)->create();   
+        $coupon = new App\Models\Coupon();
+        $bet = factory(App\Models\Bet::class)->make();   
+
+        $coupon->associateUser($user);
+        $championship->addCoupon($coupon);
+
+        $coupon->addBet($bet); 
+
+        $playerBet = new App\Models\PlayerBet();
+        
+        $goal01 = new App\Models\Goal();
+        $goal02 = new App\Models\Goal();
+        $match = factory(App\Models\Match::class)->create();
+        $player = factory(App\Models\Player::class)->create();
+
+        $goal01->addPlayer($player);
+        $goal02->addPlayer($player);
+
+        $playerBet->associatePlayer($player);
+
+        $match->addGoal($goal01);
+        $match->addGoal($goal02);
+
+        $bet->addBettype($playerBet);
+
+        $bet->save();
+
+        $this->assertEquals(2, $bet->points);
+    }
+
+    /** @test */
+    public function it_should_throw_an_excption_if_no_subtype()
+    {
+        $bet = factory(App\Models\Bet::class)->make(); 
+
+        $this->setExpectedException('\App\Exceptions\MissingSubtypeException');
+
+        $bet->points;
+    }
 }

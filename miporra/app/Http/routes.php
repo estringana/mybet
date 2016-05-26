@@ -50,6 +50,11 @@
             'uses' => 'Coupon\RoundsController@store'
         ]);
 
+        Route::get('/table', [
+            'middleware' => 'auth',
+            'uses' => 'TableController@index'
+        ]);
+
         
 
         Route::get('/', function()

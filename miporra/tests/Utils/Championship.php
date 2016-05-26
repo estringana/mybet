@@ -109,3 +109,51 @@ function create_real_championship()
 
     return $championship;
 }
+
+function create_playerbet_with_points($number_of_goals)
+{
+       $playerBet = new App\Models\PlayerBet();
+
+        $match = factory(App\Models\Match::class)->create();
+        $player = factory(App\Models\Player::class)->create();
+
+
+        for ($i=0; $i < $number_of_goals; $i++) { 
+            $goal = new App\Models\Goal();
+            $goal->addPlayer($player);
+            $goal->addPlayer($player);
+            $match->addGoal($goal);
+        }
+
+        $playerBet->associatePlayer($player);
+
+        return $playerBet;
+}
+
+function create_matchbet_with_points()
+{
+       $matchBet = new App\Models\MatchBet();
+       $matchBet->setPrediction('1');
+       
+        $match = factory(App\Models\Match::class)->create(['local_score'=>2,'away_score'=>0]);
+
+        $matchBet->associateMatch($match);
+
+        return $matchBet;
+}
+
+function create_coupon($championship = null)
+{
+    if ( is_null($championship) )
+    {
+        $championship = factory(Championship::class)->create();           
+    }
+    
+    $user = factory(App\Models\User::class)->create();
+    $coupon = new App\Models\Coupon();
+    $coupon->associateUser($user);
+    $championship->addCoupon($coupon);
+    $coupon->save();
+
+    return $coupon;
+}

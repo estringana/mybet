@@ -287,5 +287,5 @@ class CouponTest extends TestCase
         $bet2->save();
 
         $this->assertFalse($coupon->isTypeCompleted(\App\Repositories\PlayerBetsRepository::PLAYER_BETS_TYPE));
-    }
+    }    
 }

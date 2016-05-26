@@ -73,4 +73,27 @@ class Championship extends Model
     {
         $this->configurations()->save($betConfiguration);
     }
+
+    protected function guardAgainstNoConfigurations()
+    {
+           if ( $this->configurations()->get()->count() == 0 )
+           {
+                throw new \App\Exceptions\NoConfigurationOnChampionshipException();
+           }
+    }
+
+    public function getPointsOfTypeIdentifyBy($type, $identify_by = null)
+    {
+        $this->guardAgainstNoConfigurations();
+
+        $configuration = $this->configurations()->where('bet_mapping_class',$type);
+
+        if ( ! is_null($identify_by) )
+        {
+            $configuration->where('round_id',$identify_by);
+        }
+
+        return $configuration->firstOrFail()->points_per_guess;
+    }
+   
 }

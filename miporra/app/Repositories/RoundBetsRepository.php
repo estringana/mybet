@@ -59,4 +59,20 @@ class RoundBetsRepository extends BetRepositoryAbstract
     {
         return $this->bets()->where('round_id',$round_id);
     }
+
+    protected function getValueOfPoints($round_id)
+    {
+           return $this->championship()->getPointsOfTypeIdentifyBy($this->getIdentifier(), $round_id);
+    }
+
+    public function pointsOfRound($round_id)
+    {
+        $points_of_type = $this->getValueOfPoints($round_id);
+
+        $points = $this->betsOfRound($round_id)->sum(function ($bet) use ($points_of_type) {
+            return $bet->points * $points_of_type;
+        });
+
+        return $points;
+    }
 }

@@ -209,4 +209,60 @@ class ChampionshipTest extends TestCase
 
         $this->assertCount(2,$championship->players);
     }
+
+    /** @test */
+    public function it_should_return_the_points_of_the_type()
+    {
+        $championship = factory(App\Models\Championship::class)->create();   
+        $betConfigurations = factory(App\Models\BetConfiguration::class,4)->create();
+
+        $championship->addConfiguration($betConfigurations[0]);
+        $championship->addConfiguration($betConfigurations[1]);
+        $championship->addConfiguration($betConfigurations[2]);
+        $championship->addConfiguration($betConfigurations[3]);
+
+        $mapping_class = $betConfigurations[0]->bet_mapping_class;
+
+        $this->assertEquals(
+                $championship->getPointsOfTypeIdentifyBy($mapping_class),
+                $betConfigurations[0]->points_per_guess
+        );        
+    }
+
+    /** @test */
+    public function it_should_return_the_points_of_the_type_identifies_by()
+    {
+        $championship = factory(App\Models\Championship::class)->create();   
+        $round = new App\Models\Round();
+        $round->save();
+
+        $championship->addRound($round);
+
+        $betConfigurations = factory(App\Models\BetConfiguration::class,4)->create();
+
+        $betConfigurations[2]->round_id = $round->id;
+
+        $championship->addConfiguration($betConfigurations[0]);
+        $championship->addConfiguration($betConfigurations[1]);
+        $championship->addConfiguration($betConfigurations[2]);
+        $championship->addConfiguration($betConfigurations[3]);
+
+        $mapping_class = $betConfigurations[2]->bet_mapping_class;
+        $identification = $betConfigurations[2]->round_id;
+
+        $this->assertEquals(
+                $championship->getPointsOfTypeIdentifyBy($mapping_class, $identification),
+                $betConfigurations[2]->points_per_guess
+        );        
+    }
+
+     /** @test */
+    public function it_should_throw_an_exception_if_no_configuration_when_asking_for_points()
+    {
+        $championship = factory(App\Models\Championship::class)->create();           
+
+        $this->setExpectedException('\App\Exceptions\NoConfigurationOnChampionshipException');
+
+        $championship->getPointsOfTypeIdentifyBy('whatever');
+    }
 }
