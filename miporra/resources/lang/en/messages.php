@@ -31,4 +31,12 @@ return array (
     '' => 'Be sure you finish it before the end date.',
   ),
   'progressofyourbet' => 'Progress of your bet',
+  'username' => 'Username',
+  'playerbets' => 'Players',
+  'roundOf16Bets' => 'Round of 16',
+  'quarterFinalsBets' => 'Quarter F',
+  'semiFinals' => 'Semi-finals',
+  'final' => 'Final',
+  'champion' => 'Champion',
+  'runnersup' => 'Runners-up',
 );

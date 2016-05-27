@@ -15,4 +15,14 @@ return array (
     'message' => 'Por favor, registrese',
   ),
   'name' => 'Nombre',
+  'away' => 'Visitante',
+  'Besureyoufinishitbeforetheenddate' => 
+  array (
+    '' => 'No olvides terminar la porra en el plazo',
+  ),
+  'bet' => 'Apuesta',
+  'champion' => 'Campeon',
+  'Changeyourmatches' => 'Cambia tus partidos',
+  'Changeyourplayers' => 'Cambia tus jugadores',
+  'Changeyourteamsonthisround' => 'Cambia los equipos en esta ronda',
 );
