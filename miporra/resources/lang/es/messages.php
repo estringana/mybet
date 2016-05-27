@@ -25,4 +25,6 @@ return array (
   'Changeyourmatches' => 'Cambia tus partidos',
   'Changeyourplayers' => 'Cambia tus jugadores',
   'Changeyourteamsonthisround' => 'Cambia los equipos en esta ronda',
+  'table' => 'Clasificacion',
+  'matches' => 'Partidos',
 );

@@ -39,4 +39,6 @@ return array (
   'final' => 'Final',
   'champion' => 'Champion',
   'runnersup' => 'Runners-up',
+  'table' => 'Table',
+  'matches' => 'Matches',
 );
