@@ -25,7 +25,8 @@
             "App\\": "app/"
         },
         "files": [
-            "app/Helpers/Url.php"
+            "app/Helpers/Url.php",
+            "app/Helpers/FlagIcon.php"
         ]
     },
     "autoload-dev": {

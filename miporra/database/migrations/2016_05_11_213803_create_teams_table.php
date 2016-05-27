@@ -16,6 +16,7 @@ class CreateTeamsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('code')->unique();
+            $table->string('short_code')->unique();
             $table->integer('championship_id')->unsigned()->nullable();
             $table->timestamps();
 

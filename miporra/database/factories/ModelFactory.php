@@ -25,7 +25,7 @@ $factory->define(App\Models\Championship::class, function (Faker\Generator $fake
 {
     return [
 	'name' => $faker->name,
-	'code' => uniqid(),
+            'code' => uniqid(),
 	'start_date' => $faker->dateTimeBetween('+1 day', '+1 month'),
 	'end_date' => $faker->dateTimeBetween('+1 month', '+2 month'),
 	'created_at' => $faker->dateTime(),
@@ -76,7 +76,8 @@ $factory->define(App\Models\Team::class, function (Faker\Generator $faker)
 {
     return [
         'name' => $faker->name,
-        'code' => uniqid()
+        'code' => uniqid(),
+        'short_code' => uniqid()
     ];
 });
 

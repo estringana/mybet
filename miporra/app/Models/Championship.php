@@ -29,6 +29,25 @@ class Championship extends Model
         );
     }
 
+    public function matches()
+    {
+        return $this->hasManyThrough(
+            'App\Models\Match', 'App\Models\Round'
+        );
+    }
+
+    public function matchesOrderedByDate()
+    {
+        return $this->matches()->orderBy('date','asc')->get();
+    }
+
+    public function matchesByRoundOrderedByDate()
+    {
+           return $this->matchesOrderedByDate()->groupBy(function($match, $key){
+                return $match->round->name;
+           });
+    }
+
     public function coupons()
     {
         return $this->hasMany('App\Models\Coupon');
@@ -38,7 +57,6 @@ class Championship extends Model
     {
         return $query->where('active', true)->firstOrFail();
     }
-
 
     public function inProgress()
     {

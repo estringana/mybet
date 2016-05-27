@@ -17,7 +17,10 @@
               @foreach($bets as $key => $bet)
                     <tr>
                         <th scope="row">{{ $i++ }}</th>
-                        <td class="bet">{!! $bet->isFilled() ? $bet->team->name : '<span class="pending-bet label label-danger">Pending</span>' !!}</td>
+                        <td class="bet">{!! $bet->isFilled() ? 
+                                FlagIcon::get($bet->team->short_code, $bet->team->name)." ".$bet->team->name :
+                                 '<span class="pending-bet label label-danger">Pending</span>' !!}
+                        </td>
                     </tr>
               @endforeach
           </tbody>

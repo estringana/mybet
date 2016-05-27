@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ trans('messages.title') }}</title>
     <link rel="stylesheet" type="text/css" href="/css/app.css">
+    <link rel="stylesheet" type="text/css" href="/css/flags.css">
+    <script src="https://use.fontawesome.com/b95ce63269.js"></script>
 </head>
 <body>
     @yield('body')

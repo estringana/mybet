@@ -10,9 +10,9 @@ class MatchesController extends Controller
 {
     public function index()
     {
-           $matches = $this->championship->matches;
+           $matchesGropedByRoundName = $this->championship->matchesByRoundOrderedByDate();
 
            return view('championship.pages.matches')
-                ->with( compact(['matches']) );
+                ->with( compact(['matchesGropedByRoundName']) );
     }
 }

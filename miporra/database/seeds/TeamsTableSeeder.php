@@ -17,36 +17,37 @@ class TeamsTableSeeder extends Seeder
     public function run()
     {
         $teams = [
-	'Albania',
-	'Austria',
-	'Belgium',
-	'Croatia',
-	'Czech Republic',
-	'England',
-	'France',
-	'Germany',
-	'Hungary',
-	'Iceland',
-	'Italy',
-	'Northern Ireland',
-	'Poland',
-	'Portugal',
-	'Republic of Ireland',
-	'Romania',
-	'Russia',
-	'Slovakia',
-	'Spain',
-	'Sweden',
-	'Switzerland',
-	'Turkey',
-	'Ukraine',
-	'Wales'
+	['name' => 'Albania', 'code' => 'al'],
+	['name' => 'Austria', 'code' => 'at'],
+	['name' => 'Belgium', 'code' => 'be'],
+	['name' => 'Croatia', 'code' => 'hr'],
+	['name' => 'Czech Republic', 'code' => 'cz'],
+	['name' => 'England', 'code' => 'england'],
+	['name' => 'France', 'code' => 'fr'],
+	['name' => 'Germany', 'code' => 'de'],
+	['name' => 'Hungary', 'code' => 'hu'],
+	['name' => 'Iceland', 'code' => 'is'],
+	['name' => 'Italy', 'code' => 'it'],
+	['name' => 'Northern Ireland', 'code' => 'gg'],
+	['name' => 'Poland', 'code' => 'pl'],
+	['name' => 'Portugal', 'code' => 'pt'],
+	['name' => 'Republic of Ireland', 'code' => 'ie'],
+	['name' => 'Romania', 'code' => 'ro'],
+	['name' => 'Russia', 'code' => 'ru'],
+	['name' => 'Slovakia', 'code' => 'sk'],
+	['name' => 'Spain', 'code' => 'es'],
+	['name' => 'Sweden', 'code' => 'se'],
+	['name' => 'Switzerland', 'code' => 'ch'],
+	['name' => 'Turkey', 'code' => 'tr'],
+	['name' => 'Ukraine', 'code' => 'ua'],
+	['name' => 'Wales', 'code' => 'wales']
         ];
 
         foreach ($teams as $team) {
         	DB::table('teams')->insert([
-                'name' => $team,
-                'code' => $this->codify($team),
+                'name' => $team['name'],
+                'code' => $this->codify($team['name']),
+                'short_code' => $team['code'],
                 'championship_id' => 
                     App\Models\Championship::where('code', '=', 'euro2016')
                     ->firstOrFail()

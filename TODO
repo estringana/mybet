@@ -1,6 +1,5 @@
 TODO
 -------------------------------
-- Go with matches
 - Move all the getCoupon to a provider called Championship or something
 - Remove relationship between championship and matches
 - Move from coupon the create of empty bets.

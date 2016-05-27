@@ -265,4 +265,78 @@ class ChampionshipTest extends TestCase
 
         $championship->getPointsOfTypeIdentifyBy('whatever');
     }
+
+    /** @test */
+    public function it_should_return_the_matches_on_the_championship()
+    {
+        $championship = factory(App\Models\Championship::class)->create();   
+        $round = new App\Models\Round();
+        $round->save();
+        $championship->addRound($round);
+        $match_on_championship_01 = factory(App\Models\Match::class)->create();
+        $match_on_championship_02 = factory(App\Models\Match::class)->create();
+        $match_not_on_championship = factory(App\Models\Match::class)->create();
+
+        $round->addMatch($match_on_championship_01);
+        $round->addMatch($match_on_championship_02);
+
+        $this->assertEquals(
+            $championship->matches->lists(['id'])->toArray(),
+            [$match_on_championship_01->id, $match_on_championship_02->id]
+        );
+    }
+
+    /** @test */
+    public function it_should_return_the_matches_on_the_championship_by_date()
+    {
+        $championship = factory(App\Models\Championship::class)->create();   
+        $round01 = new App\Models\Round();
+        $round01->save();
+        $championship->addRound($round01);
+        $match_01_on_championship = factory(App\Models\Match::class)->create(['date' => '2016-06-11']);
+        $match_02_on_championship = factory(App\Models\Match::class)->create(['date' => '2016-06-10']);
+        $match_not_in_championship = factory(App\Models\Match::class)->create(['date' => '2016-06-10']);
+
+        $round01->addMatch($match_01_on_championship);
+        $round01->addMatch($match_02_on_championship);
+
+        $this->assertEquals(
+            $championship->matchesOrderedByDate()->lists(['id'])->toArray(),
+            [$match_02_on_championship->id, $match_01_on_championship->id]
+        );
+    }
+
+
+    /** @test */
+    public function it_should_return_the_matches_on_the_championship_by_date_and_grouped_by_round()
+    {
+        $championship = factory(App\Models\Championship::class)->create();   
+        $round01 = new App\Models\Round();
+        $round01->name = 'round 01';
+        $round01->identifier = 'round01';
+        $round01->save();
+        $round02 = new App\Models\Round();
+        $round02->name = 'round 02';
+        $round02->identifier = 'round02';
+        $round02->save();
+        $championship->addRound($round01);
+        $championship->addRound($round02);
+        $match_01_on_round_01 = factory(App\Models\Match::class)->create(['date' => '2016-06-11']);
+        $match_02_on_round_01 = factory(App\Models\Match::class)->create(['date' => '2016-06-10']);
+        $match_01_on_round_02 = factory(App\Models\Match::class)->create(['date' => '2016-06-15']);
+        $match_02_on_round_02 = factory(App\Models\Match::class)->create(['date' => '2016-06-16']);
+
+        $round01->addMatch($match_01_on_round_01);
+        $round01->addMatch($match_02_on_round_01);
+        $round02->addMatch($match_01_on_round_02);
+        $round02->addMatch($match_02_on_round_02);
+
+        $round01->save();
+        $round02->save();
+
+        $this->assertEquals(
+            $championship->matchesByRoundOrderedByDate()->keys()->toArray(),
+            [$round01->name, $round02->name]
+        );
+    }
 }

@@ -20,8 +20,8 @@
                     <tr>
                         <th scope="row">{{ $key }}</th>
                         <td>{{ $matchBet->match->date }}</td>
-                        <td>{{ $matchBet->match->local->name }}</td>
-                        <td>{{ $matchBet->match->away->name }}</td>
+                        <td>{!!FlagIcon::get($matchBet->match->local->short_code,$matchBet->match->local->name)!!} {{ $matchBet->match->local->name }}</td>
+                        <td>{{ $matchBet->match->away->name }} {!!FlagIcon::get($matchBet->match->away->short_code,$matchBet->match->away->name)!!}</td>
                         <td class="bet">
                             {!! 
                                 $matchBet->isFilled() ? 
