@@ -15,11 +15,9 @@
     {
         Route::auth();
 
-        Route::get('/coupon/', [
-            'middleware' => 'auth',
-            'uses' => 'CouponController@index'
-        ]);
 
+
+//All the time
         Route::get('/table', [
             'middleware' => 'auth',
             'uses' => 'TableController@index'
@@ -30,45 +28,55 @@
             'uses' => 'MatchesController@index'
         ]);
 
-        Route::get('/matches/propose/{match_id}', [
-            'middleware' => 'auth',
-            'uses' => 'MatchesController@propose'
-        ]);
+        Route::group(['middleware' => ['championship.hasStarted']], function () {
+                Route::get('/matches/propose/{match_id}', [
+                    'middleware' => 'auth',
+                    'uses' => 'MatchesController@propose'
+                ]);
 
-        Route::post('/matches/propose/{match_id}', [
-            'middleware' => 'auth',
-            'uses' => 'MatchesController@storeProposition'
-        ]);
+                Route::post('/matches/propose/{match_id}', [
+                    'middleware' => 'auth',
+                    'uses' => 'MatchesController@storeProposition'
+                ]);
+        });
 
-        Route::get('/coupon/players/update', [
-            'middleware' => 'auth',
-            'uses' => 'Coupon\PlayersController@index'
-        ]);
 
-        Route::post('/coupon/players/store', [
-            'middleware' => 'auth',
-            'uses' => 'Coupon\PlayersController@store'
-        ]);
+        Route::group(['middleware' => ['championship.open']], function () {
+                Route::get('/coupon/', [
+                    'middleware' => 'auth',
+                    'uses' => 'CouponController@index'
+                ]);
 
-        Route::get('/coupon/matches/update', [
-            'middleware' => 'auth',
-            'uses' => 'Coupon\MatchesController@index'
-        ]);
+                Route::get('/coupon/players/update', [
+                    'middleware' => 'auth',
+                    'uses' => 'Coupon\PlayersController@index'
+                ]);
 
-        Route::post('/coupon/matches/store', [
-            'middleware' => 'auth',
-            'uses' => 'Coupon\MatchesController@store'
-        ]);
+                Route::post('/coupon/players/store', [
+                    'middleware' => 'auth',
+                    'uses' => 'Coupon\PlayersController@store'
+                ]);
 
-        Route::get('/coupon/round/{round}/update', [
-            'middleware' => 'auth',
-            'uses' => 'Coupon\RoundsController@index'
-        ]);
+                Route::get('/coupon/matches/update', [
+                    'middleware' => 'auth',
+                    'uses' => 'Coupon\MatchesController@index'
+                ]);
 
-        Route::post('/coupon/round/store', [
-            'middleware' => 'auth',
-            'uses' => 'Coupon\RoundsController@store'
-        ]);        
+                Route::post('/coupon/matches/store', [
+                    'middleware' => 'auth',
+                    'uses' => 'Coupon\MatchesController@store'
+                ]);
+
+                Route::get('/coupon/round/{round}/update', [
+                    'middleware' => 'auth',
+                    'uses' => 'Coupon\RoundsController@index'
+                ]);
+
+                Route::post('/coupon/round/store', [
+                    'middleware' => 'auth',
+                    'uses' => 'Coupon\RoundsController@store'
+                ]);
+        });     
 
         Route::get('/', function()
         {

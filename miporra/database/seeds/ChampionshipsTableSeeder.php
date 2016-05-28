@@ -17,6 +17,7 @@ class ChampionshipsTableSeeder extends Seeder
             'code' => 'euro2016',
 	'start_date' => '2016-06-10',
             'end_date' => '2016-07-10',
+            'end_inscription' => '2016-06-09',
 	'active' => true,
 	'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
 	'updated_at' => Carbon::now()->format('Y-m-d H:i:s')

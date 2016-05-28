@@ -339,4 +339,47 @@ class ChampionshipTest extends TestCase
             [$round01->name, $round02->name]
         );
     }
+
+    /** @test */
+    public function it_return_false_if_date_is_later_than_end_inscription()
+    {
+        $championship = factory(App\Models\Championship::class)->create(['end_inscription' => '2016-05-20']);
+
+        $this->assertFalse($championship->isInscriptionOpen());
+    }
+
+    /** @test */
+    public function it_return_true_if_date_is_later_than_end_inscription()
+    {
+        $faker = Faker\Factory::create();
+
+        $championship = factory(App\Models\Championship::class)->create();
+
+        $championship->end_inscription = $faker->dateTimeBetween('+10 day', '+1 month');
+
+        $this->assertTrue($championship->isInscriptionOpen());
+    }
+
+    /** @test */
+    public function it_return_false_if_has_not_started()
+    {
+        $faker = Faker\Factory::create();
+        $championship = factory(App\Models\Championship::class)->create();
+
+        $championship->start_date = $faker->dateTimeBetween('+10 day', '+1 month');
+
+        $this->assertFalse($championship->hasStarted());
+    }
+
+    /** @test */
+    public function it_return_true_if_has_started()
+    {
+        $faker = Faker\Factory::create();
+
+        $championship = factory(App\Models\Championship::class)->create();
+
+        $championship->start_date = $faker->dateTimeBetween('-10 day', '-1 day');
+
+        $this->assertTrue($championship->hasStarted());
+    }
 }

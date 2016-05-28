@@ -26,8 +26,9 @@ $factory->define(App\Models\Championship::class, function (Faker\Generator $fake
     return [
 	'name' => $faker->name,
             'code' => uniqid(),
-	'start_date' => $faker->dateTimeBetween('+1 day', '+1 month'),
-	'end_date' => $faker->dateTimeBetween('+1 month', '+2 month'),
+	'start_date' => $faker->dateTimeBetween('+10 day', '+1 month'),
+            'end_date' => $faker->dateTimeBetween('+1 month', '+2 month'),
+	'end_inscription' => $faker->dateTimeBetween('+1 day', '+9 days'),
 	'created_at' => $faker->dateTime(),
 	'updated_at' => $faker->dateTime()
     ];

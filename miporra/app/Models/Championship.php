@@ -63,6 +63,16 @@ class Championship extends Model
         return Carbon::now() >= $this->start_date && Carbon::now() <= $this->end_date;
     }
 
+    public function hasStarted()
+    {
+        return Carbon::now() >= $this->start_date;
+    }
+
+    public function isInscriptionOpen()
+    {
+        return Carbon::now() <= $this->end_inscription;
+    }
+
     public function subscribeTeam(Team $team)
     {
         $this->teams()->save($team);

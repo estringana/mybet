@@ -3,13 +3,13 @@ TODO
 
 MUST HAVE
 -------------------------------
-- Create a middle layer for stop the ability of editing teams once it in progress the championship
-- Be able to see all the player coupons when time has finished
+- Be able to see all the player coupons when time has finished --> hasStarted middlelayer
 - Summarise all the player coupons on a PDF
 
 NICE TO HAVE
 -------------------------------
 - Create groups
+- When championship is not open to subscription redirect with a nice message
 
 
 

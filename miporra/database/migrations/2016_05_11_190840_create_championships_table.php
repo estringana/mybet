@@ -16,6 +16,7 @@ class CreateChampionshipsTable extends Migration
             $table->increments('id');
             $table->string('code')->unique();
             $table->string('name');
+            $table->date('end_inscription');
             $table->date('start_date');
             $table->date('end_date');
             $table->boolean('active')->default(false);
