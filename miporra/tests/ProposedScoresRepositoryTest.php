@@ -139,7 +139,7 @@ class ProposedScoresRepositoryTest extends TestCase
    }
 
    /** @test */
-   public function it_should_set_the_score_when_4_uses_predict_the_same()
+   public function it_should_set_the_score_when_4_uses_predict_the_same_and_delete_all()
    {
        $match = $this->championship->matches()->firstOrFail();
 
@@ -157,5 +157,6 @@ class ProposedScoresRepositoryTest extends TestCase
 
        $this->assertEquals(5, $match->local_score);
        $this->assertEquals(6, $match->away_score);
-   }
+       $this->assertEquals(0, $match->propositions->count());
+   }   
 }

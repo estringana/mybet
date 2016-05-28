@@ -19,6 +19,7 @@ class CreateProposedScoresTable extends Migration
             $table->integer('local_score');
             $table->integer('away_score');
             $table->timestamps();
+            $table->softDeletes();
             
             $table->foreign('match_id')->references('id')->on('matches');
             $table->foreign('user_id')->references('id')->on('users');

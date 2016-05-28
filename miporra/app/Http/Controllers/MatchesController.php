@@ -39,7 +39,7 @@ class MatchesController extends Controller
 
         $match = $this->getMatchFromId($match_id);
 
-        $proposedScores = $match->propositions;
+        $proposedScores = $match->propositions()->select('local_score','away_score', \DB::raw('count(*) as times'))->groupBy('local_score','away_score')->get();
 
              return view('championship.actions.proposeScore')
                 ->with( compact(['match','proposedScores']) );

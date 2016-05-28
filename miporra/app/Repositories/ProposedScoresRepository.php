@@ -61,6 +61,18 @@ class ProposedScoresRepository
             ->count() >= ProposedScoresRepository::PROPOSITION_NEEDED_TO_BECOME_REAL;
     }
 
+    protected function removeOldPrepositions($match_id, $local_score, $away_score)
+    {
+          $propositionsToDelete = ProposedScore::where('match_id',$match_id)
+            ->where('local_score',$local_score)
+            ->where('away_score',$away_score)
+            ->get();
+
+            foreach ($propositionsToDelete as $proposition) {
+                $proposition->delete();
+            }
+    }
+
     protected function setScoreToMatch($match_id, $local_score, $away_score)
     {
            $match = $this->championship
@@ -70,6 +82,7 @@ class ProposedScoresRepository
 
             $match->addScore($local_score, $away_score);
             $match->save();
+            $this->removeOldPrepositions($match_id, $local_score, $away_score);
     }
 
     protected function create_proposed_score($match, $local_score, $away_score)

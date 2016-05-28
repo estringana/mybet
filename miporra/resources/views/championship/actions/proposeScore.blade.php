@@ -11,38 +11,42 @@
     </div>
 
             @foreach($proposedScores as $proposition)
-                <div class="panel panel-default">
-                      <div class="panel-heading">Proposed score</div>
-                      <div class="panel-body">{{ $proposition->local_score }} - {{ $proposition->away_score }}</div>
-                      <div class="panel-footer">
-                              <form class="form-inline" method="POST">
-                                    {{ csrf_field() }}
-                                    <input type="hidden" class="form-control" id="local" name="local" value="{{$proposition->local_score}}"> 
-                                    <input type="hidden" class="form-control" id="away" name="away" value="{{$proposition->away_score}}">
-                                    <button type="submit" class="btn btn-default">Validate</button>
-                                </form>
-                      </div>
+                <div class=" col-md-3">
+                    <div class="panel panel-default">
+                          <div class="panel-heading">Proposed score {{$proposition->times}} times</div>
+                          <div class="panel-body">{{ $proposition->local_score }} - {{ $proposition->away_score }}</div>
+                          <div class="panel-footer">
+                                  <form class="form-inline" method="POST">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" class="form-control" id="local" name="local" value="{{$proposition->local_score}}"> 
+                                        <input type="hidden" class="form-control" id="away" name="away" value="{{$proposition->away_score}}">
+                                        <button type="submit" class="btn btn-default">Validate</button>
+                                    </form>
+                          </div>
+                    </div>
                 </div>
             @endforeach
-    <div class="panel panel-default">
-      <div class="panel-heading">Proposed a different one</div>
-      <div class="panel-body">
-            <form class="form-inline" method="POST">
-                {{ csrf_field() }}
-                <div class="form-group">
-                        <label for="local">
-                            {!!FlagIcon::get($match->local->short_code,$match->local->name)!!} {{$match->local->name}}
-                        </label>
-                        <input type="text" class="form-control" id="local" name="local" placeholder="Score...">
-                      </div>
-                      <div class="form-group">                
-                        <input type="text" class="form-control" id="away" name="away" placeholder="Score...">
-                        <label for="away">
-                            {!!FlagIcon::get($match->away->short_code,$match->away->name)!!} {{$match->away->name}}
-                        </label>
-                        <button type="submit" class="btn btn-default">Report</button>
-                </div>
-            </form>
+    <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">Proposed a different one</div>
+          <div class="panel-body">
+                <form class="form-inline" method="POST">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                            <label for="local">
+                                {!!FlagIcon::get($match->local->short_code,$match->local->name)!!} {{$match->local->name}}
+                            </label>
+                            <input type="text" class="form-control" id="local" name="local" placeholder="Score...">
+                          </div>
+                          <div class="form-group">                
+                            <input type="text" class="form-control" id="away" name="away" placeholder="Score...">
+                            <label for="away">
+                                {!!FlagIcon::get($match->away->short_code,$match->away->name)!!} {{$match->away->name}}
+                            </label>
+                            <button type="submit" class="btn btn-default">Report</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</div>
 @stop
