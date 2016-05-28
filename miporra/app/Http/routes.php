@@ -30,6 +30,16 @@
             'uses' => 'MatchesController@index'
         ]);
 
+        Route::get('/matches/propose/{match_id}', [
+            'middleware' => 'auth',
+            'uses' => 'MatchesController@propose'
+        ]);
+
+        Route::post('/matches/propose/{match_id}', [
+            'middleware' => 'auth',
+            'uses' => 'MatchesController@storeProposition'
+        ]);
+
         Route::get('/coupon/players/update', [
             'middleware' => 'auth',
             'uses' => 'Coupon\PlayersController@index'

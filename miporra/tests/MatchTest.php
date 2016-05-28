@@ -7,16 +7,6 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class MatchTest extends TestCase
 {
     use DatabaseTransactions;
-    
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
-    {
-        $this->assertTrue(true);
-    }
 
     /** @test */
     public function it_can_add_teams()    

@@ -28,6 +28,11 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Coupon');
     }
+    
+    public function propositions()
+    {
+        return $this->hasMany('App\Models\ProposedScore');
+    }
 
     protected function createCouponForUserOnChampionshio(Championship $championship)
     {

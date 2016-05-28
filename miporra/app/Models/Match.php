@@ -40,6 +40,11 @@ class Match extends Model
         return $this->hasMany('App\Models\Goal');
     }
 
+    public function propositions()
+    {
+        return $this->hasMany('App\Models\ProposedScore');
+    }
+
     public function addTeams(Team $local, Team $away)
     {
         $this->local()->associate($local);
@@ -65,6 +70,11 @@ class Match extends Model
     public function addGoal(Goal $goal)
     {
         $this->goals()->save($goal);
+    }
+
+    public function addProposition(ProposedScore $proposition)
+    {
+        $this->propositions()->save($proposition);
     }
 
     protected function guardAgainstScoreNotProvidedYet()
