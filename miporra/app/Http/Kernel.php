@@ -52,5 +52,8 @@ class Kernel extends HttpKernel
         'championship.open' => \App\Http\Middleware\IsInscriptionOpen::class,
         'championship.hasStarted' => \App\Http\Middleware\HasStarted::class,
         'user.admin' => \App\Http\Middleware\IsAdmin::class,
+        'localize' => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class,
+        'localizationRedirect' => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter::class,
+        'localeSessionRedirect' => \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class
     ];
 }
