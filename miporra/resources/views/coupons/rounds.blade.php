@@ -1,10 +1,10 @@
 <div class="panel panel-default {{($editable?'editable':'')}}">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <a role="button" data-toggle="collapse" data-parent="#bets" href="#{{strtolower(str_replace(' ','',$title))}}" aria-expanded="false" aria-controls="{{strtolower(str_replace(' ','',$title))}}">{{$title}}</a>
+            <a role="button" data-toggle="{{$collapsable or ''}}" data-parent="#bets" href="#{{strtolower(str_replace(' ','',$title))}}" aria-expanded="false" aria-controls="{{strtolower(str_replace(' ','',$title))}}">{{$title}}</a>
         </h4>        
     </div>
-    <div class="panel-body collapse" id="{{strtolower(str_replace(' ','',$title))}}">
+    <div class="panel-body {{$collapsable or ''}}" id="{{strtolower(str_replace(' ','',$title))}}">
         <table class="table table-responsive table-striped">
             <thead>
                 <tr>

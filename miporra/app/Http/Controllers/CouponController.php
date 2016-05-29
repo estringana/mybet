@@ -81,4 +81,21 @@ class CouponController extends Controller
          return view('coupons.users')
                 ->with(['coupons'=>$coupons]);  
     }
+
+    public function printable()
+    {
+           $coupons = [];
+
+           foreach ($this->championship->coupons as $coupon)
+           {
+               $this->instantiateRepositoriesFromCoupon($coupon);
+               $couponData = $this->getData();
+               $couponData['user'] = $coupon->user;
+
+               $coupons [] = $couponData;
+           }
+
+           return view('coupons.printable')
+                ->with([ 'coupons' => $coupons ]);
+    }
 }

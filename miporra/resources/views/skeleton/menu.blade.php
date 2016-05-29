@@ -8,9 +8,17 @@
     @if(Auth::check())
             <li><a href="{{Url::get('/coupon')}}">{{ trans('messages.yourbet') }}</a></li>
             <li><a href="{{Url::get('/table')}}">{{ trans('messages.table') }}</a></li>
+            @if(Auth::user()->is_admin)
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/users/printable">Users printable</a></li>
+                  </ul>
+                </li>
+            @endif
     @endif
         <li><a href="{{Url::get('/matches')}}">{{ trans('messages.matches') }}</a></li>
-        <li><a href="{{Url::get('/coupon/all')}}">{{ trans('messages.users') }}</a></li>
+        <li><a href="{{Url::get('/coupon/all')}}">{{ trans('messages.users') }}</a></li>    
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li>

@@ -1,10 +1,10 @@
 <div class="panel panel-default {{($editable?'editable':'')}}">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <a role="button" data-toggle="collapse" data-parent="#bets" href="#players" aria-expanded="false" aria-controls="players">{{ trans('messages.players') }}</a>
+            <a role="button" data-toggle="{{$collapsable or ''}}" data-parent="#bets" href="#players" aria-expanded="false" aria-controls="players">{{ trans('messages.players') }}</a>
         </h4>        
     </div>
-    <div class="panel-body collapse" id="players">
+    <div class="panel-body {{$collapsable or ''}}" id="players">
         <table class="table table-responsive table-striped">
             <thead>
                 <tr>

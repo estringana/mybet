@@ -12,6 +12,6 @@
        </p>
     </div>
     <div class="panel-group" id="bets" role="tablist" aria-multiselectable="true">
-      @include('coupons.groupedBets')
+      @include('coupons.groupedBets', [ 'collapsable' => 'collapse' ])
     </div>
 @stop

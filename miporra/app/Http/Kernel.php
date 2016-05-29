@@ -51,5 +51,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'championship.open' => \App\Http\Middleware\IsInscriptionOpen::class,
         'championship.hasStarted' => \App\Http\Middleware\HasStarted::class,
+        'user.admin' => \App\Http\Middleware\IsAdmin::class,
     ];
 }
