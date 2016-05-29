@@ -8,7 +8,10 @@ class BetConfigurationTest extends TestCase
 {
     use DatabaseTransactions;
     
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_can_have_a_round()
     {
         $round = factory(App\Models\Round::class)->create();

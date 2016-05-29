@@ -7,17 +7,12 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class PlayerBetTest extends TestCase
 {
     use DatabaseTransactions;
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
-    {
-        $this->assertTrue(true);
-    }
 
-    /** @test */
+
+    /**
+* @test
+* @group backend
+*/
     public function it_can_add_players()
     {
         $playerBet = new App\Models\PlayerBet();
@@ -28,7 +23,10 @@ class PlayerBetTest extends TestCase
         $this->assertTrue($playerBet->player->id == $player->id);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_can_disassociate_player()
     {
         $playerBet = new App\Models\PlayerBet();
@@ -45,7 +43,10 @@ class PlayerBetTest extends TestCase
         $this->assertEquals(null, $playerBet->player);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_counts_goals_from_a_player_bet_when_player_has_goals()
     {
         $playerBet = new App\Models\PlayerBet();
@@ -66,7 +67,10 @@ class PlayerBetTest extends TestCase
         $this->assertEquals(2 , $playerBet->points);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_returns_0_from_a_player_bet_when_no_goals()
     {
         $playerBet = new App\Models\PlayerBet();
@@ -78,7 +82,10 @@ class PlayerBetTest extends TestCase
         $this->assertEquals(0 , $playerBet->points);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_get_the_right_identification_from_playerbet_subtype()
     {
         $bet = new App\Models\Bet();        
@@ -92,7 +99,10 @@ class PlayerBetTest extends TestCase
         $this->assertEquals($bet->getIdentification(), \App\Interfaces\Identifiable::NO_IDENTIFICATION);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_does_not_save_identify()
     {
         $playerBet = new App\Models\PlayerBet();

@@ -8,17 +8,12 @@ class UserTest extends TestCase
 {
     use DatabaseTransactions;
     
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
-    {
-        $this->assertTrue(true);
-    }
 
-    /** @test */
+
+    /**
+* @test
+* @group backend
+*/
     public function it_should_not_have_a_coupon_if_new_user()
     {
         $user = factory(\App\Models\User::class)->create();
@@ -26,7 +21,10 @@ class UserTest extends TestCase
         $this->assertEquals(0, $user->coupons()->count());
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_create_a_coupon()    
     {
         $championship = factory(\App\Models\Championship::class)->create();

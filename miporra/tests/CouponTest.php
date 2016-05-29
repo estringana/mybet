@@ -11,17 +11,12 @@ class CouponTest extends TestCase
 {
     use DatabaseTransactions;
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
-    {
-        $this->assertTrue(true);
-    }
 
-    /** @test */
+
+    /**
+* @test
+* @group backend
+*/
     public function it_return_same_added_bet()
     {
         $user = factory(App\Models\User::class)->create();    
@@ -37,7 +32,10 @@ class CouponTest extends TestCase
         $this->assertEquals($coupon->bets->toArray(), [$bet->toArray()]);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_return_same_added_bets()
     {
         $user = factory(App\Models\User::class)->create();    
@@ -59,7 +57,10 @@ class CouponTest extends TestCase
         $this->assertCount(2,$coupon->bets);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_returns_types_A_and_B_when_asking_for_types()
     {
         $championship = factory(Championship::class)->create();   
@@ -82,7 +83,10 @@ class CouponTest extends TestCase
         );
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_returns_right_bets_when_asking_for_bets_of_type_B()
     {
         $championship = factory(Championship::class)->create();   
@@ -105,7 +109,10 @@ class CouponTest extends TestCase
         );
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_returns_2_when_asking_for_bets_of_type_B_count()
     {
         $championship = factory(Championship::class)->create();   
@@ -128,7 +135,10 @@ class CouponTest extends TestCase
         );
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_returns_right_subtypebets_when_asking_for_bets_of_type_Matchbet()
     {
         $championship = factory(Championship::class)->create();   
@@ -166,7 +176,10 @@ class CouponTest extends TestCase
         );
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_create_an_coupon_with_all_empty_bets()
     {
         $championship = create_real_championship();
@@ -181,7 +194,10 @@ class CouponTest extends TestCase
         $this->assertEquals(74, $coupon->bets->count());
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_associate_all_the_matches_when_creating_coupon_with_empty_bets()
     {
         $championship = create_real_championship();
@@ -211,7 +227,10 @@ class CouponTest extends TestCase
             ->number_of_bets;      
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_does_not_create_more_player_bets_than_necesary()
     {    
         $championship = create_real_championship();
@@ -230,7 +249,10 @@ class CouponTest extends TestCase
         $this->assertEquals($expted_bets_after_create_them, PlayerBet::all()->count());
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_return_true_if_all_the_bet_of_a_type_are_completed()
     {
         $championship = factory(Championship::class)->create();   
@@ -260,7 +282,10 @@ class CouponTest extends TestCase
         $this->assertTrue($coupon->isTypeCompleted(\App\Repositories\PlayerBetsRepository::PLAYER_BETS_TYPE));
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_return_false_if_a_bet_of_a_type_is_not_completed()
     {
         $championship = factory(Championship::class)->create();   

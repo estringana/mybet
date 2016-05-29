@@ -22,7 +22,10 @@ class ProposedScoresRepositoryTest extends TestCase
         $this->repository = new App\Repositories\ProposedScoresRepository($this->user, $this->championship);
     }        
 
-   /** @test */
+   /**
+* @test
+* @group backend
+*/
    public function it_should_throw_exception_if_match_does_not_exist_in_championship()
    {
         $match = factory('App\Models\Match')->create();
@@ -32,7 +35,10 @@ class ProposedScoresRepositoryTest extends TestCase
         $this->repository->save($match->id,1,2);
    }
 
-   /** @test */
+   /**
+* @test
+* @group backend
+*/
    public function it_should_throw_an_exception_if_match_does_not_exists_at_all()
    {
         $this->setExpectedException('\App\Exceptions\MatchNotFoundException');
@@ -40,7 +46,10 @@ class ProposedScoresRepositoryTest extends TestCase
         $this->repository->save(12341234,1,2);
    }
 
-   /** @test */
+   /**
+* @test
+* @group backend
+*/
    public function it_should_create_a_proposition()
    {
        $match = $this->championship->matches()->firstOrFail();
@@ -62,7 +71,10 @@ class ProposedScoresRepositoryTest extends TestCase
        $this->assertEquals(1, $proposition_founded);
    }
 
-   /** @test */
+   /**
+* @test
+* @group backend
+*/
    public function it_should_throw_an_exception_if_the_same_player_propose_the_same_twice()
    {
        $match = $this->championship->matches()->firstOrFail();
@@ -76,7 +88,10 @@ class ProposedScoresRepositoryTest extends TestCase
       $this->repository->save($match->id, 1, 2);       
    }
 
-   /** @test */
+   /**
+* @test
+* @group backend
+*/
    public function it_should_not_set_the_score_when_user_is_not_admin()
    {
        $match = $this->championship->matches()->firstOrFail();
@@ -93,7 +108,10 @@ class ProposedScoresRepositoryTest extends TestCase
        $this->assertEquals(0, $match->away_score);
    }
 
-   /** @test */
+   /**
+* @test
+* @group backend
+*/
    public function it_should_set_the_score_when_user_is_admin()
    {
        $match = $this->championship->matches()->firstOrFail();
@@ -113,7 +131,10 @@ class ProposedScoresRepositoryTest extends TestCase
        $this->assertEquals(2, $match->away_score);
    }
 
-   /** @test */
+   /**
+* @test
+* @group backend
+*/
    public function it_should_not_set_the_score_when_less_than_4_uses_predict()
    {
        $match = $this->championship->matches()->firstOrFail();
@@ -138,7 +159,10 @@ class ProposedScoresRepositoryTest extends TestCase
        $this->assertEquals(0, $match->away_score);
    }
 
-   /** @test */
+   /**
+* @test
+* @group backend
+*/
    public function it_should_set_the_score_when_4_uses_predict_the_same_and_delete_all()
    {
        $match = $this->championship->matches()->firstOrFail();

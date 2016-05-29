@@ -7,17 +7,12 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class PlayerTest extends TestCase
 {
     use DatabaseTransactions;
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
-    {
-        $this->assertTrue(true);
-    }
 
-    /** @test */
+
+    /**
+* @test
+* @group backend
+*/
     public function it_can_have_a_goal()
     {
         $goal = new App\Models\Goal();
@@ -31,7 +26,10 @@ class PlayerTest extends TestCase
         $this->assertCount(1, $player->goals);      
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_can_have_multiple_goals()
     {
         $goal01 = new App\Models\Goal();
@@ -51,7 +49,10 @@ class PlayerTest extends TestCase
         $this->assertCount(3, $player->goals);      
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_can_have_multiple_goals_on_different_games()
     {
         $goal01 = new App\Models\Goal();
@@ -72,7 +73,10 @@ class PlayerTest extends TestCase
         $this->assertCount(3, $player->goals);      
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_only_count_countable_goals()
     {
         $notCounableGoal = new App\Models\Goal();
@@ -94,7 +98,10 @@ class PlayerTest extends TestCase
         $this->assertTrue($player->countableGoals == 2);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_returns_0_when_no_goals()
     {
         $player = factory(App\Models\Player::class)->create();

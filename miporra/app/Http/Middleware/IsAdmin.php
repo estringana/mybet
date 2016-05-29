@@ -8,7 +8,7 @@ class IsAdmin
 {
     protected function isUserAdmin()
     {
-        return \Auth::user()->is_admin;
+        return \Auth::user() && \Auth::user()->is_admin;
     }
 
     /**

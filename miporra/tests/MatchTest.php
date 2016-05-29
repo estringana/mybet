@@ -8,7 +8,10 @@ class MatchTest extends TestCase
 {
     use DatabaseTransactions;
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_can_add_teams()    
     {
         $teams = factory(App\Models\Team::class,2)->create();
@@ -21,7 +24,10 @@ class MatchTest extends TestCase
         $this->assertTrue($match->away->id == $teams[1]->id);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_say_that_the_winner_is_local_with_2_1_score()    
     {
         $match = factory(App\Models\Match::class)->create();
@@ -31,7 +37,10 @@ class MatchTest extends TestCase
         $this->assertTrue($match->winner() == App\Models\Match::LOCAL);
     }
 
-     /** @test */
+     /**
+* @test
+* @group backend
+*/
     public function it_should_say_that_the_winner_is_away_with_1_4_score()    
     {
         $match = factory(App\Models\Match::class)->create();
@@ -41,7 +50,10 @@ class MatchTest extends TestCase
         $this->assertTrue($match->winner() == App\Models\Match::AWAY);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_say_draw_with_score_3_3()    
     {
         $match = factory(App\Models\Match::class)->create();
@@ -51,7 +63,10 @@ class MatchTest extends TestCase
         $this->assertTrue($match->winner() == App\Models\Match::DRAW);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_throw_an_exception_if_no_score_yet()    
     {
         $match = factory(App\Models\Match::class)->create();
@@ -61,7 +76,10 @@ class MatchTest extends TestCase
         $match->winner();
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_throw_an_exception_with_invalid_scores_on_away()    
     {
         $match = factory(App\Models\Match::class)->create();
@@ -71,7 +89,10 @@ class MatchTest extends TestCase
         $match->addScore(3,-3);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_throw_an_exception_with_invalid_scores_on_local()    
     {
         $match = factory(App\Models\Match::class)->create();
@@ -81,7 +102,10 @@ class MatchTest extends TestCase
         $match->addScore('2',3);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_say_1_with_2_1_score()    
     {
         $match = factory(App\Models\Match::class)->create();
@@ -91,7 +115,10 @@ class MatchTest extends TestCase
         $this->assertTrue($match->get1X2() == App\Models\Match::SIGN_1);
     }
 
-     /** @test */
+     /**
+* @test
+* @group backend
+*/
     public function it_should_say_2_with_1_4_score()    
     {
         $match = factory(App\Models\Match::class)->create();
@@ -101,7 +128,10 @@ class MatchTest extends TestCase
         $this->assertTrue($match->get1X2() == App\Models\Match::SIGN_2);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_say_X_with_score_3_3()    
     {
         $match = factory(App\Models\Match::class)->create();

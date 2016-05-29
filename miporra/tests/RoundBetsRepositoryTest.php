@@ -60,7 +60,10 @@ class RoundBetsRepositoryTest extends TestCase
         return $team;
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_set_the_prediction_given_an_id()
     {    
         $bet = new App\Models\Bet();        
@@ -84,7 +87,10 @@ class RoundBetsRepositoryTest extends TestCase
         $this->assertEquals($loaded_bet->team->id, $team->id);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_unset_the_prediction_given_an_id_and_null()
     {    
         $round = $this->create_a_team_which_is_on_the_championship($this->championship);        
@@ -101,7 +107,10 @@ class RoundBetsRepositoryTest extends TestCase
         $this->assertTrue($loaded_bet->isEmpty());
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_unset_the_prediction_given_an_id_and_an_empty_string()
     {    
         $round = $this->create_a_team_which_is_on_the_championship($this->championship);        
@@ -123,7 +132,10 @@ class RoundBetsRepositoryTest extends TestCase
        //It works but the test does not...
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_only_return_roundbets_when_asking_for_bets()
     {
         $bet = new App\Models\Bet();        
@@ -150,7 +162,10 @@ class RoundBetsRepositoryTest extends TestCase
         );
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_return_an_exception_if_bet_exits_but_not_belongs_to_coupon()
     {
         $user = factory(App\Models\User::class)->create();
@@ -177,7 +192,10 @@ class RoundBetsRepositoryTest extends TestCase
         $this->repository->save($roundBet->id, $team->id);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_thrown_an_exception_when_saving_an_id_which_dont_exists_at_all()
     {
         $team = $this->create_a_team_which_is_on_the_championship($this->championship);
@@ -187,7 +205,10 @@ class RoundBetsRepositoryTest extends TestCase
         $this->repository->save(1234567, $team->id);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_does_not_return_team_which_are_not_on_the_championship()
     {
         $team_not_in_championship = factory(App\Models\Team::class)->create();
@@ -199,7 +220,10 @@ class RoundBetsRepositoryTest extends TestCase
         $this->assertEquals(0, $is_it_founded->count());
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_only_return_roundBets_on_the_given_round()
     {
         $bet = new App\Models\Bet();        
@@ -227,7 +251,10 @@ class RoundBetsRepositoryTest extends TestCase
         );
     }
     
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_get_the_points_of_roundtype_on_round_id()
     {
         $betConfiguration = App\Models\BetConfiguration::where('championship_id',$this->championship->id)->where('bet_mapping_class',App\Repositories\RoundBetsRepository::ROUND_BETS_TYPE)->firstOrFail();

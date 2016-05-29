@@ -8,17 +8,12 @@ class BetTest extends TestCase
 {
     use DatabaseTransactions;
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
-    {
-        $this->assertTrue(true);
-    }
 
-    /** @test */
+
+    /**
+* @test
+* @group backend
+*/
     public function it_can_handle_a_bettype()
     {
         $bet = new App\Models\Bet();
@@ -29,7 +24,10 @@ class BetTest extends TestCase
         $this->assertEquals( $bet->bettype->toArray() , $playerBet->toArray());
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_return_the_right_subtype()
     {
         $bet = new App\Models\Bet();
@@ -40,7 +38,10 @@ class BetTest extends TestCase
         $this->assertEquals( get_class($bet->bettype), get_class($playerBet) );
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_return_the_right_subtype_again()
     {
         $bet = new App\Models\Bet();
@@ -51,7 +52,10 @@ class BetTest extends TestCase
         $this->assertEquals( get_class($bet->bettype), get_class($matchBet) );
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_throw_an_exception_no_subtype_when_asking_for_identification()
     {
         $bet = new App\Models\Bet();
@@ -61,7 +65,10 @@ class BetTest extends TestCase
         $bet->getIdentification();
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_return_0_points_if_subtype_empty()
     {
         $user = factory(App\Models\User::class)->create();    
@@ -84,7 +91,10 @@ class BetTest extends TestCase
         $this->assertEquals(0, $bet->points);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_return_the_points_of_the_subtype()
     {
         $user = factory(App\Models\User::class)->create();    
@@ -119,7 +129,10 @@ class BetTest extends TestCase
         $this->assertEquals(2, $bet->points);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_throw_an_excption_if_no_subtype()
     {
         $bet = factory(App\Models\Bet::class)->make(); 

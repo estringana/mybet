@@ -8,17 +8,12 @@ class TeamTest extends TestCase
 {
     use DatabaseTransactions;
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
-    {
-        $this->assertTrue(true);
-    }
 
-    /** @test */
+
+    /**
+* @test
+* @group backend
+*/
     public function it_has_a_championship()
     {
         $team = factory(App\Models\Team::class)->make();
@@ -29,7 +24,10 @@ class TeamTest extends TestCase
         $this->assertTrue($team->championship->code == $championship->code);        
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function team_has_championship()
     {
         $team = factory(App\Models\Team::class)->make();
@@ -40,7 +38,10 @@ class TeamTest extends TestCase
         $this->assertTrue($team->hasChampionship());        
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_return_same_players_added()
     {
         $team = factory(App\Models\Team::class)->create();    
@@ -51,7 +52,10 @@ class TeamTest extends TestCase
         $this->assertEquals($team->players->toArray(), [$player->toArray()]);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_return_same_subscribed_teams()
     {
         $players = factory(App\Models\Player::class, 2)->create();    

@@ -31,29 +31,30 @@ class RoundBetTest extends TestCase
         $this->roundBet->associateTeam($this->team);
     }
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
-    {
-        $this->assertTrue(true);
-    }
 
-    /** @test */
+
+    /**
+* @test
+* @group backend
+*/
     public function it_can_associate_a_round()
     {
         $this->assertTrue($this->roundBet->round->id == $this->round->id);   
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_can_associate_a_team()
     {
         $this->assertTrue($this->roundBet->team->id == $this->team->id);   
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_return_3_points_if_the_round_is_set_to_3_points_and_the_team_is_on_it()
     {
         $this->round->setPoints(3);
@@ -62,14 +63,20 @@ class RoundBetTest extends TestCase
         $this->assertEquals(1,$this->roundBet->points);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_return_0_points_if_the_team_is_not_on_it()
     {
         $this->assertEquals(0,$this->roundBet->points);
     }
 
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_get_the_right_identification_from_roundbet_subtype()
     {
         $bet = new App\Models\Bet();        
@@ -79,7 +86,10 @@ class RoundBetTest extends TestCase
         $this->assertEquals($bet->getIdentification() , $this->round->id);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_does_save_identify()
     {
         $round = factory(App\Models\Round::class)->create();

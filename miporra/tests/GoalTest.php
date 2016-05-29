@@ -8,17 +8,12 @@ class GoalTest extends TestCase
 {
     use DatabaseTransactions;
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
-    {
-        $this->assertTrue(true);
-    }
 
-    /** @test */
+
+    /**
+* @test
+* @group backend
+*/
     public function it_can_add_players()
     {
         $goal = new App\Models\Goal();
@@ -29,7 +24,10 @@ class GoalTest extends TestCase
         $this->assertTrue($goal->player->id == $player->id);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_count_by_default()
     {
         $goal = new App\Models\Goal();
@@ -37,7 +35,10 @@ class GoalTest extends TestCase
         $this->assertTrue($goal->shouldCount());
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_not_count_if_own_goal()
     {
         $goal = new App\Models\Goal();
@@ -46,7 +47,10 @@ class GoalTest extends TestCase
         $this->assertFalse($goal->shouldCount());
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_not_count_if_penalty_round()
     {
         $goal = new App\Models\Goal();
@@ -55,7 +59,10 @@ class GoalTest extends TestCase
         $this->assertFalse($goal->shouldCount());
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_count_if_penalty()
     {
         $goal = new App\Models\Goal();

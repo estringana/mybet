@@ -8,17 +8,12 @@ class RoundTest extends TestCase
 {
     use DatabaseTransactions;
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
-    {
-        $this->assertTrue(true);
-    }
 
-     /** @test */
+
+     /**
+* @test
+* @group backend
+*/
     public function it_has_a_championship()
     {
         $round = factory(App\Models\Round::class)->create();
@@ -29,7 +24,10 @@ class RoundTest extends TestCase
         $this->assertTrue($round->championship->code == $championship->code);        
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_can_have_teams()
     {
         $team = factory(App\Models\Team::class)->create();    
@@ -44,7 +42,10 @@ class RoundTest extends TestCase
         $this->assertEquals($round->teams->first()->id, $team->id);
     }
 
-     /** @test */
+     /**
+* @test
+* @group backend
+*/
     public function it_can_not_add_teams_without_championship()
     {
         $team = factory(App\Models\Team::class)->create();    
@@ -58,7 +59,10 @@ class RoundTest extends TestCase
         $round->addTeam($team);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_can_not_add_teams_if_round_doesnt_have_championship()
     {
         $team = factory(App\Models\Team::class)->create();    
@@ -72,7 +76,10 @@ class RoundTest extends TestCase
         $round->addTeam($team);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_can_not_add_teams_if_championship_dont_match()
     {
         $team = factory(App\Models\Team::class)->create();    
@@ -88,7 +95,10 @@ class RoundTest extends TestCase
         $round->addTeam($team);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_can_set_points()
     {
         $round = factory(App\Models\Round::class)->create(); 
@@ -98,7 +108,10 @@ class RoundTest extends TestCase
         $this->assertEquals(20, $round->points);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_throws_an_exction_if_string_points()
     {
         $round = factory(App\Models\Round::class)->create(); 
@@ -108,7 +121,10 @@ class RoundTest extends TestCase
         $round->setPoints('aa');
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_throws_an_exction_if_string_integer_points()
     {
         $round = factory(App\Models\Round::class)->create(); 
@@ -118,7 +134,10 @@ class RoundTest extends TestCase
         $round->setPoints('-2');
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_throws_an_exction_if_negative_points()
     {
         $round = factory(App\Models\Round::class)->create(); 
@@ -128,7 +147,10 @@ class RoundTest extends TestCase
         $round->setPoints(-1);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_check_if_team_added_is_on_it()
     {
         $team = factory(App\Models\Team::class)->create();    
@@ -143,7 +165,10 @@ class RoundTest extends TestCase
         $this->assertTrue($round->hasTeam($team));
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_check_if_team_added_is_on_it_when_more_than_one_team_added()
     {
         $teams = factory(App\Models\Team::class,2)->create();    
@@ -160,7 +185,10 @@ class RoundTest extends TestCase
         $this->assertTrue($round->hasTeam($teams[1]));
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_check_if_team_added_is_on_it_when_not_all_the_teams_added()
     {
         $teamsIncluded = factory(App\Models\Team::class,2)->create();    
@@ -182,7 +210,10 @@ class RoundTest extends TestCase
         $this->assertFalse($round->hasTeam($teamNotIncluded));
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_return_false_if_no_team_added()
     {
         $team = factory(App\Models\Team::class)->create();    
@@ -195,7 +226,10 @@ class RoundTest extends TestCase
         $this->assertFalse($round->hasTeam($team));
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_can_have_a_match()
     {
         $match = factory(App\Models\Match::class)->create();    
@@ -206,7 +240,10 @@ class RoundTest extends TestCase
         $this->assertEquals($round->matches->first()->id, $match->id);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_can_have_matches()
     {
         $matches = factory(App\Models\Match::class,2)->create();    

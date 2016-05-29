@@ -8,7 +8,10 @@ class ProposedScoreTest extends TestCase
 {
     use DatabaseTransactions;
     
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_set_local_and_away_score_with_valid_scores()
     {
         $proposedScore = new App\Models\ProposedScore();
@@ -20,7 +23,10 @@ class ProposedScoreTest extends TestCase
         $this->assertEquals(1, $proposedScore->away_score);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_throw_an_exception_with_invalid_local_scores()
     {
         $proposedScore = new App\Models\ProposedScore();
@@ -30,7 +36,10 @@ class ProposedScoreTest extends TestCase
         $proposedScore->local_score = -1;
     }
 
-     /** @test */
+     /**
+* @test
+* @group backend
+*/
     public function it_should_throw_an_exception_with_invalid_away_scores()
     {
         $proposedScore = new App\Models\ProposedScore();
@@ -40,7 +49,10 @@ class ProposedScoreTest extends TestCase
         $proposedScore->away_score = -1;
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_throw_an_exception_with_invalid_local_scores_2()
     {
         $proposedScore = new App\Models\ProposedScore();
@@ -50,7 +62,10 @@ class ProposedScoreTest extends TestCase
         $proposedScore->local_score = "";
     }
 
-     /** @test */
+     /**
+* @test
+* @group backend
+*/
     public function it_should_throw_an_exception_with_invalid_away_scores_2()
     {
         $proposedScore = new App\Models\ProposedScore();

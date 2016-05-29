@@ -61,7 +61,10 @@ class PlayerBetsRepositoryTest extends TestCase
         return $player;
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_set_the_prediction_given_an_id()
     {    
         $loaded_bet = App\Models\PlayerBet::find($this->playerBet_on_bet->id);
@@ -78,7 +81,10 @@ class PlayerBetsRepositoryTest extends TestCase
         $this->assertEquals($loaded_bet->player->id, $player->id);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_unset_the_prediction_given_an_id_and_null()
     {    
         $player = $this->create_a_player_on_a_team_which_is_on_the_championship();        
@@ -95,7 +101,10 @@ class PlayerBetsRepositoryTest extends TestCase
         $this->assertTrue($loaded_bet->isEmpty());
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_unset_the_prediction_given_an_id_and_an_empty_string()
     {    
         $player = $this->create_a_player_on_a_team_which_is_on_the_championship();        
@@ -117,7 +126,10 @@ class PlayerBetsRepositoryTest extends TestCase
        //It works but the test does not...
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_only_return_playerbets_when_asking_for_bets()
     {
         $bet = new App\Models\Bet();        
@@ -140,7 +152,10 @@ class PlayerBetsRepositoryTest extends TestCase
         );
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_return_an_exception_if_bet_exits_but_not_belongs_to_coupon()
     {
         $user = factory(App\Models\User::class)->create();
@@ -163,7 +178,10 @@ class PlayerBetsRepositoryTest extends TestCase
         $this->repository->save($playerBet->id, $player->id);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_thrown_an_exception_when_saving_an_id_which_dont_exists_at_all()
     {
         $player = $this->create_a_player_on_a_team_which_is_on_the_championship();
@@ -173,7 +191,10 @@ class PlayerBetsRepositoryTest extends TestCase
         $this->repository->save(1234567, $player->id);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_does_not_return_player_which_are_not_on_the_championship()
     {
         $player_not_in_championship = factory(App\Models\Player::class)->create();
@@ -185,7 +206,10 @@ class PlayerBetsRepositoryTest extends TestCase
         $this->assertEquals(0, $is_it_founded->count());
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_get_the_points_of_playertype()
     {
         $championship = create_real_championship();
@@ -204,7 +228,10 @@ class PlayerBetsRepositoryTest extends TestCase
         $this->assertEquals(2*$points_on_championship,$this->repository->points());
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_get_0_points_of_playertype_if_no_foals()
     {
         $championship = create_real_championship();

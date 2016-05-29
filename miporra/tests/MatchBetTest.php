@@ -25,23 +25,21 @@ class MatchBetTest extends TestCase
         $this->matchBet->associateMatch($this->match);
     }
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
-    {
-        $this->assertTrue(true);
-    }
 
-    /** @test */
+
+    /**
+* @test
+* @group backend
+*/
     public function it_can_add_matches()
     {        
         $this->assertTrue($this->matchBet->match->id == $this->match->id);
     }
 
-     /** @test */
+     /**
+* @test
+* @group backend
+*/
      public function it_return_1_point_when_match_matches_score_with_1()
      {
          $this->match->addScore(5,1);
@@ -51,7 +49,10 @@ class MatchBetTest extends TestCase
      }    
 
 
-     /** @test */
+     /**
+* @test
+* @group backend
+*/
      public function it_returns_0_if_match_has_no_score_yet()
      {
          $this->matchBet->setPrediction(Match::SIGN_1);
@@ -59,7 +60,10 @@ class MatchBetTest extends TestCase
          $this->assertEquals(0, $this->matchBet->points);
      }
      
-     /** @test */
+     /**
+* @test
+* @group backend
+*/
      public function it_return_exception_if_invalid_prediction()
      {
         $this->setExpectedException('\App\Exceptions\InvalidPredictionException');
@@ -67,7 +71,10 @@ class MatchBetTest extends TestCase
         $this->matchBet->setPrediction('B');
      }
 
-     /** @test */
+     /**
+* @test
+* @group backend
+*/
     public function it_get_the_right_identification_from_matchbet_subtype()
     {
         $bet = new App\Models\Bet();
@@ -80,7 +87,10 @@ class MatchBetTest extends TestCase
         $this->assertEquals($bet->getIdentification(), \App\Interfaces\Identifiable::NO_IDENTIFICATION);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_does_not_save_identify()
     {
         $matchBet = new App\Models\MatchBet();

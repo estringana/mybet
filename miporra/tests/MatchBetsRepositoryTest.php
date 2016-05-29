@@ -54,7 +54,10 @@ class MatchBetsRepositoryTest extends TestCase
         $this->repository = new App\Repositories\MatchBetsRepository($this->coupon);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_set_the_prediction_given_an_id()
     {
         $loaded_bet = App\Models\MatchBet::find($this->matchBet_on_bet->id);
@@ -68,7 +71,10 @@ class MatchBetsRepositoryTest extends TestCase
         $this->assertFalse($loaded_bet->isEmpty());
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_only_return_matchbets_when_asking_for_bets()
     {
         $bet = new App\Models\Bet();        
@@ -92,7 +98,10 @@ class MatchBetsRepositoryTest extends TestCase
         );
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_return_an_exception_if_bet_exits_but_not_belongs_to_coupon()
     {
         $user = factory(App\Models\User::class)->create();
@@ -113,7 +122,10 @@ class MatchBetsRepositoryTest extends TestCase
         $this->repository->save($matchbet->id, 'X');
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_thrown_an_exception_when_saving_an_id_which_dont_exists_at_all()
     {
         $this->setExpectedException('\App\Exceptions\BetNotFoundException');
@@ -121,7 +133,10 @@ class MatchBetsRepositoryTest extends TestCase
         $this->repository->save(1234567, 'X');
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_get_the_points_of_matchtype()
     {
         $championship = create_real_championship();
@@ -146,7 +161,10 @@ class MatchBetsRepositoryTest extends TestCase
         $this->assertEquals(2*$points_on_championship,$this->repository->points());
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_get_0_points_of_matchtype_if_no_goals()
     {
         $championship = create_real_championship();

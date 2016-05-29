@@ -8,17 +8,12 @@ class ChampionshipTest extends TestCase
 {
     use DatabaseTransactions;
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
-    {
-        $this->assertTrue(true);
-    }
 
-    /** @test */
+
+    /**
+* @test
+* @group backend
+*/
     public function it_is_not_in_progress_if_it_is_before_start_date()
     {
 	$championship = factory(App\Models\Championship::class,'notStarted')->create();
@@ -26,7 +21,10 @@ class ChampionshipTest extends TestCase
 	$this->assertFalse($championship->inProgress());    	
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_is_in_progress_if_it_is_after_start_date_but_before_end_date()
     {
     	$championship = factory(App\Models\Championship::class,'inProgress')->create();
@@ -34,7 +32,10 @@ class ChampionshipTest extends TestCase
 	$this->assertTrue($championship->inProgress());    		
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_is_not_in_progress_if_it_is_after_end_date()
     {
         $championship = factory(App\Models\Championship::class,'ended')->create();
@@ -42,7 +43,10 @@ class ChampionshipTest extends TestCase
         $this->assertFalse($championship->inProgress());    	
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_return_same_subscribed_team()
     {
         $team = factory(App\Models\Team::class)->create();    
@@ -53,7 +57,10 @@ class ChampionshipTest extends TestCase
         $this->assertEquals($championship->teams->toArray(), [$team->toArray()]);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_return_same_subscribed_teams()
     {
         $teams = factory(App\Models\Team::class, 2)->create();    
@@ -73,7 +80,10 @@ class ChampionshipTest extends TestCase
         $this->assertCount(2,$championship->teams);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_return_same_added_round()
     {
         $round = factory(App\Models\Round::class)->create();    
@@ -84,7 +94,10 @@ class ChampionshipTest extends TestCase
         $this->assertEquals($championship->rounds->toArray(), [$round->toArray()]);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_return_same_added_rounds()
     {
         $rounds = factory(App\Models\Round::class, 2)->create();    
@@ -104,7 +117,10 @@ class ChampionshipTest extends TestCase
         $this->assertCount(2,$championship->rounds);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_return_same_added_user()
     {
         $user = factory(App\Models\User::class)->create();    
@@ -118,7 +134,10 @@ class ChampionshipTest extends TestCase
         $this->assertEquals($championship->coupons()->firstOrFail()->user->id, $user->id);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_return_same_added_users()
     {
         $users = factory(App\Models\User::class, 2)->create();    
@@ -143,7 +162,10 @@ class ChampionshipTest extends TestCase
         $this->assertCount(2,$championship->coupons);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_can_not_be_the_same_users_twice_on_a_championship()
     {
         $user = factory(App\Models\User::class)->create();    
@@ -161,7 +183,10 @@ class ChampionshipTest extends TestCase
         $championship->addCoupon($coupon02);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_can_add_configuration()
     {
         $championship = factory(App\Models\Championship::class)->create();   
@@ -175,7 +200,10 @@ class ChampionshipTest extends TestCase
         );
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_can_add_configurations()
     {
         $championship = factory(App\Models\Championship::class)->create();   
@@ -192,7 +220,10 @@ class ChampionshipTest extends TestCase
         );
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_return_all_the_player_who_belong_to_the_subscribed_teams()
     {
         $team_a = factory(App\Models\Team::class)->create();    
@@ -210,7 +241,10 @@ class ChampionshipTest extends TestCase
         $this->assertCount(2,$championship->players);
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_return_the_points_of_the_type()
     {
         $championship = factory(App\Models\Championship::class)->create();   
@@ -229,7 +263,10 @@ class ChampionshipTest extends TestCase
         );        
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_return_the_points_of_the_type_identifies_by()
     {
         $championship = factory(App\Models\Championship::class)->create();   
@@ -256,7 +293,10 @@ class ChampionshipTest extends TestCase
         );        
     }
 
-     /** @test */
+     /**
+* @test
+* @group backend
+*/
     public function it_should_throw_an_exception_if_no_configuration_when_asking_for_points()
     {
         $championship = factory(App\Models\Championship::class)->create();           
@@ -266,7 +306,10 @@ class ChampionshipTest extends TestCase
         $championship->getPointsOfTypeIdentifyBy('whatever');
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_return_the_matches_on_the_championship()
     {
         $championship = factory(App\Models\Championship::class)->create();   
@@ -286,7 +329,10 @@ class ChampionshipTest extends TestCase
         );
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_return_the_matches_on_the_championship_by_date()
     {
         $championship = factory(App\Models\Championship::class)->create();   
@@ -307,7 +353,10 @@ class ChampionshipTest extends TestCase
     }
 
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_should_return_the_matches_on_the_championship_by_date_and_grouped_by_round()
     {
         $championship = factory(App\Models\Championship::class)->create();   
@@ -340,7 +389,10 @@ class ChampionshipTest extends TestCase
         );
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_return_false_if_date_is_later_than_end_inscription()
     {
         $championship = factory(App\Models\Championship::class)->create(['end_inscription' => '2016-05-20']);
@@ -348,7 +400,10 @@ class ChampionshipTest extends TestCase
         $this->assertFalse($championship->isInscriptionOpen());
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_return_true_if_date_is_later_than_end_inscription()
     {
         $faker = Faker\Factory::create();
@@ -360,7 +415,10 @@ class ChampionshipTest extends TestCase
         $this->assertTrue($championship->isInscriptionOpen());
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_return_false_if_has_not_started()
     {
         $faker = Faker\Factory::create();
@@ -371,7 +429,10 @@ class ChampionshipTest extends TestCase
         $this->assertFalse($championship->hasStarted());
     }
 
-    /** @test */
+    /**
+* @test
+* @group backend
+*/
     public function it_return_true_if_has_started()
     {
         $faker = Faker\Factory::create();
