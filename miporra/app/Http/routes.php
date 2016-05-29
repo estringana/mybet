@@ -36,6 +36,21 @@
                 'middleware' => 'auth',
                 'uses' => 'CouponController@printable'
             ]);
+
+            Route::get('/users/list', [
+                'middleware' => 'auth',
+                'uses' => 'AdminController@listsUsers'
+            ]);
+
+            Route::get('/users/edit/{id}', [
+                'middleware' => 'auth',
+                'uses' => 'AdminController@editUser'
+            ]);
+
+            Route::post('/users/edit/{id}', [
+                'middleware' => 'auth',
+                'uses' => 'AdminController@saveUser'
+            ]);
         });
 
         Route::group(['middleware' => ['championship.hasStarted']], function () {

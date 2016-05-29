@@ -13,6 +13,7 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="/users/printable">Users printable</a></li>
+                    <li><a href="/users/list">Users</a></li>
                   </ul>
                 </li>
             @endif
