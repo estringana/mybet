@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div class="panel panel-default {{($editable?'editable':'')}}">
     <div class="panel-heading">
         <h4 class="panel-title">
             <a role="button" data-toggle="collapse" data-parent="#bets" href="#matches" aria-expanded="false" aria-controls="matches">{{ trans('messages.Matchesonfirststage') }}</a>
@@ -33,8 +33,10 @@
               @endforeach
           </tbody>
         </table> 
-        <a class="btn btn-primary btn-lg pull-right" href="{{ Url::get('/coupon/matches/update') }}" role="button">                    
-                    {{ trans('messages.Changeyourmatches') }}
-        </a>
+        @if (isset($editable) && $editable == true)
+            <a class="btn btn-primary btn-lg pull-right" href="{{ Url::get('/coupon/matches/update') }}" role="button">                    
+                        {{ trans('messages.Changeyourmatches') }}
+            </a>
+        @endif
     </div>
 </div>

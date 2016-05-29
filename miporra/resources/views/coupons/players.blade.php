@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div class="panel panel-default {{($editable?'editable':'')}}">
     <div class="panel-heading">
         <h4 class="panel-title">
             <a role="button" data-toggle="collapse" data-parent="#bets" href="#players" aria-expanded="false" aria-controls="players">{{ trans('messages.players') }}</a>
@@ -23,8 +23,10 @@
               @endforeach
           </tbody>
         </table> 
-        <a class="btn btn-primary btn-lg pull-right" href="{{ Url::get('/coupon/players/update') }}" role="button">
-                    {{ trans('messages.Changeyourplayers') }}
-        </a>
+        @if (isset($editable) && $editable == true)
+            <a class="btn btn-primary btn-lg pull-right" href="{{ Url::get('/coupon/players/update') }}" role="button">
+                        {{ trans('messages.Changeyourplayers') }}
+            </a>
+        @endif
     </div>
 </div>

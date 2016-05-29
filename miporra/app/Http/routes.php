@@ -38,6 +38,16 @@
                     'middleware' => 'auth',
                     'uses' => 'MatchesController@storeProposition'
                 ]);
+
+                Route::get('/coupon/all', [
+                    'middleware' => 'auth',
+                    'uses' => 'CouponController@all'
+                ]);
+
+                Route::get('/coupon/view/{user_id}', [
+                    'middleware' => 'auth',
+                    'uses' => 'CouponController@view'
+                ]);
         });
 
 

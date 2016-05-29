@@ -1,0 +1,8 @@
+@include('coupons.players', [ 'editable' => isset($editable) && $editable == true])
+@include('coupons.matches', [ 'editable' => isset($editable) && $editable == true])
+@include('coupons.rounds', [ 'bets' => $roundOf16Bets, 'title' => 'Round of 16', 'editable' => isset($editable) && $editable == true])
+@include('coupons.rounds', [ 'bets' => $quarterFinalsBets, 'title' => 'Quarter finals', 'editable' => isset($editable) && $editable == true])
+@include('coupons.rounds', [ 'bets' => $semiFinals, 'title' => 'Semi Finals', 'editable' => isset($editable) && $editable == true])
+@include('coupons.rounds', [ 'bets' => $final, 'title' => 'Final', 'editable' => isset($editable) && $editable == true])
+@include('coupons.rounds', [ 'bets' => $champion, 'title' => 'Champion', 'editable' => isset($editable) && $editable == true])
+@include('coupons.rounds', [ 'bets' => $runnersup, 'title' => 'Runners-up', 'editable' => isset($editable) && $editable == true])

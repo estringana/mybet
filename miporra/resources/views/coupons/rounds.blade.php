@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div class="panel panel-default {{($editable?'editable':'')}}">
     <div class="panel-heading">
         <h4 class="panel-title">
             <a role="button" data-toggle="collapse" data-parent="#bets" href="#{{strtolower(str_replace(' ','',$title))}}" aria-expanded="false" aria-controls="{{strtolower(str_replace(' ','',$title))}}">{{$title}}</a>
@@ -25,8 +25,10 @@
               @endforeach
           </tbody>
         </table> 
-        <a class="btn btn-primary btn-lg pull-right" href="{{ Url::get('/coupon/round/'.strtolower(str_replace(' ','',$title)).'/update') }}" role="button">                    
-                    {{ trans('messages.Changeyourteamsonthisround') }}
-        </a>
+        @if (isset($editable) && $editable == true)
+            <a class="btn btn-primary btn-lg pull-right" href="{{ Url::get('/coupon/round/'.strtolower(str_replace(' ','',str_replace('-','',$title))).'/update') }}" role="button">                    
+                        {{ trans('messages.Changeyourteamsonthisround') }}
+            </a>
+        @endif
     </div>
 </div>

@@ -52,6 +52,15 @@ class Coupon extends Model
            return is_null($empty);
     }
 
+    public function isFullyComplete()
+    {
+           $empty = $this->bets->first(function ($key, $bet) {
+                return $bet->isEmpty();
+            });
+
+           return is_null($empty);
+    }
+
     public function numberOfbetsOfType($type)
     {
         return $this->betsOfType($type)->count();

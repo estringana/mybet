@@ -54,10 +54,14 @@ class TableGenerator
     {
         $result = [];
 
-           foreach ($this->coupons() as $coupon) {
-                $this->instantiateRepositoriesFromCoupon($coupon);
+           foreach ($this->coupons() as $coupon)
+           {
+                if($coupon->isFullyComplete())
+                {
+                    $this->instantiateRepositoriesFromCoupon($coupon);
 
-                $result[] = $this->getLine($coupon);          
+                    $result[] = $this->getLine($coupon);          
+                }
            }
 
         return $result;

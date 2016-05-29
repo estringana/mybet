@@ -13932,7 +13932,7 @@ $(document).ready(function () {
 
     $('.betProgress .progress-bar').css('width', progress + '%').attr('aria-valuenow', progress);
 
-    $('#bets .panel').each(function (index) {
+    $('#bets .panel.editable').each(function (index) {
         var destination = $(this).find('.panel-heading .panel-title');
         if ($(this).find('.pending-bet').size() > 0) {
             destination.append('<span class="pending-bet label label-danger">Pending</span>');

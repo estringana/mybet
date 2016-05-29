@@ -20,9 +20,14 @@ class CouponController extends Controller
     {
         parent::__construct();
 
-        $this->playersRepository = new PlayerBetsRepository($this->getCoupon());         
-        $this->matchRepository = new MatchBetsRepository($this->getCoupon());         
-        $this->roundRepository = new RoundBetsRepository($this->getCoupon());         
+        $this->instantiateRepositoriesFromCoupon($this->getCoupon());         
+    }
+
+    protected function instantiateRepositoriesFromCoupon($coupon)
+    {           
+        $this->playersRepository = new PlayerBetsRepository($coupon);         
+        $this->matchRepository = new MatchBetsRepository($coupon);         
+        $this->roundRepository = new RoundBetsRepository($coupon);    
     }
 
     protected function getCoupon()
@@ -30,8 +35,9 @@ class CouponController extends Controller
         return \Auth::user()->couponOfChampionsip($this->championship);
     }
 
-    public function index()
+    protected function getData()
     {
+        $data = [];
         $data['playerBets'] = $this->playersRepository->bets();
         $data['matchBets'] = $this->matchRepository->bets();
         $data['roundOf16Bets'] = $this->roundRepository->betsOfRound(2);
@@ -41,7 +47,38 @@ class CouponController extends Controller
         $data['champion'] = $this->roundRepository->betsOfRound(6);
         $data['runnersup'] = $this->roundRepository->betsOfRound(7);
 
+        return $data;
+    }
+
+    public function index()
+    {
+        $data = $this->getData();
+
+        $data['editable'] = true;
+
+        return view('coupons.own')
+        ->with($data);   
+    }
+
+    public function view($user_id)
+    {
+        $coupon = $this->championship->coupons()->where('user_id',$user_id)->firstOrFail();
+
+        $this->instantiateRepositoriesFromCoupon($coupon);
+
+        $data = $this->getData();
+        $data['editable'] = false;
+        $data['user'] = $coupon->user;
+
         return view('coupons.view')
         ->with($data);   
+    }
+
+    public function all()
+    {
+        $coupons = $this->championship->coupons;
+
+         return view('coupons.users')
+                ->with(['coupons'=>$coupons]);  
     }
 }

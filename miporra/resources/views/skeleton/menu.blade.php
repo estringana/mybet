@@ -10,6 +10,7 @@
             <li><a href="{{Url::get('/table')}}">{{ trans('messages.table') }}</a></li>
     @endif
         <li><a href="{{Url::get('/matches')}}">{{ trans('messages.matches') }}</a></li>
+        <li><a href="{{Url::get('/coupon/all')}}">{{ trans('messages.users') }}</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li>
