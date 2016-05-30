@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="jumbotron">
-  <h1>Matches step</h1>
-  <p>You have to decide which team will win each match!!</p>
+  <h1>{{trans('messages.Matches step')}}</h1>
+  <p>{{trans('messages.You have to decide which team will win each match!!')}}</p>
 </div>
 <div class="alert alert-info" role="alert">
   <ul>
-    <li>The bet system is open so you can make a team the winner of all its matches but it does not mean you have to add it to the next round</li>
+    <li>{{trans('messages.The bet system is open so you can make a team the winner of all its matches but it does not mean you have to add it to the next round')}}</li>
   </ul>
 </div>
 
@@ -19,10 +19,10 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Date</th>
-                    <th>Local</th>
-                    <th>Away</th>
-                    <th>Bet</th>
+                    <th>{{trans('messages.Date')}}</th>
+                    <th>{{trans('messages.Local')}}</th>
+                    <th>{{trans('messages.Away')}}</th>
+                    <th>{{trans('messages.Bet')}}</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,8 +30,8 @@
                     <tr>
                         <th scope="row">{{ $key }}</th>
                         <td data-title="Date">{{ $matchBet->match->date }}</td>
-                        <td data-title="Local">{{ $matchBet->match->local->name }}</td>
-                        <td data-title="Away">{{ $matchBet->match->away->name }}</td>
+                        <td data-title="Local">{{ trans('teams.'.$matchBet->match->local->name) }}</td>
+                        <td data-title="Away">{{ trans('teams.'.$matchBet->match->away->name) }}</td>
                         <td>
                               <div class="btn-group" role="group" aria-label="Sign" data-toggle="buttons">
                                   <label class="btn btn-default {!!$matchBet->prediction == "1"? 'active"':''!!}">
@@ -51,7 +51,7 @@
         </table> 
     </div>
     <div class="form-group">
-      <button type="submit" class="btn btn-primary pull-right">Save bets</button>
+      <button type="submit" class="btn btn-primary pull-right">{{trans('messages.Save bets')}}</button>
     </div>
 </form>
 @stop

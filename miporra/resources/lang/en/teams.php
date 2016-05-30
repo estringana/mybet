@@ -1,0 +1,28 @@
+<?php
+
+return array (
+    'Albania' => 'Albania',
+    'Austria' => 'Austria',
+    'Belgium' => 'Belgium',
+    'Croatia' => 'Croatia',
+    'Czech Republic' => 'Czech Republic',
+    'England' => 'England',
+    'France' => 'France',
+    'Germany' => 'Germany',
+    'Hungary' => 'Hungary',
+    'Iceland' => 'Iceland',
+    'Italy' => 'Italy',
+    'Northern Ireland' => 'Northern Ireland',
+    'Poland' => 'Poland',
+    'Portugal' => 'Portugal',
+    'Republic of Ireland' => 'Republic of Ireland',
+    'Romania' => 'Romania',
+    'Russia' => 'Russia',
+    'Slovakia' => 'Slovakia',
+    'Spain' => 'Spain',
+    'Sweden' => 'Sweden',
+    'Switzerland' => 'Switzerland',
+    'Turkey' => 'Turkey',
+    'Ukraine' => 'Ukraine',
+    'Wales' => 'Wales',
+);

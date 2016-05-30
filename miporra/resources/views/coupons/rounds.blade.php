@@ -1,7 +1,7 @@
 <div class="panel panel-default {{($editable?'editable':'')}}">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <a role="button" data-toggle="{{$collapsable or ''}}" data-parent="#bets" href="#{{strtolower(str_replace(' ','',$title))}}" aria-expanded="false" aria-controls="{{strtolower(str_replace(' ','',$title))}}">{{$title}}</a>
+            <a role="button" data-toggle="{{$collapsable or ''}}" data-parent="#bets" href="#{{strtolower(str_replace(' ','',$title))}}" aria-expanded="false" aria-controls="{{strtolower(str_replace(' ','',$title))}}">{{trans('messages.'.$title)}}</a>
         </h4>        
     </div>
     <div class="panel-body {{$collapsable or ''}}" id="{{strtolower(str_replace(' ','',$title))}}">
@@ -18,7 +18,7 @@
                     <tr>
                         <th scope="row">{{ $i++ }}</th>
                         <td class="bet">{!! $bet->isFilled() ? 
-                                FlagIcon::get($bet->team->short_code, $bet->team->name)." ".$bet->team->name :
+                                FlagIcon::get($bet->team->short_code, $bet->team->name)." ".trans('teams.'.$bet->team->name) :
                                  '<span class="pending-bet label label-danger">Pending</span>' !!}
                         </td>
                     </tr>

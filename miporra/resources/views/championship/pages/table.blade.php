@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="jumbotron">
-      <h1>Table of {{$championship->name}}</h1>
+      <h1>{{trans('messages.Table of')}} {{$championship->name}}</h1>
     </div>
     @include('championship.table.table')
 @stop

@@ -18,7 +18,7 @@
                     <tr>
                         <th scope="row">{{ $key+1 }}</th>
                         <td>{{ $bet->isFilled() ? $bet->player->name : '' }}</td>
-                        <td class="bet">{!! $bet->isFilled() ? $bet->player->team->name : '<span class="pending-bet label label-danger">Pending</span>' !!}</td>
+                        <td class="bet">{!! $bet->isFilled() ? trans('teams.'.$bet->player->team->name) : '<span class="pending-bet label label-danger">Pending</span>' !!}</td>
                     </tr>
               @endforeach
           </tbody>

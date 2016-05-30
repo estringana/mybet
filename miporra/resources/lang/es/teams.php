@@ -1,0 +1,28 @@
+<?php
+
+return array (
+    'Albania' => 'Albania',
+    'Austria' => 'Austria',
+    'Belgium' => 'Bélgica',
+    'Croatia' => 'Croacia',
+    'Czech Republic' => 'República Checa',
+    'England' => 'Inglaterra',
+    'France' => 'Francia',
+    'Germany' => 'Alemania',
+    'Hungary' => 'Hungria',
+    'Iceland' => 'Islandia',
+    'Italy' => 'Italia',
+    'Northern Ireland' => 'Irlanda del norte',
+    'Poland' => 'Polonia',
+    'Portugal' => 'Portugal',
+    'Republic of Ireland' => 'Republica de Irlanda',
+    'Romania' => 'Rumania',
+    'Russia' => 'Rusia',
+    'Slovakia' => 'Eslovaquia',
+    'Spain' => 'España',
+    'Sweden' => 'Suecia',
+    'Switzerland' => 'Suiza',
+    'Turkey' => 'Turquia',
+    'Ukraine' => 'Ucrania',
+    'Wales' => 'Gales',
+);

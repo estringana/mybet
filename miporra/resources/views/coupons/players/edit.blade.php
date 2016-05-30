@@ -2,13 +2,13 @@
 
 @section('content')
 <div class="jumbotron">
-  <h1>Create your bet - Players step</h1>
-  <p>Pick {{$playerBets->count()}} player for your team. Remember that your should be picking player you think they will score</p>
+  <h1>{{trans('messages.Create your bet')}} - {{trans('messages.Players step')}}</h1>
+  <p>{{trans('messages.Pick the players for your bet. Remember that your should be picking player you think they will score')}}</p>
 </div>
 <div class="alert alert-info" role="alert">
   <ul>
-    <li>You must pick 8 players</li>
-    <li>You can pick a player more than once</li>
+    <li>{{trans('messages.You must pick 8 players')}}</li>
+    <li>{{trans('messages.You can pick a player more than once')}}</li>
   </ul>
 </div>
 
@@ -18,9 +18,9 @@
     @foreach($playerBets as $playerBet)
         <div class="form-group">
           <select class="form-control selectpicker" name="bet[{{$playerBet->id}}]" data-live-search="true">
-                <option value="">Pick a player...</option>
+                <option value="">{{trans('messages.Pick a player...')</option>
                 @foreach ($players as $player)
-                    <option data-subtext="{{ $player->team->name }}" 
+                    <option data-subtext="{{ trans('teams.'.$player->team->name) }}" 
                             value="{{ $player->id }}" 
                             {{old('bet['.$playerBet->id.']') == $player->id ? 'selected' : ''}}
                             {{ old('bet['.$playerBet->id.']') == null && ! $errors->has('bet['.$playerBet->id.']') && $playerBet->isFilled() && $playerBet->player->id == $player->id ? 'selected' : ''}}>
@@ -32,7 +32,7 @@
     @endforeach
 
     <div class="form-group">
-      <button type="submit" class="btn btn-primary pull-right">Save players</button>
+      <button type="submit" class="btn btn-primary pull-right">{{trans('messages.Save players')</button>
     </div>
 </form>
 @stop
