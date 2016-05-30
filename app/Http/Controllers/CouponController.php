@@ -47,6 +47,7 @@ class CouponController extends Controller
         $data['champion'] = $this->roundRepository->betsOfRound(6);
         $data['runnersup'] = $this->roundRepository->betsOfRound(7);
         $data['user'] = $this->getCoupon()->user;
+        $data['championship'] = $this->championship;
 
         return $data;
     }
