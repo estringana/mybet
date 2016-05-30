@@ -8,7 +8,7 @@
 <div class="alert alert-info" role="alert">
   <ul>
     <li>{{trans('messages.You must pick 8 players')}}</li>
-    <li>{{trans('messages.You can pick a player more than once')}}</li>
+    <li>{{trans('messages.You can not pick a player twice')}}</li>
   </ul>
 </div>
 
@@ -18,7 +18,7 @@
     @foreach($playerBets as $playerBet)
         <div class="form-group">
           <select class="form-control selectpicker" name="bet[{{$playerBet->id}}]" data-live-search="true">
-                <option value="">{{trans('messages.Pick a player...')</option>
+                <option value="">{{trans('messages.Pick a player...')}}</option>
                 @foreach ($players as $player)
                     <option data-subtext="{{ trans('teams.'.$player->team->name) }}" 
                             value="{{ $player->id }}" 
@@ -32,7 +32,7 @@
     @endforeach
 
     <div class="form-group">
-      <button type="submit" class="btn btn-primary pull-right">{{trans('messages.Save players')</button>
+      <button type="submit" class="btn btn-primary pull-right">{{trans('messages.Save players')}}</button>
     </div>
 </form>
 @stop

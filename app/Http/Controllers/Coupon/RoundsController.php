@@ -47,25 +47,33 @@ class RoundsController extends \App\Http\Controllers\Controller
         );
     }
 
+    protected function guardAgainstTeamsPickedTwice($teams_picked, $team_id)
+    {
+           if ( in_array($team_id,$teams_picked) )
+           {
+                throw new \App\Exceptions\TeamPickedTwiceException();
+           }
+    }
+
     public function store(Request $request)
     {
-        $saved_completely = true;
         $message = 'Teams have been saved!';
 
          $this->validate($request, [
                 'bet.*' => 'numeric',
             ]);
-           
-           $userBets = $this->repository->bets();
+
+         $teams_picked = [];
 
            foreach($request->input('bet') as $id => $value){
                 try{
+                    $this->guardAgainstTeamsPickedTwice($teams_picked,$value);
                     $this->repository->save($id,$value);
+                    $teams_picked[] = $value;
                 }
                 catch (\Exception $e)
                 {
-                    dd($e);
-                    $saved_completely = false;
+                    $this->repository->save($id,"");
                     $message = 'Team has been partially saved.';
                 }
            }
