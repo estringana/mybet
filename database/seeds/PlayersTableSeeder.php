@@ -11,13 +11,13 @@ class PlayersTableSeeder extends Seeder
      */
     public function run()
     {
-        $teams = \App\Models\Team::all();
+        // $teams = \App\Models\Team::all();
 
-        foreach ($teams as $team) {
-            $players = $match = factory(App\Models\Player::class,24)
-                ->create(
-                    [ 'team_id' => $team->id ]
-                );
-        }
+        // foreach ($teams as $team) {
+        //     $players = $match = factory(App\Models\Player::class,24)
+        //         ->create(
+        //             [ 'team_id' => $team->id ]
+        //         );
+        // }
     }
 }
