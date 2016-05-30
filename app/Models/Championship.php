@@ -19,7 +19,7 @@ class Championship extends Model
 
     public function configurations()
     {
-        return $this->hasMany('App\Models\betConfiguration');
+        return $this->hasMany('App\Models\BetConfiguration');
     }
 
     public function players()
