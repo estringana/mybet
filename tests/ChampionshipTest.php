@@ -8,8 +8,6 @@ class ChampionshipTest extends TestCase
 {
     use DatabaseTransactions;
 
-
-
     /**
 * @test
 * @group backend
@@ -440,6 +438,36 @@ class ChampionshipTest extends TestCase
         $championship = factory(App\Models\Championship::class)->create();
 
         $championship->start_date = $faker->dateTimeBetween('-10 day', '-1 day');
+
+        $this->assertTrue($championship->hasStarted());
+    }
+
+     /**
+* @test
+* @group backend
+*/
+    public function it_return_false_if_has_not_started_datetime()
+    {
+        $faker = Faker\Factory::create();
+
+        $championship = factory(App\Models\Championship::class)->create();
+
+        $championship->start_date = $faker->dateTimeBetween('+1 minute', '+2 minutes');
+
+        $this->assertFalse($championship->hasStarted());
+    }
+
+    /**
+* @test
+* @group backend
+*/
+    public function it_return_true_if_has_started_datetime()
+    {
+        $faker = Faker\Factory::create();
+
+        $championship = factory(App\Models\Championship::class)->create();
+
+        $championship->start_date = $faker->dateTimeBetween('-1 minute', '-10 seconds');
 
         $this->assertTrue($championship->hasStarted());
     }
