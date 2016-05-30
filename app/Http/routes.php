@@ -26,6 +26,16 @@
             'uses' => 'TableController@index'
         ]);
 
+        Route::get('/message', [
+            'middleware' => 'auth',
+            'uses' => 'MessagesController@index'
+        ]);
+
+        Route::post('/message', [
+            'middleware' => 'auth',
+            'uses' => 'MessagesController@store'
+        ]);
+
         Route::get('/matches', [
             'middleware' => 'auth',
             'uses' => 'MatchesController@index'
@@ -35,6 +45,11 @@
             Route::get('/users/printable', [
                 'middleware' => 'auth',
                 'uses' => 'CouponController@printable'
+            ]);
+
+            Route::get('/messages', [
+                'middleware' => 'auth',
+                'uses' => 'MessagesController@list'
             ]);
 
             Route::get('/users/list', [

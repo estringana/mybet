@@ -14,6 +14,7 @@
                   <ul class="dropdown-menu">
                     <li><a href="/users/printable">Users printable</a></li>
                     <li><a href="/users/list">Users</a></li>
+                    <li><a href="/messages">Messages from users</a></li>
                   </ul>
                 </li>
             @endif
@@ -24,6 +25,7 @@
     <ul class="nav navbar-nav navbar-right">
         <li>
             @if(Auth::check())
+                <li><a href="{{Url::get('/message')}}">{{ trans('messages.Send us a message') }}</a></li>
                 <li><a href="{{Url::get('/logout')}}">{{ trans('auth.logout') }}</a></li>
             @else
                 <li><a href="{{Url::get('/register')}}">{{ trans('auth.register') }}</a>
