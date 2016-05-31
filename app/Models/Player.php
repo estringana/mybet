@@ -11,6 +11,11 @@ class Player extends Model
         return $this->belongsTo('App\Models\Team');
     }
 
+    public function bets()
+    {
+        return $this->hasMany('App\Models\PlayerBet');
+    }
+
      public function goals()
     {
         return $this->hasMany('App\Models\Goal');

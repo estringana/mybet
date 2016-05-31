@@ -110,6 +110,39 @@ function create_real_championship()
     return $championship;
 }
 
+function create_a_player_on_a_team_which_is_on_the_championship(App\Models\Championship $championship)
+{
+    $team = factory(App\Models\Team::class)->create();
+    $championship->subscribeTeam($team);
+    $player = factory(App\Models\Player::class)->create();
+    $team->addPlayer($player);
+
+    return $player;
+}
+
+function create_bet_of_playerbet_with_player_on_coupon(\App\Models\Coupon $coupon, App\Models\Player $player = null)
+{
+        $bet = new App\Models\Bet();        
+        
+        $playerBet = new App\Models\PlayerBet();
+        
+        if ( is_null($player) )
+        {
+            $player = create_a_player_on_a_team_which_is_on_the_championship($coupon->championship);
+        }
+        
+        $playerBet->associatePlayer($player);
+        $playerBet->save();
+        
+        $bet->addBettype($playerBet);
+
+        $coupon->addBet($bet);
+
+        $bet->save();
+
+        return $bet;
+}
+
 function create_playerbet_with_points($number_of_goals)
 {
        $playerBet = new App\Models\PlayerBet();

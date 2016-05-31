@@ -15,6 +15,11 @@ class PlayerBet extends Model implements \App\Interfaces\Betable, \App\Interface
         return $this->belongsTo('App\Models\Player');
     }
 
+    public function bet()
+    {
+        return $this->morphOne('App\Models\Bet', 'bettype');
+    }
+
     public function associatePlayer(Player $player)
     {
         $this->player()->associate($player);
