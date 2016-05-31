@@ -108,4 +108,10 @@ return array (
   'times' => 'veces',
   'Table of' => 'Clasificación de',
   'Group Stage' => 'Primera fase',
+  'Not paid' => 'Pendiente de pago',
+  'Paid' => 'Pagado',
+  'Send us a message' => 'Envíanos un mensaje',
+  'The end date and time is:' => 'La fecha y hora limite es:',
+  'The status of your bet is:' => 'El estado de tu apuesta es:',
+  'You can not pick a player twice' => 'No puede pillar el mismo jugador dos veces',
 );

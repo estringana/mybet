@@ -7,6 +7,9 @@ MUST HAVE
 - Add total to table and order by total
 - Decide which players should be displayed. Paid and complete? Then be sure this is added to everywhere
 - Add enough information in all pages
+- Be able to click on team on a round a see how many people has it
+- Be able to click on match a see how many people has each score
+- Be able to click on player a see how many people has it
 - Propose goals
 - Be able to add teams to rounds
 - Add all the matches until the final
