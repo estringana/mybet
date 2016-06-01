@@ -95,4 +95,7 @@ return array (
   'Matches has been partially saved' => 'Matches has been partially saved',
   'Players has been partially saved' => 'Players has been partially saved',
   'Teams has been partially saved' => 'Teams has been partially saved',
+  'Remember you need to complete this before the date given above' => 'Remember you need to complete this before the date given above',
+  'All you need to do now is to finish your bet' => 'All you need to do now is to finish your bet',
+  'Manage your bet' => 'Manage your bet',
 );

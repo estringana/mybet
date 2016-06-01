@@ -83,7 +83,6 @@ return array (
   'This option is only available for admins' => 'Esta opción es solo para administradores',
   'Only for admins' => 'Only admins',
   'It is not possible to make more changes' => 'Ya no es posible hacer cambios',
-
   'Not allowed any more'=> 'Esta opción ya no está disponible',
   'There has been a error' => 'Se ha producido un error',
   'Message has been sent' => 'Mensaje enviado',
@@ -94,4 +93,7 @@ return array (
   'Matches has been partially saved' => 'Los partidos han sido salvado parcialmente',
   'Players has been partially saved' => 'Los jugadores han sido salvado parcialmente',
   'Teams has been partially saved' => 'Los equipos han sido salvado parcialmente',
+  'Remember you need to complete this before the date given above' => 'Recuerda que tienes que acabar tu apuesta dentro del plazo indicado arriba',
+  'All you need to do now is to finish your bet' => 'Todo lo que tienes que hacer ahora es terminar tu apuesta si no está completa',
+  'Manage your bet' => 'Gestiona tu apuesta',
 );

@@ -3,11 +3,18 @@
 @section('content')
     <div class="jumbotron">
       <h1>{{ trans('messages.title') }}</h1>
-      <p>{{ trans('messages.create_a_team.message') }}</p>
-      <p>
-        <a class="btn btn-primary btn-lg" href="{{ Url::get('/coupon') }}" role="button">
-            {{ trans('messages.create_a_team.button') }}
-        </a>
+      @if(Auth::user())
+            <p>{{ trans('messages.All you need to do now is to finish your bet') }}</p>
+            <a class="btn btn-primary btn-lg" href="{{ Url::get('/coupon') }}" role="button">
+                {{ trans('messages.Manage your bet') }}
+            </a>
+      @else    
+          <p>{{ trans('messages.create_a_team.message') }}</p>
+          <p>
+            <a class="btn btn-primary btn-lg" href="{{ Url::get('/coupon') }}" role="button">
+                {{ trans('messages.create_a_team.button') }}
+            </a>
+        @endif
     </p>
     </div>
     <div class="page-header">

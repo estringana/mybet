@@ -8,7 +8,7 @@
         {{ trans('messages.The end date and time is:')}} <b>{{$championship->end_inscription}}</b>
       </p>
       <p>
-            <i>{{ trans('messages.progressofyourbet') }}</i>
+            <i>{{ trans('messages.progressofyourbet') }} ({{trans('messages.Remember you need to complete this before the date given above')}})</i>
                 @include('coupons.progress') 
        </p>
        <p>
