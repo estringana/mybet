@@ -2,6 +2,7 @@
 
 return array (
   'title' => 'Theporra',
+  'Alias' => 'Alias',
   'create_a_team' => 
   array (
     'message' => 'Te gusta el futbol? Eres de los que se cree que sabe mucho de futbol? Entonces estas en el sitio correcto!',

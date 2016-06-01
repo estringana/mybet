@@ -2,6 +2,7 @@
 
 return array (
   'name' => 'Name',
+  'Alias' => 'Alias',
   'Reporting a score:' => 'Reporting a score:',
   'This score will be populated to the match only if 3 players more approve it' => 'This score will be populated to the match only if 3 players more approve it.',
   'Proposed score' => 'Proposed score',
