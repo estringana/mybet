@@ -3,7 +3,7 @@
 return array (
   'Bets' => 
   array (
-    '001' => 'No sera posible hacer cambios en las apuesta a partir del  9 de Junio a las 17:00',
+    '001' => 'No sera posible hacer cambios en las apuesta a partir del  9 de Junio a las 18:00',
     '002' => 'Tu apuesta deberá estar terminada para entonces. En caso de no estar terminada, el dinero no será devuelto',
     '003' => 'No será possible hacer ningún cambio después de ese momento',
     '004' => 'Si uno de tus jugadores se lesiona cuando se ha cerrado el tiempo de hacer cambios, no será possible cambiarlo',
@@ -32,7 +32,7 @@ return array (
   array (
     '001' => '1 punto por cada partido acertado en la primera fase',
     '002' => '1 punto por cada gol de tus jugadores',
-    '003' => '2 puntos por cada equipo que aciertes en 16avos',
+    '003' => '2 puntos por cada equipo que aciertes en octavos',
     '004' => '3 Puntos por cada equipo que aciertes en los cuartos de final',
     '005' => '4 puntos por cada equipo que aciertes en semi finales',
     '006' => '5 puntos por cada equipo que aciertes en la final',
