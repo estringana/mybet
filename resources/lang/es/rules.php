@@ -23,7 +23,7 @@ return array (
   'Payments' => 
   array (
     '001' => 'Cada jugador deberá pagar 10€ o £8 para unirse al campeonato',
-    '002' => 'Los pagos deben hacerse directamente a la persona que conozcas en la organización de myporra',
+    '002' => 'Los pagos deben hacerse directamente a la persona que conozcas en la organización de theporra',
     '003' => 'Los premios serán pagados de la misma forma pero en sentido inverso',
     '004' => 'Fecha limite para pagos es el 8 de Junio',
     'title' => 'Pagos',

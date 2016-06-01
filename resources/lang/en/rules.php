@@ -4,7 +4,7 @@ return array (
   'Payments' => 
   array (
     '001' => ' Every player must paid 10€ or £8 to join the championship.',
-    '002' => 'The payment needs to be done directly to the person you know within the myporra team',
+    '002' => 'The payment needs to be done directly to the person you know within the theporra team',
     '003' => 'The prizes will be paid using the same approach but on the other direction',
     '004' => 'Every player must pay by 8th of June',
     'title' => 'Payments',
