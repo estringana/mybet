@@ -96,4 +96,12 @@ return array (
   'Remember you need to complete this before the date given above' => 'Recuerda que tienes que acabar tu apuesta dentro del plazo indicado arriba',
   'All you need to do now is to finish your bet' => 'Todo lo que tienes que hacer ahora es terminar tu apuesta si no está completa',
   'Manage your bet' => 'Gestiona tu apuesta',
+
+  'Player not found'=>'Jugador no existe',
+  'Statistics of player'=>'Estadisticas del jugador',
+  'This player is on'=>'Este jugador esta en',
+  'of the bets'=>'de las apuestas',
+  'This players has scored'=>'Esta jugador ha marcado',
+  'goals'=>'goles',
+  'Bets'=>'Apuestas',
 );

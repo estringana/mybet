@@ -98,4 +98,12 @@ return array (
   'Remember you need to complete this before the date given above' => 'Remember you need to complete this before the date given above',
   'All you need to do now is to finish your bet' => 'All you need to do now is to finish your bet',
   'Manage your bet' => 'Manage your bet',
+
+  'Player not found'=>'Player not found',
+  'Statistics of player'=>'Statistics of player',
+  'This player is on'=>'This player is on',
+  'of the bets'=>'of the bets',
+  'This players has scored'=>'This players has scored',
+  'goals'=>'goals',
+  'Bets'=>'Bets',
 );

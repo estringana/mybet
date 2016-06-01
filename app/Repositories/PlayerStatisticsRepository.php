@@ -35,7 +35,7 @@ class PlayerStatisticsRepository
         return $player->bets()->count();
     }
     
-    protected function getPlayer($player_id)
+    public function getPlayer($player_id)
     {
         $player = $this->players()->first(function ($key, $player) use ($player_id) {
                 return $player->id == $player_id;

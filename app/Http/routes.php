@@ -88,6 +88,12 @@
                     'middleware' => 'auth',
                     'uses' => 'CouponController@view'
                 ]);
+
+                 Route::get('/statistics/player/{player_id}', [
+                    'middleware' => 'auth',
+                    'uses' => 'StatisticsController@player'
+                ]);
+
         });
 
 
