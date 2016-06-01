@@ -160,8 +160,8 @@ return [
         * Custom
         */
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
-        Barryvdh\TranslationManager\ManagerServiceProvider::class
-
+        Barryvdh\TranslationManager\ManagerServiceProvider::class,
+        UxWeb\SweetAlert\SweetAlertServiceProvider::class
 
     ],
 
@@ -209,6 +209,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'LaravelLocalization'   => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
+        'Alert' => UxWeb\SweetAlert\SweetAlert::class
     ],
 
 ];

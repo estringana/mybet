@@ -4,7 +4,7 @@
         <div class="jumbotron">
       <h1>{{ trans('messages.yourbet') }}</h1>
       <p>
-        {{ trans('messages.Thisisyourbet')}} {{ trans('messages.Besureyoufinishitbeforetheenddate.') }}
+        {{ trans('messages.Thisisyourbet')}}. {{ trans('messages.Besureyoufinishitbeforetheenddate') }}.
         {{ trans('messages.The end date and time is:')}} <b>{{$championship->end_inscription}}</b>
       </p>
       <p>

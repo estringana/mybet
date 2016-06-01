@@ -28,6 +28,7 @@ class IsInscriptionOpen
     {
         if ( ! $this->isInscriptionOpen() &&  ! $this->isUserAdmin())
         {
+            alert()->error(trans('messages.It is not possible to make more changes'), trans('messages.Not allowed any more'));
             return redirect('/');
         }
         

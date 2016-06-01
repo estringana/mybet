@@ -57,8 +57,8 @@ class RoundsController extends \App\Http\Controllers\Controller
 
     public function store(Request $request)
     {
-        $message = 'Teams have been saved!';
-
+         $saved_completely = true;
+         
          $this->validate($request, [
                 'bet.*' => 'numeric',
             ]);
@@ -69,16 +69,26 @@ class RoundsController extends \App\Http\Controllers\Controller
                 try{
                     $this->guardAgainstTeamsPickedTwice($teams_picked,$value);
                     $this->repository->save($id,$value);
-                    $teams_picked[] = $value;
+                    if ( ! empty($value))
+                    {
+                        $teams_picked[] = $value;
+                    }
                 }
                 catch (\Exception $e)
                 {
                     $this->repository->save($id,"");
-                    $message = 'Team has been partially saved.';
+                    $saved_completely = false;
                 }
            }
             
-            $request->session()->flash('status', $message);
+            if ($saved_completely)
+            {
+                alert()->success(trans('messages.Teams have been saved'), 'Saved');
+            }
+            else
+            {
+                alert()->warning(trans('messages.Teams has been partially saved'), 'Saved with errors');
+            }
 
            return redirect('/coupon');
     }

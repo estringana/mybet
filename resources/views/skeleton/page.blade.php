@@ -13,5 +13,6 @@
     @yield('body')
 
     <script src="/js/app.js"></script>
+    @include('sweet::alert')
 </body>
 </html>

@@ -22,6 +22,7 @@ class IsAdmin
     {
         if ( ! $this->isUserAdmin())
         {
+            alert()->error(trans('messages.This option is only available for admins'), trans('messages.Only for admins'));
             return redirect('/');
         }
         

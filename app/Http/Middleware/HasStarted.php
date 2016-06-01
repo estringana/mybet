@@ -27,6 +27,7 @@ class HasStarted
     {
         if ( ! $this->isInscriptionOpen() &&  ! $this->isUserAdmin())
         {
+             alert()->error(trans('messages.This option is still not available'), trans('messages.Not available yet'));
             return redirect('/');
         }
         

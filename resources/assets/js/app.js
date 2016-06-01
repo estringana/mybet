@@ -1,6 +1,7 @@
 window.$ = window.jQuery = require('jquery')
 require('bootstrap-sass');
 require('bootstrap-select');
+require('sweetalert');
 
 $( document ).ready(function() {
     console.log($.fn.tooltip.Constructor.VERSION);

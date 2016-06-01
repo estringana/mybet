@@ -65,6 +65,8 @@ class AdminController extends Controller
             $user->save();
 
             $this->logAction($user);
+
+            alert()->success('User have been saved', 'Saved');
             
             return redirect('/users/list');
     }

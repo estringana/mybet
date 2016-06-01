@@ -16,7 +16,7 @@
     @foreach($roundBets as $roundBet)
         <div class="form-group">
           <select class="form-control selectpicker" name="bet[{{$roundBet->id}}]" data-live-search="true">
-                <option value="">{{trans('messages.Pick a team...')}}</option>
+                <option value="">{{trans('messages.Pick a team')}}</option>
                 @foreach ($teams as $team)
                     <option
                             value="{{ $team->id }}" 

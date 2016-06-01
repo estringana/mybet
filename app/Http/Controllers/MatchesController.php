@@ -51,12 +51,18 @@ class MatchesController extends Controller
                 'local'=> 'required|numeric',
                 'away' => 'required|numeric'
             ]);
+          
+          try {
+               $this->guardAgainstMatchNotFound($match_id);
 
-           $this->guardAgainstMatchNotFound($match_id);
+               $repository = new \App\Repositories\ProposedScoresRepository(\Auth::user(), $this->championship);
 
-           $repository = new \App\Repositories\ProposedScoresRepository(\Auth::user(), $this->championship);
+               $repository->save($match_id, (int) $request->get('local'), (int) $request->get('away'));
 
-           $repository->save($match_id, (int) $request->get('local'), (int) $request->get('away'));
+                alert()->success(trans('messages.It have been saved'), 'Saved');
+            } catch (Exception $e) {
+                alert()->error(trans('messages.There has been a error'), 'Error');
+            }
 
            return redirect('/matches');
     }

@@ -19,11 +19,17 @@ class MessagesController extends Controller
                 'message' => 'required',
             ]);
 
-           $message = new \App\Models\Message();
-           $message->message = $request->input('message');
-           $message->associateUser(\Auth::user());
-           $message->save();
 
+          try {
+                 $message = new \App\Models\Message();
+                 $message->message = $request->input('message');
+                 $message->associateUser(\Auth::user());
+                 $message->save();
+
+                 alert()->success(trans('messages.Message has been sent'), 'Sent');
+            } catch (Exception $e) {
+                alert()->error(trans('messages.There has been a error'), 'Error');
+            }
            return redirect('/');
     }
 

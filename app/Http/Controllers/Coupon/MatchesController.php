@@ -36,7 +36,6 @@ class MatchesController extends \App\Http\Controllers\Controller
     public function store(Request $request)
     {
         $saved_completely = true;
-        $message = 'Matches have been saved!';
 
          $this->validate($request, [
                 'bet.*' => 'in:1,X,2',
@@ -51,11 +50,17 @@ class MatchesController extends \App\Http\Controllers\Controller
                 catch (\Exception $e)
                 {
                     $saved_completely = false;
-                    $message = 'Matches has been partially saved.';
                 }
            }
             
-            $request->session()->flash('status', $message);
+            if ($saved_completely)
+            {
+                alert()->success(trans('messages.Matches have been saved'), 'Saved');
+            }
+            else
+            {
+                alert()->warning(trans('messages.Matches has been partially saved'), 'Saved with errors');
+            }
 
            return redirect('/coupon');
     }
