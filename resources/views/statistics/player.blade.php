@@ -6,7 +6,7 @@
     </div>
     <div class="panel panel-default">
           <div class="panel-body">
-            <p>{{trans('messages.This player is on')}} {{$percentage}}% {{trans('messages.of the bets')}}</p>
+            <p>{{trans('messages.This player is on')}} {{round($percentage,2)}}% {{trans('messages.of the bets')}}</p>
             <p>{{trans('messages.This players has scored')}} {{$player->countable_goals}} {{trans('messages.goals')}}</p>
             </div>
     </div>

@@ -11,7 +11,7 @@
         </div>
         <div class="panel panel-default">
               <div class="panel-body">
-                    <p>{{trans('messages.This team is on')}} {{$breakDownRound->percentage}}% {{trans('messages.of the bets on this round')}}</p>                
+                    <p>{{trans('messages.This team is on')}} {{round($breakDownRound->percentage,2)}}% {{trans('messages.of the bets on this round')}}</p>                
                 </div>
         </div>
         @if($breakDownRound->coupons->count() > 0 )
