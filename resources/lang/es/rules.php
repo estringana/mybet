@@ -3,7 +3,7 @@
 return array (
   'Bets' => 
   array (
-    '001' => 'No sera posible hacer cambios en las apuesta a partir del  9 de Junio a las 18:00',
+    '001' => 'No sera posible hacer cambios en las apuesta a partir del 9 de Junio a las 18:00(Horario español), 5pm(Horario UK)',
     '002' => 'Tu apuesta deberá estar terminada para entonces. En caso de no estar terminada, el dinero no será devuelto',
     '003' => 'No será posible hacer ningún cambio después de ese momento',
     '004' => 'Si uno de tus jugadores se lesiona cuando se ha cerrado el tiempo de hacer cambios, no será posible cambiarlo',
@@ -52,7 +52,7 @@ return array (
   ),
   'Website' => 
   array (
-    '001' => 'No se mostrará ninguna apuesta al resto de jugadores hasta el día 10 de Junio a las 19:00',
+    '001' => 'No se mostrará ninguna apuesta al resto de jugadores hasta el día 10 de Junio a las 20:00(Horario español), 7pm (Horario UK)',
     '002' => 'Todas las apuestas serán enviadas en un fichero PDF. Esto lo hacemos para demostrar que ninguna apuesta cambia una vez cerrado el plazo. No queremos que la gente piense cosas que no son.',
     '003' => 'Una vez que el campeonato empiece será posible seguir los partidos y la clasificación en la web',
     '004' => 'La clasificación la mantendremos actualizada',

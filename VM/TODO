@@ -3,12 +3,11 @@ TODO
 
 MUST HAVE
 -------------------------------
+- Be able to click on team on a round a see how many people has it
+- Be able to click on match a see how many people has each score
 - Round percentage
 - Change times to say UK and ES time everywhere.
 - Be careful with times on the bet. ES has different time
-- Be able to click on team on a round a see how many people has it
-- Be able to click on match a see how many people has each score
-- Be able to click on player a see how many people has it
 - Be able to delete coupons and all the bets
 - Decide which players should be displayed. Paid and complete? Then be sure this is added to everywhere
 - Add total to table and order by total
@@ -18,9 +17,8 @@ MUST HAVE
 
 NICE TO HAVE
 -------------------------------
+- Add clarification to search
 - Create groups
-- When championship is not open to subscription redirect with a nice message
-
 
 
 NOT NEEDED

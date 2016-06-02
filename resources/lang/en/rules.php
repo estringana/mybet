@@ -11,7 +11,7 @@ return array (
   ),
   'Bets' => 
   array (
-    '001' => 'The system will stop accepting bet changes on 9th of June at 17:00',
+    '001' => 'The system will stop accepting bet changes on 9th of June at 5pm(uk time), 18:00(Spain time)',
     '002' => 'You must have your bet finished by then, if not money will not be given back',
     '003' => 'It will not be possible to do any change after that time',
     '004' => 'If a player gets injured once the bet time is closed, it will not be possible to change ',
@@ -19,7 +19,7 @@ return array (
   ),
   'Website' => 
   array (
-    '001' => 'The website will no show any player bet until 10th of June at 19:00',
+    '001' => 'The website will no show any player bet until 10th of June at 7pm(uk time), 20:00(Spain time)',
     '002' => 'All the bets will be sent on a PDF file and you will be able to download it. This is done in order to prove none of the bets gets changed once published',
     '003' => 'Once the championship starts, it will be possible to follow the matches and the table on the website',
     '004' => 'The table will be kept up to date',

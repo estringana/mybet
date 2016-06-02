@@ -1,6 +1,7 @@
 <?php
 
 return array (
+  'timeEndInscription' => '9 de Junio a las 18:00(Horario español), 5pm(Horario UK)',
   'title' => 'Theporra',
   'Alias' => 'Alias',
   'create_a_team' => 

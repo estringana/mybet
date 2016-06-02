@@ -1,6 +1,7 @@
 <?php
 
 return array (
+  'timeEndInscription' => '9th of June at 5pm(uk time), 18:00(Spain time)',
   'name' => 'Name',
   'Alias' => 'Alias',
   'Reporting a score:' => 'Reporting a score:',
