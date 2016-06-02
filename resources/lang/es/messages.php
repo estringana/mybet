@@ -108,5 +108,5 @@ return array (
   'Bets'=>'Apuestas',
   'Statistics of team'=>'Estadíticas de la selección',
   'This team is on'=>'Esta selección está en',
-  'of the bets on this round'=>'de las apuesta en esta ronda',
+  'of the bets on this round'=>'de las apuestas en esta ronda',
 );
