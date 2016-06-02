@@ -20,12 +20,7 @@
 
 
 
-//All the time
-        Route::get('/table', [
-            'middleware' => 'auth',
-            'uses' => 'TableController@index'
-        ]);
-
+//All the time        
         Route::get('/message', [
             'middleware' => 'auth',
             'uses' => 'MessagesController@index'
@@ -94,6 +89,10 @@
                     'uses' => 'StatisticsController@player'
                 ]);
 
+                 Route::get('/table', [
+                    'middleware' => 'auth',
+                    'uses' => 'TableController@index'
+                ]);
         });
 
 
