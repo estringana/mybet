@@ -15,7 +15,7 @@
             <tbody>
               @foreach($table as $key => $line)
                     <tr>
-                        <th scope="row">{{ $key }}</th>
+                        <th scope="row">{{ $key+1 }}</th>
                         <td>{{ $line->userName }}</td>
                         <td>{{ $line->playerBets }}</td>
                         <td>{{ $line->roundOf16Bets }}</td>

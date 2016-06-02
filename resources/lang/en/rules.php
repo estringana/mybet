@@ -38,7 +38,7 @@ return array (
   ),
   'Goals' => 
   array (
-    '001' => 'We will use the goals reported by FIFA. In case of own goals or something like that, we will count them only if FIFA count it',
+    '001' => 'We will use the goals reported by FIFA. In case of own goals or something like that, we will count them only if FIFA count it for the top scorers',
     'title' => 'Goals',
   ),
   'Points' => 

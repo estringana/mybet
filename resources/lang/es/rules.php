@@ -5,19 +5,19 @@ return array (
   array (
     '001' => 'No sera posible hacer cambios en las apuesta a partir del  9 de Junio a las 18:00',
     '002' => 'Tu apuesta deberá estar terminada para entonces. En caso de no estar terminada, el dinero no será devuelto',
-    '003' => 'No será possible hacer ningún cambio después de ese momento',
-    '004' => 'Si uno de tus jugadores se lesiona cuando se ha cerrado el tiempo de hacer cambios, no será possible cambiarlo',
+    '003' => 'No será posible hacer ningún cambio después de ese momento',
+    '004' => 'Si uno de tus jugadores se lesiona cuando se ha cerrado el tiempo de hacer cambios, no será posible cambiarlo',
     'title' => 'Apuestas',
   ),
   'Clarifications' => 
   array (
-    '001' => 'El sistema de apuestas no es estricto. Con esto queremos decir que no tienes que pasar los equipo que deberían pasar si miras tus rondas anteriores. Por ejemplo, puedes poner que un equipo pierde todos los partidos pero aún así lo pones en la siguiente ronda. Otro ejemplo podría ser que passes todos los equipo de un mismo grupo a la siguiente fase',
+    '001' => 'El sistema de apuestas no es estricto. Con esto queremos decir que no tienes que pasar los equipo que deberían pasar si miras tus rondas anteriores. Por ejemplo, puedes poner que un equipo pierde todos los partidos pero aún así lo pones en la siguiente ronda. Otro ejemplo podría ser que pases todos los equipo de un mismo grupo a la siguiente fase',
     '002' => 'Se puede coger 8 jugadores del mismo equipo. La única restricción es que no puedes coger al mismo jugador mas de una vez.',
     'title' => 'Aclaraciones',
   ),
   'Goals' => 
   array (
-    '001' => 'Utilizaremos los goles que la FIFA de por validos. En caso de goles en propia puerta o cosas parecidas, contaremos el gol solamente si la FIFA lo cuenta.',
+    '001' => 'Utilizaremos los goles que la UEFA de por validos. En caso de goles en propia puerta o cosas parecidas, contaremos el gol solamente si la UEFA lo cuenta para pichihi.',
     'title' => 'Goles',
   ),
   'Payments' => 
@@ -42,18 +42,18 @@ return array (
   ),
   'Prizes' => 
   array (
-    '001' => '1ro - 70% por cierto del dinero',
-    '002' => '20% del dinero',
-    '003' => '10% del dinero',
-    '004' => 'Todo el dinero recogido de las apuestas será utilizado para apuestas',
-    '005' => 'El total de dinero recogido sera publicado una vez que tengamos todas las apuestas',
+    '001' => '1ro - 70% del dinero',
+    '002' => '2do 20% del dinero',
+    '003' => '3ro 10% del dinero',
+    '004' => 'Todo el dinero recogido de las apuestas será utilizado para premios',
+    '005' => 'El total de dinero recogido será publicado una vez que tengamos todas las apuestas',
     '006' => 'En caso de que dos jugadores acaben con los mismo puntos, los premios serán combinados y divididos por la cantidad de jugadores que tengan los mismo puntos. Por ejemplo, si dos jugadores terminan con los mismos puntos en segunda posición, ambos se repartirán el 30% (10% del tercer premio y 20% del segundo). Si los cuatro primeros acabasen con los mismos puntos, todo el dinero sería repartido entre ellos, etc.',
     'title' => 'Premios',
   ),
   'Website' => 
   array (
     '001' => 'No se mostrará ninguna apuesta al resto de jugadores hasta el día 10 de Junio a las 19:00',
-    '002' => 'Todas las apuestas serán enviadas en un fichero PDF. Ésto lo hacemos para demostrar que ninguna apuesta cambia una vez cerrado el plazo. No queremos que la gente piense cosas que no son.',
+    '002' => 'Todas las apuestas serán enviadas en un fichero PDF. Esto lo hacemos para demostrar que ninguna apuesta cambia una vez cerrado el plazo. No queremos que la gente piense cosas que no son.',
     '003' => 'Una vez que el campeonato empiece será posible seguir los partidos y la clasificación en la web',
     '004' => 'La clasificación la mantendremos actualizada',
     '005' => 'Todo el mundo podrá actualizar los resultados. En principio todo el mundo podrá proponer resultados. No hacer el gamba ya que mantendremos quien ha propuesto que resultado... Para que un resultado sea aceptado como valido, 4 jugadores tendrán que aprobarlo.',

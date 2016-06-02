@@ -1,13 +1,13 @@
 <?php
 
 return array (
-  'logout' => 'Cerrar session',
+  'logout' => 'Cerrar sesión',
   'clickheretoresetyourpassword' => 'Click aqui para resetear tu password',
   'confirmpassword' => 'Confirma password',
   'emailaddress' => 'Email',
   'failed' => 'Estas credencias no concuerdan con nuestra DB',
   'forgotyourpassword' => 'No te acuerdas del password?',
-  'login' => 'Iniciar session',
+  'login' => 'Iniciar sesión',
   'register' => 'Registrarse',
   'rememberme' => 'Recuerdame',
   'resetpassword' => 'Resetear password',

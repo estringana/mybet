@@ -18,7 +18,7 @@
             <tbody>
               @foreach($matchBets as $key => $matchBet)
                     <tr>
-                        <th scope="row">{{ $key }}</th>
+                        <th scope="row">{{ $key+1 }}</th>
                         <td>{{ $matchBet->match->date }}</td>
                         <td>{!!FlagIcon::get($matchBet->match->local->short_code,$matchBet->match->local->name)!!} {{ trans('teams.'.$matchBet->match->local->name) }}</td>
                         <td>{{ trans('teams.'.$matchBet->match->away->name) }} {!!FlagIcon::get($matchBet->match->away->short_code,$matchBet->match->away->name)!!}</td>
