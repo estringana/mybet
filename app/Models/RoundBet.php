@@ -12,6 +12,11 @@ class RoundBet extends Model implements \App\Interfaces\Betable, \App\Interfaces
     {
         return $this->belongsTo('App\Models\Round');
     }
+    
+    public function bet()
+    {
+        return $this->morphOne('App\Models\Bet', 'bettype');
+    }
 
     public function team()
     {

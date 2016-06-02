@@ -13,6 +13,11 @@ class MatchBet extends Model implements \App\Interfaces\Betable, \App\Interfaces
         return $this->belongsTo('App\Models\Match');
     }
 
+    public function bet()
+    {
+        return $this->morphOne('App\Models\Bet', 'bettype');
+    }
+
     public function associateMatch(Match $match)
     {
         $this->match()->associate($match);

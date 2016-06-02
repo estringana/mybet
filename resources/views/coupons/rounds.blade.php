@@ -17,9 +17,12 @@
               @foreach($bets as $key => $bet)
                     <tr>
                         <th scope="row">{{ $i++ }}</th>
-                        <td class="bet">{!! $bet->isFilled() ? 
-                                FlagIcon::get($bet->team->short_code, $bet->team->name)." ".trans('teams.'.$bet->team->name) :
-                                 '<span class="pending-bet label label-danger">Pending</span>' !!}
+                        <td class="bet">
+                            @if ($bet->isFilled()) 
+                                <a href="/statistics/team/{{$bet->team->id}}">{!! FlagIcon::get($bet->team->short_code, $bet->team->name)." ".trans('teams.'.$bet->team->name) !!}</a>
+                            @else
+                                 <span class="pending-bet label label-danger">Pending</span>
+                            @endif
                         </td>
                     </tr>
               @endforeach

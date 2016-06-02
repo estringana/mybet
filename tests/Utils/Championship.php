@@ -120,6 +120,62 @@ function create_a_player_on_a_team_which_is_on_the_championship(App\Models\Champ
     return $player;
 }
 
+function create_a_team_which_is_on_the_championship(App\Models\Championship $championship)
+{
+    $round = create_a_round_on_the_championship($championship);
+    $team = create_a_team_on_round_of_championship($round, $championship);
+
+    return $team;
+}
+
+function create_a_round_on_the_championship(App\Models\Championship $championship)
+{
+    $round = factory(App\Models\Round::class)->create();
+    $championship->addRound($round);
+    $championship->save();
+
+    return $round;
+}
+
+function create_a_team_on_round_of_championship(App\Models\Round $round, App\Models\Championship $championship)
+{
+    $team = factory(App\Models\Team::class)->create();
+    $championship->subscribeTeam($team);
+    $round->addTeam($team);
+    $round->save();
+
+    return $team;
+}
+
+function create_bet_of_roundbet_with_round_and_team_on_coupon(App\Models\Coupon $coupon, App\Models\Team $team = null, App\Models\Round $round = null)
+{
+    if ( is_null($round) )
+    {
+        $round = create_a_round_on_the_championship($coupon->championship);
+    }
+    
+     if ( is_null($team) )
+    {
+        $team = create_a_team_on_round_of_championship($round, $coupon->championship);
+    }
+
+    $bet = new App\Models\Bet();        
+        
+    $roundBet = new App\Models\RoundBet();
+
+    $roundBet->associateRound($round);
+    $roundBet->associateTeam($team);
+    $roundBet->save();
+
+    $bet->addBettype($roundBet);
+
+    $coupon->addBet($bet);
+
+    $bet->save();
+
+    return $bet;
+}
+
 function create_bet_of_playerbet_with_player_on_coupon(\App\Models\Coupon $coupon, App\Models\Player $player = null)
 {
         $bet = new App\Models\Bet();        

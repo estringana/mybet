@@ -2,32 +2,14 @@
 
 namespace App\Repositories;
 
-use App\Models\Championship;
 use App\Models\PlayerBet;
 use App\Models\Player;
 
-class PlayerStatisticsRepository
+class PlayerStatisticsRepository extends StatisticsRepositoryAbstract
 {
-    protected $championship;
-
-    public function __construct(Championship $championship)
-    {
-        $this->championship = $championship;
-    }
-
-    protected function championship()
-    {
-        return $this->championship;
-    }
-
     public function players()
     {
         return $this->championship()->players;
-    }
-
-    protected function numberOfCoupons()
-    {
-           return $this->championship->coupons()->count();
     }
 
     protected function betsWithPlayer(Player $player)

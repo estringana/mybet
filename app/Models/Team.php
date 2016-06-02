@@ -11,6 +11,11 @@ class Team extends Model
         return $this->belongsTo('App\Models\Championship');
     }
 
+    public function bets()
+    {
+        return $this->hasMany('App\Models\RoundBet');
+    }
+
     public function rounds(){
         return $this->belongsToMany('App\Models\Round');
     }
