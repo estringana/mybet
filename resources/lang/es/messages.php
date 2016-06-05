@@ -118,4 +118,5 @@ return array (
   'means the local team win the match' => 'significa que el equipo local gana el partido',
   'means the away team win the match' => 'significa que el equipo visitante gana el partido',
   'means match ends in draw' => 'significa que el partido acaba en empate',
+  'total'=>'Total',
 );

@@ -46,6 +46,15 @@ class TableGenerator
         $line->final = $this->roundRepository->pointsOfRound(5);
         $line->champion = $this->roundRepository->pointsOfRound(6);
         $line->runnersup = $this->roundRepository->pointsOfRound(7);     
+        $line->total =
+            $line->playerBets +
+            $line->matchBets +
+            $line->roundOf16Bets +
+            $line->quarterFinalsBets +
+            $line->semiFinals +
+            $line->final +
+            $line->champion +
+            $line->runnersup;
 
         return $line;
     }
@@ -64,7 +73,7 @@ class TableGenerator
                 }
            }
 
-        return $result;
+        return collect($result)->sortByDesc('total');
     }
     
 

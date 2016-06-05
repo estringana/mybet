@@ -12,4 +12,5 @@ class Line
     public $final;
     public $champion;
     public $runnersup;
+    public $total;
 }

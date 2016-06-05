@@ -122,5 +122,5 @@ return array (
   'means the local team win the match' => 'means the local team win the match',
   'means the away team win the match' => 'means the away team win the match',
   'means match ends in draw' => 'means match ends in draw',
-
-);
+  'total'=>'Total',
+  );

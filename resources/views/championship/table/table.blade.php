@@ -3,6 +3,7 @@
                 <tr>
                     <th>#</th>
                     <th>{{ trans('messages.username') }}</th>
+                    <th>{{ trans('messages.total') }}</th>
                     <th>{{ trans('messages.playerbets') }}</th>
                     <th>{{ trans('messages.roundOf16Bets') }}</th>
                     <th>{{ trans('messages.quarterFinalsBets') }}</th>
@@ -17,6 +18,7 @@
                     <tr>
                         <th scope="row">{{ $key+1 }}</th>
                         <td>{{ $line->userName }}</td>
+                        <td>{{ $line->total }}</td>
                         <td>{{ $line->playerBets }}</td>
                         <td>{{ $line->roundOf16Bets }}</td>
                         <td>{{ $line->quarterFinalsBets }}</td>
