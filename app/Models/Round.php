@@ -83,6 +83,6 @@ class Round extends Model
 
     public function betable()
     {
-           return ! is_null($this->configuration) && $this->configuration->bet_mapping_class == 'App\Models\RoundBet';
+           return ! is_null($this->configuration) && $this->configuration->isRoundBet();
     }
 }

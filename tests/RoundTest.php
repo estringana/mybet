@@ -254,4 +254,43 @@ class RoundTest extends TestCase
         
         $this->assertEquals($round->matches->lists(['id']), $matches->lists(['id']));
     }
+
+    /**
+     * @test
+     * @group backend
+     */
+    public function it_only_return_is_not_beable_if_has_no_configuration()
+    {
+        $round = factory(App\Models\Round::class)->create(); 
+        $this->assertFalse($round->betable());
+    }
+
+    /**
+     * @test
+     * @group backend
+     */
+    public function it_return_false_to_betable_if_has_configuration_but_not_from_rounds()
+    {
+        $round = factory(App\Models\Round::class)->create(); 
+        $configuration = factory(App\Models\BetConfiguration::class)->create(); 
+
+        $configuration->associateRound($round);
+        $configuration->save();
+        
+        $this->assertFalse($round->betable());
+    }
+
+    /**
+     * @test
+     * @group backend
+     */
+    public function it_return_true_to_betable_if_has_configuration_and_is_a_round_one()
+    {
+        $round = factory(App\Models\Round::class)->create(); 
+        $configuration = factory(App\Models\BetConfiguration::class)->create(['bet_mapping_class' => 'App\Models\RoundBet']); 
+        $configuration->associateRound($round);
+        $configuration->save();
+        
+        $this->assertTrue($round->betable());
+    }
 }

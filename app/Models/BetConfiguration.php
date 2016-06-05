@@ -20,4 +20,9 @@ class BetConfiguration extends Model
     {
            $this->round()->associate($round);
     }
+
+    public function isRoundBet()
+    {
+           return $this->bet_mapping_class == 'App\Models\RoundBet';
+    }
 }
