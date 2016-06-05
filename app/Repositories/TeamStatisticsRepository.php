@@ -79,12 +79,15 @@ class TeamStatisticsRepository extends StatisticsRepositoryAbstract
         $breakDown = [];
 
         foreach ($rounds as $round) {
-            $row = new \App\Championship\Statistics\BreakDownTeamOnRound();
-            $row->round= $round;
-            $row->percentage = $this->percentageOfTeamOnRound($team_id, $round->id);
-            $row->coupons = $this->couponsWithTeamOnRound($team_id, $round->id);
+            if ($round->betable())
+            {
+                $row = new \App\Championship\Statistics\BreakDownTeamOnRound();
+                $row->round= $round;
+                $row->percentage = $this->percentageOfTeamOnRound($team_id, $round->id);
+                $row->coupons = $this->couponsWithTeamOnRound($team_id, $round->id);
 
-            $breakDown[] = $row;
+                $breakDown[] = $row;
+            }
         }
 
         return collect($breakDown);

@@ -19,6 +19,10 @@ class Round extends Model
         return $this->hasMany('App\Models\Match');
     }
 
+    public function configuration(){
+        return $this->hasOne('App\Models\BetConfiguration');
+    }
+
     public function assignToChampionship(Championship $championship)
     {
         $this->championship()->associate($championship);
@@ -75,5 +79,10 @@ class Round extends Model
     public function hasTeam(Team $team)
     {
         return $this->teams()->where('team_id',$team->id)->count() > 0;
+    }
+
+    public function betable()
+    {
+           return ! is_null($this->configuration) && $this->configuration->bet_mapping_class == 'App\Models\RoundBet';
     }
 }
