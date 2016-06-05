@@ -3,12 +3,11 @@ TODO
 
 MUST HAVE
 -------------------------------
-- Test match statistics
-- Be able to delete coupons and all the bets
-- Decide which players should be displayed. Paid and complete? Then be sure this is added to everywhere
 - Add total to table and order by total
 - Propose goals
 - Be able to add teams to rounds
+- Be able to delete coupons and all the bets
+- Decide which players should be displayed. Paid and complete? Then be sure this is added to everywhere
 - Add all the matches until the final
 
 NICE TO HAVE

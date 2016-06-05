@@ -147,6 +147,38 @@ function create_a_team_on_round_of_championship(App\Models\Round $round, App\Mod
     return $team;
 }
 
+function create_a_match_on_championship(App\Models\Championship $championship)
+{
+    $match = factory(App\Models\Match::class)->create();
+    $round = create_a_round_on_the_championship($championship);
+    $round->addMatch($match);
+    $round->save();
+
+    return $match;
+}
+
+function create_bet_of_matchbet_with_match_and_prediction(App\Models\Coupon $coupon, $prediction, App\Models\Match $match = null)
+{
+    if (is_null($match))
+    {
+        $match = create_a_match_on_championship($coupon->championship);
+    }
+
+    $bet = new App\Models\Bet();                
+    $matchBet = new App\Models\MatchBet();
+    $matchBet->setPrediction($prediction);
+    $matchBet->associateMatch($match);
+    $matchBet->save();
+
+    $bet->addBettype($matchBet);
+
+    $coupon->addBet($bet);
+
+    $bet->save();
+
+    return $bet;
+}
+
 function create_bet_of_roundbet_with_round_and_team_on_coupon(App\Models\Coupon $coupon, App\Models\Team $team = null, App\Models\Round $round = null)
 {
     if ( is_null($round) )

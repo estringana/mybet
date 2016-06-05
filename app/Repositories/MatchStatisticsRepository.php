@@ -42,7 +42,8 @@ class MatchStatisticsRepository extends StatisticsRepositoryAbstract
         $coupons = [];
         $match = $this->getMatch($match_id);
 
-        foreach ($match->bets as $matchbet) {
+        foreach ($match->bets as $matchbet)
+        {
             if ($matchbet->prediction == $prediction)
             {
                 $coupons[] = $matchbet->bet->coupon;
