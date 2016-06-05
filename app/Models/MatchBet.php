@@ -25,7 +25,7 @@ class MatchBet extends Model implements \App\Interfaces\Betable, \App\Interfaces
 
     public static function validPredictions()
     {
-        return [ Match::SIGN_1,  Match::SIGN_X,  Match::SIGN_2];
+        return [ Match::SIGN_1,  Match::SIGN_X,  Match::SIGN_2 ];
     }
 
     protected  function guardAgainstInvalidPredictions($prediction)

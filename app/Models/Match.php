@@ -40,6 +40,11 @@ class Match extends Model
         return $this->hasMany('App\Models\Goal');
     }
 
+    public function bets()
+    {
+        return $this->hasMany('App\Models\MatchBet');
+    }
+
     public function propositions()
     {
         return $this->hasMany('App\Models\ProposedScore');

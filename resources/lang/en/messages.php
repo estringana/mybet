@@ -112,4 +112,15 @@ return array (
   'This players has scored'=>'This players has scored',
   'goals'=>'goals',
   'Bets'=>'Bets',
+
+  'Statistics of match'=>'Statistics of match',
+  'Prediction'=>'Prediction',
+  'This prediction has been choose on'=>'This prediction has been choose on',
+  'View statistics of the match'=>'View statistics of the match',
+
+    'Signs meaning'=> 'Signs meaning',
+  'means the local team win the match' => 'means the local team win the match',
+  'means the away team win the match' => 'means the away team win the match',
+  'means match ends in draw' => 'means match ends in draw',
+
 );

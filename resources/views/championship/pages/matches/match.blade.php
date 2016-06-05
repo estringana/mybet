@@ -8,5 +8,8 @@
                 <a class="btn btn-default pull-right" href="{{ Url::get('/matches/propose/'.$match->id) }}" role="button">{{ trans('messages.reportScore')}}</a>
                 @include('championship.pages.matches.goals', [ 'goals' => $match->goals])
     </div>
+    <div class="panel-footer">
+                        <a class="btn btn-default" href="{{ Url::get('/statistics/match/'.$match->id) }}" role="button">{{ trans('messages.View statistics of the match')}}</a>
+    </div>
 </div>
 @endforeach

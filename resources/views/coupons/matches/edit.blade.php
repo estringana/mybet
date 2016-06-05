@@ -8,6 +8,13 @@
 <div class="alert alert-info" role="alert">
   <ul>
     <li>{{trans('messages.The bet system is open so you can make a team the winner of all its matches but it does not mean you have to add it to the next round')}}</li>
+    <li> {{trans('messages.Signs meaning')}}
+        <ul>
+            <li>1 {{trans('messages.means the local team win the match')}}</li>
+            <li>X {{trans('messages.means match ends in draw')}}</li>
+            <li>2 {{trans('messages.means the away team win the match')}}</li>
+        </ul>
+    </li>
   </ul>
 </div>
 

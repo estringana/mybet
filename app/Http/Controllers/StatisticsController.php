@@ -7,17 +7,21 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Repositories\PlayerStatisticsRepository;
 use App\Repositories\TeamStatisticsRepository;
+use App\Repositories\MatchStatisticsRepository;
+use App\Championship\Statistics\BreakDownMatchWithPrediction;
 
 class StatisticsController extends Controller
 {
     private $playerRepository;
     private $teamRepository;
+    private $matchRepository;
 
     public function __construct()
     {
         parent::__construct();
         $this->playerRepository = new PlayerStatisticsRepository($this->championship);
         $this->teamRepository = new TeamStatisticsRepository($this->championship);
+        $this->matchRepository = new MatchStatisticsRepository($this->championship);
     }
 
     public function player($player_id)
@@ -33,6 +37,37 @@ class StatisticsController extends Controller
         }
         catch (\Exceptions\PlayerNotFoundException $e) {
             alert()->error(trans('messages.Player not found'), 'Error');
+        } 
+        catch (\Exception $e) {
+            alert()->error('Error', 'Error');
+        }           
+
+        return redirect('/');
+    }
+
+    public function match($match_id)
+    {
+        try {
+            $predictionsWith1 = new BreakDownMatchWithPrediction();
+            $predictionsWith1->percentage = $this->matchRepository->percentageWithPrediction($match_id, 1);
+            $predictionsWith1->coupons = $this->matchRepository->couponsWithMatchAndPrediction($match_id, 1);
+            
+            $predictionsWithX = new BreakDownMatchWithPrediction();
+            $predictionsWithX->percentage = $this->matchRepository->percentageWithPrediction($match_id, 'X');
+            $predictionsWithX->coupons = $this->matchRepository->couponsWithMatchAndPrediction($match_id, 'X');
+            
+            $predictionsWith2 = new BreakDownMatchWithPrediction();
+            $predictionsWith2->percentage = $this->matchRepository->percentageWithPrediction($match_id, 2);
+            $predictionsWith2->coupons = $this->matchRepository->couponsWithMatchAndPrediction($match_id, 2);
+            
+            $match = $this->matchRepository->getMatch($match_id);
+
+           return view('statistics.match')
+                ->with( compact(['predictionsWith1','predictionsWithX','predictionsWith2','match']) );
+
+        }
+        catch (\Exceptions\MatchNotFoundException $e) {
+            alert()->error(trans('messages.Match not found'), 'Error');
         } 
         catch (\Exception $e) {
             alert()->error('Error', 'Error');

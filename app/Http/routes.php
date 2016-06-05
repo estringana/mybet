@@ -94,6 +94,11 @@
                     'uses' => 'StatisticsController@team'
                 ]);
 
+                Route::get('/statistics/match/{match_id}', [
+                    'middleware' => 'auth',
+                    'uses' => 'StatisticsController@match'
+                ]);
+
                  Route::get('/table', [
                     'middleware' => 'auth',
                     'uses' => 'TableController@index'

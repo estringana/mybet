@@ -109,4 +109,13 @@ return array (
   'Statistics of team'=>'Estadíticas de la selección',
   'This team is on'=>'Esta selección está en',
   'of the bets on this round'=>'de las apuestas en esta ronda',
+
+    'Statistics of match'=>'Estadisticas del partido',
+  'Prediction'=>'Prediccion',
+  'This prediction has been choose on'=>'Prediccion elegida en',
+  'View statistics of the match'=>'Estadisticas del partido',
+  'Signs meaning'=> 'Significado de los signos',
+  'means the local team win the match' => 'significa que el equipo local gana el partido',
+  'means the away team win the match' => 'significa que el equipo visitante gana el partido',
+  'means match ends in draw' => 'significa que el partido acaba en empate',
 );
