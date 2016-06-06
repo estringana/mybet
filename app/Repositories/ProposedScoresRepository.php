@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Match;
 use App\Models\ProposedScore;
 use App\Models\Championship;
+use App\Models\ProposedGoal;
 
 class ProposedScoresRepository
 {
@@ -13,6 +14,7 @@ class ProposedScoresRepository
 
     protected $user;
     protected $championship;
+    protected $goals;
 
     public function __construct(User $user, Championship $championship)
     {
@@ -102,14 +104,60 @@ class ProposedScoresRepository
         }
     }
 
+    protected function guardAgainstScoreDontMatchingGoals($away_score, $local_score)
+    {
+           if ( ($away_score + $local_score) != count($this->goals) )
+           {
+              throw new \App\Exceptions\AmountOfGoalsDifferentFromMatchScoreException();
+           }
+    }
+    
+    protected function getPlayerFromMatch(Match $match, $player_id)
+    {
+           $allPlayersOnMatch = $match->local->players->merge($match->away->players);
+
+           $player = $allPlayersOnMatch->where('id',$player_id);
+
+           if ( $player->isEmpty() )
+           {
+              throw new \App\Exceptions\PlayerNotFoundException();
+           }
+
+           return $player->first();
+    }
+
+    protected function getMatch($match_id)
+    {
+            $this->guardAgainstMatchNotFound($match_id);
+
+           return $this->championship->matches->where('id',$match_id)->first();
+    }
+
+    public function addGoal($match_id, $player_id, $penalty, $own_goal, $penalty_round)
+    {
+           $match = $this->getMatch($match_id);
+
+           $player = $this->getPlayerFromMatch($match, $player_id);
+
+           $proposedGoal = new ProposedGoal();
+           $proposedGoal->addPlayer($player);
+           $proposedGoal->penalty = $penalty;
+           $proposedGoal->own_goal = $own_goal;
+           $proposedGoal->penalty_round = $penalty_round;
+
+           $this->goals[] = $proposedGoal;
+
+           return count($this->goals);
+    }
+
     public function save($match_id, $local_score, $away_score)
     {
-           $this->guardAgainstMatchNotFound($match_id);
            $this->guardAgainstInvalidScore($local_score);
            $this->guardAgainstInvalidScore($away_score);
+           // $this->guardAgainstScoreDontMatchingGoals($away_score, $local_score);
            $this->guardAgainstSameUserGivingSameScore($match_id, $local_score, $away_score);
 
-           $match = $this->championship->matches->where('id',$match_id)->first();
+           $match = $this->getMatch($match_id);
 
            $this->create_proposed_score($match, $local_score, $away_score);
 

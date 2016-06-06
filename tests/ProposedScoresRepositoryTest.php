@@ -183,4 +183,86 @@ class ProposedScoresRepositoryTest extends TestCase
        $this->assertEquals(6, $match->away_score);
        $this->assertEquals(0, $match->propositions->count());
    }   
+
+
+/**
+* @test
+* @group backend
+*/
+   public function it_should_throw_exception_if_match_does_not_exist_in_championship_when_adding_goals()
+   {
+        $match = factory('App\Models\Match')->create();
+
+        $this->setExpectedException('\App\Exceptions\MatchNotFoundException');
+
+        $this->repository->addGoal($match->id, 1, 1, 1, 1);
+   }
+
+   /**
+* @test
+* @group backend
+*/
+   public function it_should_throw_an_exception_if_match_does_not_exists_at_all_when_adding_goals()
+   {
+        $this->setExpectedException('\App\Exceptions\MatchNotFoundException');
+
+        $this->repository->addGoal(123123123, 1, 1, 1, 1);
+   }
+
+   /**
+    * @test
+    * @group backend
+    */
+   public function it_should_throw_exception_if_player_not_found_on_match()
+   {
+       $match = create_a_match_on_championship($this->championship);
+       $match->save();
+
+        $this->setExpectedException('\App\Exceptions\PlayerNotFoundException');
+
+        $this->repository->addGoal($match->id, 11234, 1, 1, 1);
+   }
+
+   /**
+    * @test
+    * @group backend
+    */
+   public function it_should_return_1_when_adding_the_first_goal_of_a_match()
+   {
+       $match = create_a_match_on_championship($this->championship);
+       $match->save();
+
+       $playerFromMatch = $match->local->players->random();
+
+        $this->assertEquals(1, $this->repository->addGoal($match->id, $playerFromMatch->id, 1, 1, 1));
+   }
+
+   /**
+    * @test
+    * @group backend
+    */
+   public function it_should_return_2_when_adding_the_second_goal_of_a_match()
+   {
+       $match = create_a_match_on_championship($this->championship);
+       $match->save();
+
+       $playerFromMatch01 = $match->local->players->random();
+       $playerFromMatch02 = $match->local->players->random();
+
+        $this->assertEquals(1, $this->repository->addGoal($match->id, $playerFromMatch01->id, 1, 1, 1));
+        $this->assertEquals(2, $this->repository->addGoal($match->id, $playerFromMatch02->id, 1, 1, 1));
+   }   
+
+// /**
+// * @test
+// * @group backend
+// */
+//    public function it_should_throw_an_exception_if_goals_on_match_dont_match_goals_passed()
+//    {
+//       $match = $this->championship->matches()->firstOrFail();
+      
+//       $this->setExpectedException('\App\Exceptions\AmountOfGoalsDifferentFromMatchScoreException');
+
+//         $this->repository->save($match->id,1,2);
+//    }
 }

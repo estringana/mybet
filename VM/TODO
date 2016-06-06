@@ -4,6 +4,10 @@ TODO
 MUST HAVE
 -------------------------------
 - Propose goals
+        - Finish it. I have added a way of adding goals to a proposed score
+        - It needs to check if the goals match the number of goals on the match
+        - Comparation of match with same goals but differnt players
+        - When proposing a new score, check if it equals to players or not...
 - Be able to add teams to rounds
 - Be able to delete coupons and all the bets
 - Decide which players should be displayed. Paid and complete? Then be sure this is added to everywhere

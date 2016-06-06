@@ -137,9 +137,21 @@ function create_a_round_on_the_championship(App\Models\Championship $championshi
     return $round;
 }
 
+function create_players_on_team(App\Models\Team $team)
+{
+    $players = factory(App\Models\Player::class, 24)->create();
+
+    foreach ($players as $player) {
+        $team->addPlayer($player);
+    }
+
+    return $team;
+}
+
 function create_a_team_on_round_of_championship(App\Models\Round $round, App\Models\Championship $championship)
 {
     $team = factory(App\Models\Team::class)->create();
+    $team = create_players_on_team($team);
     $championship->subscribeTeam($team);
     $round->addTeam($team);
     $round->save();
@@ -153,6 +165,11 @@ function create_a_match_on_championship(App\Models\Championship $championship)
     $round = create_a_round_on_the_championship($championship);
     $round->addMatch($match);
     $round->save();
+
+    $localTeam = create_a_team_on_round_of_championship($round, $championship);
+    $awayTeam = create_a_team_on_round_of_championship($round, $championship);
+
+    $match->addTeams($localTeam, $awayTeam);
 
     return $match;
 }

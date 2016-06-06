@@ -26,6 +26,16 @@ class ProposedScore extends Model
         return $this->belongsTo('App\Models\User');
     }
 
+    public function proposedGoals()
+    {
+           return $this->hasMany('App\Models\ProposedGoal');
+    }
+
+    public function addGoal(ProposedGoal $goal)
+    {
+        $this->proposedGoals()->save($goal);
+    }
+
     public function addMatch(Match $match)
     {
            $this->match()->associate($match);
