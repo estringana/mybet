@@ -35,66 +35,104 @@ class ProposedScoresRepository
            }
     }
 
-    protected function guardAgainstSameUserGivingSameScore($match_id, $local_score, $away_score)
-    {
-        $occurences_found = $this->user
-            ->propositions()
-            ->where('match_id',$match_id)
-            ->where('local_score',$local_score)
-            ->where('away_score',$away_score)
-            ->count();
-
-        if ( $occurences_found > 0 )
+    protected function areProposedGoalsSameAsProposedScore(ProposedScore $proposedScore)
+    {      
+          $proposedGoals = collect($this->goals);
+          $proposedGoalsPreviously = $proposedScore->proposedGoals;
+           if ( count($this->goals) == 0 &&  ($proposedScore->localScore+$proposedScore->away_score == 0))
            {
-                throw new \App\Exceptions\DuplicatePredictionException();
+              return true;
            }
+
+           if( $proposedScore->proposedGoals->isEmpty() )
+           {
+              return false;              
+           }
+
+           if ($proposedGoals->count() !== $proposedScore->proposedGoals->count())
+           {
+              return false;
+           }
+           
+           $ids = [];
+           $resul = $proposedGoals->filter(function ($goal, $key) use ($proposedGoalsPreviously, &$ids) {
+                $goalFound =  $proposedGoalsPreviously->where('player_id',$goal->player_id)->reject(function ($goal, $key) use ($ids) {
+                            return in_array($goal->id,$ids);
+                      })->first();
+
+                if ( ! is_null($goalFound) )
+                {
+                  $ids[] = $goalFound->id;
+                  return true;
+                }
+
+                return false;
+           });
+
+           return $resul->count() == $proposedScore->proposedGoals->count();
+           
     }
 
-    protected function shouldItBecomeAScore($match_id, $local_score, $away_score)
+    protected function guardAgainstSameSameScore($match_id, $local_score, $away_score)
     {
-        if ($this->user->is_admin)
-        {
-            return true;
-        }
-        
-        return ProposedScore::where('match_id',$match_id)
-            ->where('local_score',$local_score)
-            ->where('away_score',$away_score)
-            ->count() >= ProposedScoresRepository::PROPOSITION_NEEDED_TO_BECOME_REAL;
-    }
+        $match =$this->championship
+            ->matches()
+            ->findOrFail($match_id);
 
-    protected function removeOldPrepositions($match_id, $local_score, $away_score)
-    {
-          $propositionsToDelete = ProposedScore::where('match_id',$match_id)
+        $proposedScoresMatchingScore = $match->propositions()
             ->where('local_score',$local_score)
-            ->where('away_score',$away_score)
-            ->get();
+            ->where('away_score',$away_score)->get();
+            
 
-            foreach ($propositionsToDelete as $proposition) {
-                $proposition->delete();
+         foreach ($proposedScoresMatchingScore as $proposedScore) {
+            if ( $this->areProposedGoalsSameAsProposedScore( $proposedScore ) )
+            {
+                throw new \App\Exceptions\DuplicatePredictionException();
             }
+         }        
     }
 
-    protected function setScoreToMatch($match_id, $local_score, $away_score)
+    protected function setGoalsToMatch(Match $match, ProposedScore $proposedScore)
     {
-           $match = $this->championship
-                ->matches
-                ->where('id',$match_id)
-                ->first();
+           foreach ($proposedScore->proposedGoals as $proposedGoal) {
+              $goal = \App\Transformers\ProposedGoalToGoal::transform($proposedGoal);
+              $match->addGoal($goal);
+           }
 
-            $match->addScore($local_score, $away_score);
+          $match->save();
+    }
+
+    protected function setScoreToMatch(Match $match, ProposedScore $proposedScore)
+    {
+            $match->addScore($proposedScore->local_score, $proposedScore->away_score);
+            $this->setGoalsToMatch($match, $proposedScore);
             $match->save();
-            $this->removeOldPrepositions($match_id, $local_score, $away_score);
+            $proposedScore->delete();
     }
 
     protected function create_proposed_score($match, $local_score, $away_score)
     {
+          $this->guardAgainstScoreDontMatchingGoals($away_score, $local_score);
+          $this->guardAgainstSameSameScore($match->id, $local_score, $away_score);
+
            $proposedScore = new ProposedScore();
            $proposedScore->local_score = $local_score;
            $proposedScore->away_score = $away_score;
            $proposedScore->addMatch($match);
            $proposedScore->addUser($this->user);
            $proposedScore->save();
+
+           if (count($this->goals) > 0){
+               foreach ($this->goals as $proposedGoal) {
+                  $proposedScore->addGoal($proposedGoal);
+               }
+
+               $proposedScore->save();
+           }
+
+           $this->goals = [];
+
+           return $proposedScore;
     }
 
     protected function guardAgainstInvalidScore($score)
@@ -150,20 +188,23 @@ class ProposedScoresRepository
            return count($this->goals);
     }
 
+    protected function shouldItBecomeAScore()
+    {
+           return $this->user->is_admin;
+    }
+
     public function save($match_id, $local_score, $away_score)
     {
            $this->guardAgainstInvalidScore($local_score);
            $this->guardAgainstInvalidScore($away_score);
-           // $this->guardAgainstScoreDontMatchingGoals($away_score, $local_score);
-           $this->guardAgainstSameUserGivingSameScore($match_id, $local_score, $away_score);
 
            $match = $this->getMatch($match_id);
 
-           $this->create_proposed_score($match, $local_score, $away_score);
+           $proposedScore = $this->create_proposed_score($match, $local_score, $away_score);
 
-            if ( $this->shouldItBecomeAScore($match_id, $local_score, $away_score) )
+            if ( $this->shouldItBecomeAScore() )
             {
-                $this->setScoreToMatch($match_id, $local_score, $away_score);
+                $this->setScoreToMatch($match, $proposedScore);
             }
     }
 }

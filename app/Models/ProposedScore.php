@@ -48,7 +48,7 @@ class ProposedScore extends Model
 
     protected function guardAgainstInvalidScores($score)
     {
-           if ( empty($score) || $score < 0)
+           if ( ! is_numeric($score) || $score < 0 )
             {
                 throw new \App\Exceptions\InvalidScoreException();
             }
