@@ -30,19 +30,27 @@
         <div class="panel panel-default">
           <div class="panel-heading">{{trans('messages.Proposed a different one')}}</div>
           <div class="panel-body">
+                <div class="alert alert-info" role="alert">
+                    <ul>
+                      <li>{{trans('messages.Add the number of goals scored by each player.')}}</li>
+                      <li>{{trans('messages.Leave all of them empty for 0-0')}}</li>
+                    </ul>
+                </div>
                 <form class="form-inline" method="POST">
                     {{ csrf_field() }}
-                    <div class="form-group">
-                            <label for="local">
-                                {!!FlagIcon::get($match->local->short_code,$match->local->name)!!} {{trans('teams.'.$match->local->name)}}
-                            </label>
-                            <input type="text" class="form-control" id="local" name="local" placeholder="Score...">
-                          </div>
-                          <div class="form-group">                
-                            <input type="text" class="form-control" id="away" name="away" placeholder="Score...">
-                            <label for="away">
-                                {!!FlagIcon::get($match->away->short_code,$match->away->name)!!} {{trans('teams.'.$match->away->name)}}
-                            </label>
+                    <div class="form-group col-xs-12 col-md-12">
+                           <div class="col-xs-12 col-md-6">
+                                @include('championship.utils.team',['team' => $match->local])
+                                <div class="players col-xs-12 col-md-12">
+                                    @include('championship.actions.proposeScore.players',['players' => $match->local->players])
+                                </div>
+                           </div>
+                            <div class="col-xs-12 col-md-6">
+                                @include('championship.utils.team',['team' => $match->away])
+                                <div class="players col-xs-12 col-md-12">
+                                    @include('championship.actions.proposeScore.players',['players' => $match->away->players])
+                                </div>
+                           </div>
                             <button type="submit" class="btn btn-default">{{trans('messages.Report')}}</button>
                     </div>
                 </form>

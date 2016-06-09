@@ -27,7 +27,8 @@
         },
         "files": [
             "app/Helpers/Url.php",
-            "app/Helpers/FlagIcon.php"
+            "app/Helpers/FlagIcon.php",
+            "app/Helpers/ArrayHelper.php"
         ]
     },
     "autoload-dev": {

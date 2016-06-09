@@ -1,0 +1,1 @@
+{!!FlagIcon::get($team->short_code,$team->name)!!} {{trans('teams.'.$team->name)}}

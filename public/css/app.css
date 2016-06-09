@@ -6517,6 +6517,36 @@ body.stop-scrolling {
   100% {
     transform: rotate(360deg); } }
 
+.margin-top-xs {
+  margin-top: 0.5rem; }
+
+.margin-bottom-xs {
+  margin-bottom: 0.5rem; }
+
+.margin-top-sm {
+  margin-top: 1rem; }
+
+.margin-bottom-sm {
+  margin-bottom: 1rem; }
+
+.margin-top-md {
+  margin-top: 1.5rem; }
+
+.margin-bottom-md {
+  margin-bottom: 1.5rem; }
+
+.margin-top-lg {
+  margin-top: 2rem; }
+
+.margin-bottom-lg {
+  margin-bottom: 2rem; }
+
+.margin-top-xl {
+  margin-top: 2.5rem; }
+
+.margin-bottom-xl {
+  margin-bottom: 2.5rem; }
+
 .form-signin {
   max-width: 330px;
   padding: 15px;

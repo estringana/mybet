@@ -50,6 +50,11 @@ class Match extends Model
         return $this->hasMany('App\Models\ProposedScore');
     }
 
+    public function players()
+    {
+           return $this->local->players->merge($this->away->players);
+    }
+
     public function addTeams(Team $local, Team $away)
     {
         $this->local()->associate($local);

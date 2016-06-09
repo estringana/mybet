@@ -38,4 +38,9 @@ class Team extends Model
     {
         $this->players()->save($player);
     }
+
+    public function hasPlayer(Player $player)
+    {
+        return $this->players()->where( 'id', $player->id )->count() == 1;
+    }
 }

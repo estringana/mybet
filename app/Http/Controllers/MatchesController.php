@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Models\Match;
 
 class MatchesController extends Controller
 {
@@ -48,16 +49,36 @@ class MatchesController extends Controller
     public function storeProposition(Request $request,int $match_id)
     {
             $this->validate($request, [
-                'local'=> 'required|numeric',
-                'away' => 'required|numeric'
+                'player.*'=> 'numeric'
             ]);
+
+          $playersWithGoals = cleanEmptyValues($request->input('player'));
           
           try {
                $this->guardAgainstMatchNotFound($match_id);
 
                $repository = new \App\Repositories\ProposedScoresRepository(\Auth::user(), $this->championship);
+        
+                $local = 0;
+                $away = 0;
 
-               $repository->save($match_id, (int) $request->get('local'), (int) $request->get('away'));
+                foreach ($playersWithGoals as $player_id => $goals) {
+                      for ($i = 0; $i < $goals; $i++ )
+                      {
+                            $team = $repository->addGoal($match_id, $player_id, false, false, false);
+
+                            if ($team == Match::LOCAL)
+                            {
+                                $local++;
+                            }
+                            else
+                            {
+                                $away++;
+                            }
+                      }
+                }
+
+               $repository->save($match_id, $local, $away);
 
                 alert()->success(trans('messages.It have been saved'), 'Saved');
             } catch (Exception $e) {

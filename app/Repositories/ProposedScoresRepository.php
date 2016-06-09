@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\User;
 use App\Models\Match;
+use App\Models\Player;
 use App\Models\ProposedScore;
 use App\Models\Championship;
 use App\Models\ProposedGoal;
@@ -15,6 +16,8 @@ class ProposedScoresRepository
     protected $user;
     protected $championship;
     protected $goals;
+    protected $local_score;
+    protected $away_score;
 
     public function __construct(User $user, Championship $championship)
     {
@@ -104,6 +107,7 @@ class ProposedScoresRepository
 
     protected function setScoreToMatch(Match $match, ProposedScore $proposedScore)
     {
+            $match->goals()->delete();
             $match->addScore($proposedScore->local_score, $proposedScore->away_score);
             $this->setGoalsToMatch($match, $proposedScore);
             $match->save();
@@ -152,7 +156,7 @@ class ProposedScoresRepository
     
     protected function getPlayerFromMatch(Match $match, $player_id)
     {
-           $allPlayersOnMatch = $match->local->players->merge($match->away->players);
+           $allPlayersOnMatch = $match->players();
 
            $player = $allPlayersOnMatch->where('id',$player_id);
 
@@ -171,6 +175,20 @@ class ProposedScoresRepository
            return $this->championship->matches->where('id',$match_id)->first();
     }
 
+    protected function playerBelongsToLocalOrAway(Match $match, Player $player)
+    {
+           if ($match->local->hasPlayer($player))
+           {
+                return Match::LOCAL;
+           }
+           elseif ($match->away->hasPlayer($player))
+           {
+              return Match::AWAY;
+           }
+
+           throw new \App\Exceptions\PlayerNotFoundException();
+    }
+
     public function addGoal($match_id, $player_id, $penalty, $own_goal, $penalty_round)
     {
            $match = $this->getMatch($match_id);
@@ -185,7 +203,7 @@ class ProposedScoresRepository
 
            $this->goals[] = $proposedGoal;
 
-           return count($this->goals);
+           return $this->playerBelongsToLocalOrAway($match, $player);
     }
 
     protected function shouldItBecomeAScore()

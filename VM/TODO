@@ -3,10 +3,16 @@ TODO
 
 MUST HAVE
 -------------------------------
+- Refactor proposeController fucntion
+- On proposed goals show players
+- Allow to say if penalty or so on...
+- Test than when proposing two scores... the previous goals get deleted...
 - Add column to validations
 - Be sure it becomes a real match when enough validations
 - Be sure the proposition gets deleted
 
+- Test function Match::players
+- Test function Team::hasPlayer
 - Propose goals
         - Finish it. I have added a way of adding goals to a proposed score
         - It needs to check if the goals match the number of goals on the match

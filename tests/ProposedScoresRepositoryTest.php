@@ -290,7 +290,7 @@ class ProposedScoresRepositoryTest extends TestCase
 
        $playerFromMatch = $match->local->players->random();
 
-        $this->assertEquals(1, $this->repository->addGoal($match->id, $playerFromMatch->id, 1, 1, 1));
+        $this->assertEquals('local', $this->repository->addGoal($match->id, $playerFromMatch->id, 1, 1, 1));
    }
 
    /**
@@ -303,10 +303,10 @@ class ProposedScoresRepositoryTest extends TestCase
        $match->save();
 
        $playerFromMatch01 = $match->local->players->random();
-       $playerFromMatch02 = $match->local->players->random();
+       $playerFromMatch02 = $match->away->players->random();
 
-        $this->assertEquals(1, $this->repository->addGoal($match->id, $playerFromMatch01->id, 1, 1, 1));
-        $this->assertEquals(2, $this->repository->addGoal($match->id, $playerFromMatch02->id, 1, 1, 1));
+        $this->assertEquals('local', $this->repository->addGoal($match->id, $playerFromMatch01->id, 1, 1, 1));
+        $this->assertEquals('away', $this->repository->addGoal($match->id, $playerFromMatch02->id, 1, 1, 1));
    }   
 
 /**
