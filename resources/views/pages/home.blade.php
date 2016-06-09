@@ -13,7 +13,6 @@
             </a>
       @else
             <div class="alert alert-info" role="alert">
-        {{trans('messages.The time for doing changes has been extended to 9pm(uk time) - 22:00(es time)')}}
     </div>
           <p>{{ trans('messages.create_a_team.message') }}</p>
           <p>

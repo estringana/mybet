@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Jobs\DeleteCoupon;
 
 class AdminController extends Controller
 {
@@ -67,6 +68,24 @@ class AdminController extends Controller
             $this->logAction($user);
 
             alert()->success('User have been saved', 'Saved');
+            
+            return redirect('/users/list');
+    }
+
+    public function deleteCoupon($coupon_id)
+    {
+           $couponsToDelete = [3, 4, 5, 6, 7, 8, 10, 26, 47, 56, 89];
+           if ( in_array($coupon_id, $couponsToDelete))
+           {
+                   $deleteCouponAction = new DeleteCoupon();
+                   $deleteCouponAction->handle($this->championship, $coupon_id);
+
+                   alert()->success('Coupon have been deleted', 'Deleted');
+            }
+            else
+            {
+                alert()->Error('Coupon has not been marked to be deleted', 'Deleted');
+            }
             
             return redirect('/users/list');
     }

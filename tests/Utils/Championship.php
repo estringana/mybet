@@ -93,6 +93,28 @@ function create_real_championship_configurations($championship_id)
     return $configurations;
 }
 
+function create_user_and_coupon_with_empty_bets_on_championship(App\Models\Championship $championship)
+{
+        $user = factory(App\Models\User::class)->create();
+        $coupon = new App\Models\Coupon();
+        $coupon->associateUser($user);
+        $championship->addCoupon($coupon);        
+        $coupon->createEmtpyBets();
+        $coupon->save();
+        $championship->save();
+}
+
+function create_championship_with_users($numberOfUsers)
+{
+        $championship = create_real_championship();
+        
+        for ($i=0; $i < $numberOfUsers; $i++) { 
+            create_user_and_coupon_with_empty_bets_on_championship($championship);
+        }
+
+        return $championship;
+}
+
 function create_real_championship()
 {
     $championship = factory(App\Models\Championship::class)->create();
