@@ -14,9 +14,10 @@
                 </tr>
             </thead>
             <tbody>
+               <?php $i = 1; ?>
               @foreach($table as $key => $line)
                     <tr>
-                        <th scope="row">{{ $key+1 }}</th>
+                        <th scope="row">{{ $i++ }}</th>
                         <td>{{ $line->userName }}</td>
                         <td>{{ $line->total }}</td>
                         <td>{{ $line->playerBets }}</td>
