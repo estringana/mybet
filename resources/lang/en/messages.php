@@ -123,4 +123,5 @@ return array (
   'means the away team win the match' => 'means the away team win the match',
   'means match ends in draw' => 'means match ends in draw',
   'total'=>'Total',
+  'The time for doing changes has been extended to 9pm(uk time) - 22:00(es time)' => 'The time for doing changes has been extended to 9th June at 9pm(uk time) - 22:00(es time)'
   );

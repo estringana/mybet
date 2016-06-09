@@ -1,14 +1,20 @@
 @extends('pages.layout')
 
 @section('content')
-    <div class="jumbotron">
+    <div class="jumbotron">    
       <h1>{{ trans('messages.title') }}</h1>
+      <div class="alert alert-info" role="alert">
+        {{trans('messages.The time for doing changes has been extended to 9pm(uk time) - 22:00(es time)')}}
+    </div>
       @if(Auth::user())
             <p>{{ trans('messages.All you need to do now is to finish your bet') }}</p>
             <a class="btn btn-primary btn-lg" href="{{ Url::get('/coupon') }}" role="button">
                 {{ trans('messages.Manage your bet') }}
             </a>
-      @else    
+      @else
+            <div class="alert alert-info" role="alert">
+        {{trans('messages.The time for doing changes has been extended to 9pm(uk time) - 22:00(es time)')}}
+    </div>
           <p>{{ trans('messages.create_a_team.message') }}</p>
           <p>
             <a class="btn btn-primary btn-lg" href="{{ Url::get('/coupon') }}" role="button">
