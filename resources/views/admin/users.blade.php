@@ -44,8 +44,7 @@
                         @endif
                     </td>
                     <td>
-                        <a type="button" href="/users/edit/{{$coupon->user->id}}" class="btn btn-default">Edit</a>
-                        <a type="button" href="/users/delete/coupon/{{$coupon->id}}" class="btn btn-danger">Delete</a>
+                        <a type="button" href="/users/edit/{{$coupon->user->id}}" class="btn btn-default">Edit</a>                        
                     </td>
                 </tr>
         @endforeach
