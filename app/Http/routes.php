@@ -57,11 +57,6 @@
                 'uses' => 'AdminController@editUser'
             ]);
 
-            Route::get('/users/delete/coupon/{id}', [
-                'middleware' => 'auth',
-                'uses' => 'AdminController@deleteCoupon'
-            ]);
-
             Route::post('/users/edit/{id}', [
                 'middleware' => 'auth',
                 'uses' => 'AdminController@saveUser'

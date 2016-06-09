@@ -72,21 +72,21 @@ class AdminController extends Controller
             return redirect('/users/list');
     }
 
-    public function deleteCoupon($coupon_id)
-    {
-           $couponsToDelete = [3, 4, 5, 6, 7, 8, 10, 26, 47, 56, 89];
-           if ( in_array($coupon_id, $couponsToDelete))
-           {
-                   $deleteCouponAction = new DeleteCoupon();
-                   $deleteCouponAction->handle($this->championship, $coupon_id);
+    // public function deleteCoupon($coupon_id)
+    // {
+    //        $couponsToDelete = [3, 4, 5, 6, 7, 8, 10, 26, 47, 56, 89];
+    //        if ( in_array($coupon_id, $couponsToDelete))
+    //        {
+    //                $deleteCouponAction = new DeleteCoupon();
+    //                $deleteCouponAction->handle($this->championship, $coupon_id);
 
-                   alert()->success('Coupon have been deleted', 'Deleted');
-            }
-            else
-            {
-                alert()->Error('Coupon has not been marked to be deleted', 'Deleted');
-            }
+    //                alert()->success('Coupon have been deleted', 'Deleted');
+    //         }
+    //         else
+    //         {
+    //             alert()->Error('Coupon has not been marked to be deleted', 'Deleted');
+    //         }
             
-            return redirect('/users/list');
-    }
+    //         return redirect('/users/list');
+    // }
 }
