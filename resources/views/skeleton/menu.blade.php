@@ -15,6 +15,7 @@
                     <li><a href="/users/printable">Users printable</a></li>
                     <li><a href="/users/list">Users</a></li>
                     <li><a href="/messages">Messages from users</a></li>
+                    <li><a href="/cache/flush">Flush cache</a></li>
                   </ul>
                 </li>
             @endif

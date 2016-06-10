@@ -37,6 +37,11 @@
         ]);
 
         Route::group(['middleware' => ['user.admin']], function () {
+            Route::get('/cache/flush/', [
+                    'middleware' => 'auth',
+                    'uses' => 'AdminController@flushCache'
+                ]);
+
             Route::get('/matches/propose/{match_id}', [
                     'middleware' => 'auth',
                     'uses' => 'MatchesController@propose'

@@ -112,6 +112,7 @@ class ProposedScoresRepository
             $this->setGoalsToMatch($match, $proposedScore);
             $match->save();
             $proposedScore->delete();
+            \Cache::flush();
     }
 
     protected function create_proposed_score($match, $local_score, $away_score)

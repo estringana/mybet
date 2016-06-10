@@ -72,6 +72,15 @@ class AdminController extends Controller
             return redirect('/users/list');
     }
 
+    public function flushCache()
+    {
+           \Cache::flush();
+
+           alert()->success('Cache has been flushed', 'Flushed');
+            
+            return redirect('/users/list');
+    }
+
     // public function deleteCoupon($coupon_id)
     // {
     //        $couponsToDelete = [3, 4, 5, 6, 7, 8, 10, 26, 47, 56, 89];
