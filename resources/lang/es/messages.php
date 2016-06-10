@@ -119,5 +119,8 @@ return array (
   'means the away team win the match' => 'significa que el equipo visitante gana el partido',
   'means match ends in draw' => 'significa que el partido acaba en empate',
   'total'=>'Total',
-  'The time for doing changes has been extended to 9pm(uk time) - 22:00(es time)' => 'Hemos extendido hasta hoy 9 Junio a las 9pm(hora uk) - 22:00(hora es) el tiempo para hacer cambios'
+  'The time for doing changes has been extended to 9pm(uk time) - 22:00(es time)' => 'Hemos extendido hasta hoy 9 Junio a las 9pm(hora uk) - 22:00(hora es) el tiempo para hacer cambios',
+  'Everything has been released now' => 'Ya podeis acceder a toda la web',
+  'We are 78 players - We will let you know how much money has been collected in £ and how much in € soon' => 'Al final hemos sido 78 jugadores. Record! En un par de horas os diremos cuanto se ha recaudado en euros y cuanto en pounds',
+  'Download the PDF from here' => 'Descargar el fichero PDF desde aqui'
 );

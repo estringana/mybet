@@ -3,23 +3,11 @@
 @section('content')
     <div class="jumbotron">    
       <h1>{{ trans('messages.title') }}</h1>
-      <div class="alert alert-info" role="alert">
-        {{trans('messages.The time for doing changes has been extended to 9pm(uk time) - 22:00(es time)')}}
-    </div>
-      @if(Auth::user())
-            <p>{{ trans('messages.All you need to do now is to finish your bet') }}</p>
-            <a class="btn btn-primary btn-lg" href="{{ Url::get('/coupon') }}" role="button">
-                {{ trans('messages.Manage your bet') }}
-            </a>
-      @else
-            <div class="alert alert-info" role="alert">
-    </div>
-          <p>{{ trans('messages.create_a_team.message') }}</p>
-          <p>
-            <a class="btn btn-primary btn-lg" href="{{ Url::get('/coupon') }}" role="button">
-                {{ trans('messages.create_a_team.button') }}
-            </a>
-        @endif
+            <p>{{ trans('messages.Everything has been released now') }}</p>
+            <p>{{ trans('messages.We are 78 players - We will let you know how much money has been collected in £ and how much in € soon') }}</p>
+            <a class="btn btn-primary btn-lg" href="https://we.tl/rl90BsMKvx" role="button">
+                {{ trans('messages.Download the PDF from here') }}
+            </a>     
     </p>
     </div>
     <div class="page-header">

@@ -123,5 +123,8 @@ return array (
   'means the away team win the match' => 'means the away team win the match',
   'means match ends in draw' => 'means match ends in draw',
   'total'=>'Total',
-  'The time for doing changes has been extended to 9pm(uk time) - 22:00(es time)' => 'The time for doing changes has been extended to 9th June at 9pm(uk time) - 22:00(es time)'
+  'The time for doing changes has been extended to 9pm(uk time) - 22:00(es time)' => 'The time for doing changes has been extended to 9th June at 9pm(uk time) - 22:00(es time)',
+  'Everything has been released now' => 'Everything has been released now',
+  'We are 78 players - We will let you know how much money has been collected in £ and how much in € soon' => 'We are 78 players - We will let you know how much money has been collected in £ and how much in € soon',
+  'Download the PDF from here' => 'Download the PDF from here'
   );
