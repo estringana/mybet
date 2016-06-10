@@ -105,6 +105,7 @@ return array (
   'of the bets'=>'de las apuestas',
   'This players has scored'=>'Esta jugador ha marcado',
   'goals'=>'goles',
+  'Goals'=>'Goles',
   'Bets'=>'Apuestas',
   'Statistics of team'=>'Estadíticas de la selección',
   'This team is on'=>'Esta selección está en',
@@ -126,5 +127,10 @@ return array (
   'recollected01' => 'La recaudación después del cierre de la admisión de las porras ha sido la siguiente:',
   'recollected02' => '50 porras pagadas en euros = 500 euros',
   'recollected03' => '28 porras pagadas en libras = 224 libras',
-  'recollected04' => 'El precio final para los tres primeros clasificados se calculará en base a la cotización a la que se encuentre la divisa con la que pagaron estos tres primeros clasificados el día 10 de Julio depues de la final.'
+  'recollected04' => 'El precio final para los tres primeros clasificados se calculará en base a la cotización a la que se encuentre la divisa con la que pagaron estos tres primeros clasificados el día 10 de Julio depues de la final.',
+'date' => 'Fecha',
+'local' => 'Local',
+'away' => 'Visitante',
+'bet' => 'Apuesta',
+'result' => 'Resultado',
 );

@@ -13,11 +13,16 @@
                     <th>{{ trans('messages.local') }}</th>
                     <th>{{ trans('messages.away') }}</th>
                     <th>{{ trans('messages.bet') }}</th>
+                    <th>{{ trans('messages.result') }}</th>
                 </tr>
             </thead>
             <tbody>
               @foreach($matchBets as $key => $matchBet)
-                    <tr>
+                    @if ($matchBet->match->isPlayed())
+                            <tr class="{{$matchBet->getPointsAttribute() == 1 ? 'success':'danger'}}">
+                    @else
+                            <tr>
+                    @endif
                         <th scope="row">{{ $key+1 }}</th>
                         <td>{{ $matchBet->match->date }}</td>
                         <td>{!!FlagIcon::get($matchBet->match->local->short_code,$matchBet->match->local->name)!!} {{ trans('teams.'.$matchBet->match->local->name) }}</td>
@@ -29,6 +34,7 @@
                                     '<span class="pending-bet label label-danger">'.trans('messages.Pending').'</span>'
                             !!}
                         </td>
+                        <td>{{$matchBet->match->get1X2(false)}}</td>
                     </tr>
               @endforeach
           </tbody>

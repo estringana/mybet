@@ -11,6 +11,7 @@
                     <th>#</th>
                     <th>{{ trans('messages.name') }}</th>
                     <th>{{ trans('messages.team') }}</th>
+                    <th>{{ trans('messages.Goals') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,6 +24,7 @@
                             @endif
                         </td>
                         <td class="bet">{!! $bet->isFilled() ? trans('teams.'.$bet->player->team->name) : '<span class="pending-bet label label-danger">Pending</span>' !!}</td>
+                        <td>{{$bet->player->countable_goals}}</td>
                     </tr>
               @endforeach
           </tbody>

@@ -111,6 +111,7 @@ return array (
   'of the bets on this round'=>'of the bets on this round',
   'This players has scored'=>'This players has scored',
   'goals'=>'goals',
+  'Goals'=>'Goals',
   'Bets'=>'Bets',
 
   'Statistics of match'=>'Statistics of match',
@@ -129,5 +130,10 @@ return array (
   'recollected01' => 'We have collected the following amount of money:',
   'recollected02' => '50 bets paid with euros = 500 euros',
   'recollected03' => '28 bets paid with quid = 224 quid',
-  'recollected04' => 'The final prize for the top three will be calculated using the exchange rate on 10th of July just after the final. The prize will be converted to the currency the top three paid with.'
+  'recollected04' => 'The final prize for the top three will be calculated using the exchange rate on 10th of July just after the final. The prize will be converted to the currency the top three paid with.',
+'date' => 'Date',
+'local' => 'Local',
+'away' => 'Away',
+'bet' => 'Bet',
+'result' => 'Result',
   );

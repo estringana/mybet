@@ -95,6 +95,16 @@ class Match extends Model
         }
     }
 
+    public function isPlayed()
+    {
+        try {                
+            $this->guardAgainstScoreNotProvidedYet();    
+            return true;
+        } catch (\App\Exceptions\ScoreNotProvidedYetException $e) {
+            return false;
+        }
+    }
+
     public function winner()
     {
         $this->guardAgainstScoreNotProvidedYet();
@@ -115,16 +125,20 @@ class Match extends Model
 
     public function get1X2()
     {
-        switch ($this->winner()) {
-            case Match::LOCAL:
-                return Match::SIGN_1;
-                break;
-            case Match::DRAW:
-                return Match::SIGN_X;
-                break;
-            default:
-                return Match::SIGN_2;
-                break;
+        try {                
+            switch ($this->winner()) {
+                case Match::LOCAL:
+                    return Match::SIGN_1;
+                    break;
+                case Match::DRAW:
+                    return Match::SIGN_X;
+                    break;
+                default:
+                    return Match::SIGN_2;
+                    break;
+            }
+        } catch (\App\Exceptions\ScoreNotProvidedYetException $e) {
+            return '';
         }
     }
 
