@@ -125,6 +125,9 @@ return array (
   'total'=>'Total',
   'The time for doing changes has been extended to 9pm(uk time) - 22:00(es time)' => 'The time for doing changes has been extended to 9th June at 9pm(uk time) - 22:00(es time)',
   'Everything has been released now' => 'Everything has been released now',
-  'We are 78 players - We will let you know how much money has been collected in £ and how much in € soon' => 'We are 78 players - We will let you know how much money has been collected in £ and how much in € soon',
-  'Download the PDF from here' => 'Download the PDF from here'
+  'Download the PDF from here' => 'Download the PDF from here',
+  'recollected01' => 'We have collected the following amount of money:',
+  'recollected02' => '50 bets paid with euros = 500 euros',
+  'recollected03' => '28 bets paid with quid = 224 quid',
+  'recollected04' => 'The final prize for the top three will be calculated using the exchange rate on 10th of July just after the final. The prize will be converted to the currency the top three paid with.'
   );

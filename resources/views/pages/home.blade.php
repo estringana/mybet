@@ -4,7 +4,16 @@
     <div class="jumbotron">    
       <h1>{{ trans('messages.title') }}</h1>
             <p>{{ trans('messages.Everything has been released now') }}</p>
-            <p>{{ trans('messages.We are 78 players - We will let you know how much money has been collected in £ and how much in € soon') }}</p>
+            <p>
+                {{ trans('messages.recollected01') }}
+            </p>
+                <ul>
+                    <li>{{ trans('messages.recollected02') }}</li>
+                    <li>{{ trans('messages.recollected03') }}</li>
+                </ul>
+            <p>
+                {{ trans('messages.recollected04') }}
+            </p>
             <a class="btn btn-primary btn-lg" href="https://we.tl/rl90BsMKvx" role="button">
                 {{ trans('messages.Download the PDF from here') }}
             </a>     
