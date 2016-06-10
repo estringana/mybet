@@ -19,7 +19,7 @@
               @foreach($table as $key => $line)
                     <tr>
                         <th scope="row">{{ $i++ }}</th>
-                        <td>{{ $line->userName }}</td>
+                        <td><a href="{{Url::get('/coupon/view/'.$line->userId)}}">{{$line->userName}}</a></td>
                         <td>{{ $line->total }}</td>
                         <td>{{ $line->playerBets }}</td>
                         <td>{{ $line->matchBets }}</td>

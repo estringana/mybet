@@ -38,6 +38,7 @@ class TableGenerator
         $line =  new \App\Championship\Table\Line();
 
         $line->userName = $coupon->user->name;
+        $line->userId = $coupon->user->id;
         $line->playerBets = $this->playersRepository->points();
         $line->matchBets = $this->matchRepository->points();
         $line->roundOf16Bets = $this->roundRepository->pointsOfRound(2);

@@ -5,6 +5,7 @@ namespace App\Championship\Table;
 class Line
 {
     public $userName;
+    public $userId;
     public $playerBets;
     public $roundOf16Bets;
     public $quarterFinalsBets;
