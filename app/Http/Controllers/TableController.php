@@ -9,20 +9,9 @@ use Cache;
 
 class TableController extends Controller
 {
-
-    protected function getTable()
-    {
-           if ( ! Cache::has('table') )
-            {
-                $table = new \App\Championship\TableGenerator($this->championship);
-                Cache::forever('table',$table);
-            }
-
-            return Cache::get('table');
-    }
     public function index()
     {
-           $table = $this->getTable();
+           $table = new \App\Championship\TableGenerator($this->championship);
 
            return view('championship.pages.table')
                 ->with([ 
