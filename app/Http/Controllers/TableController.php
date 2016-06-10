@@ -11,6 +11,9 @@ class TableController extends Controller
 {
     public function index()
     {
+            return view('championship.table.temporaryTable')->with([ 
+                    'championship' => $this->championship
+                ]);
            $table = new \App\Championship\TableGenerator($this->championship);
 
            return view('championship.pages.table')

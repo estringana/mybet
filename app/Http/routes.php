@@ -104,14 +104,15 @@
                     'uses' => 'StatisticsController@match'
                 ]);
 
+                 Route::get('/table', [
+                    'middleware' => 'auth',
+                    'uses' => 'TableController@index'
+                ]);
                 
         });
 
         Route::group(['middleware' => ['disabled']], function () {
-             Route::get('/table', [
-                    'middleware' => 'auth',
-                    'uses' => 'TableController@index'
-                ]);
+
         });
 
 
