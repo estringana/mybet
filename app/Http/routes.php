@@ -37,6 +37,16 @@
         ]);
 
         Route::group(['middleware' => ['user.admin']], function () {
+            Route::get('/matches/propose/{match_id}', [
+                    'middleware' => 'auth',
+                    'uses' => 'MatchesController@propose'
+                ]);
+
+                Route::post('/matches/propose/{match_id}', [
+                    'middleware' => 'auth',
+                    'uses' => 'MatchesController@storeProposition'
+                ]);
+            
             Route::get('/users/printable', [
                 'middleware' => 'auth',
                 'uses' => 'CouponController@printable'
@@ -63,17 +73,7 @@
             ]);
         });
 
-        Route::group(['middleware' => ['championship.hasStarted']], function () {
-                Route::get('/matches/propose/{match_id}', [
-                    'middleware' => 'auth',
-                    'uses' => 'MatchesController@propose'
-                ]);
-
-                Route::post('/matches/propose/{match_id}', [
-                    'middleware' => 'auth',
-                    'uses' => 'MatchesController@storeProposition'
-                ]);
-
+        Route::group(['middleware' => ['championship.hasStarted']], function () {                
                 Route::get('/coupon/all', [
                     'middleware' => 'auth',
                     'uses' => 'CouponController@all'
