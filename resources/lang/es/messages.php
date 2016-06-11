@@ -133,4 +133,9 @@ return array (
 'away' => 'Visitante',
 'bet' => 'Apuesta',
 'result' => 'Resultado',
+'Statistics - Players' => 'Estadisticas - Jugadores',
+'Player' => 'Jugador',
+'Players' => 'Jugadores',
+'Picked on % of bets' => 'Jugador en % de apuestas',
+'Statistics' => 'Estadisticas',
 );

@@ -9,6 +9,7 @@ use App\Repositories\PlayerStatisticsRepository;
 use App\Repositories\TeamStatisticsRepository;
 use App\Repositories\MatchStatisticsRepository;
 use App\Championship\Statistics\BreakDownMatchWithPrediction;
+use Cache;
 
 class StatisticsController extends Controller
 {
@@ -38,6 +39,26 @@ class StatisticsController extends Controller
         catch (\Exceptions\PlayerNotFoundException $e) {
             alert()->error(trans('messages.Player not found'), 'Error');
         } 
+        catch (\Exception $e) {
+            alert()->error('Error', 'Error');
+        }           
+
+        return redirect('/');
+    }
+
+    public function players()
+    {
+        try {
+                if ( ! Cache::has('players') )
+                {
+                    $players = $percentage = $this->playerRepository->all();
+                    Cache::forever( 'players' , $players );
+                }
+
+                $players = Cache::get('players');
+           return view('statistics.players')
+                ->with( compact(['players']) );
+        }
         catch (\Exception $e) {
             alert()->error('Error', 'Error');
         }           

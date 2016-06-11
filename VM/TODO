@@ -4,9 +4,8 @@ TODO
 MUST HAVE
 -------------------------------
 - Add event and observer for flushing the cache
-- Statistics, allow to collapse
-- Statistics, allow to see statistics of a round
 - Statistics. Add a page where all the players can be found
+- Statistics, allow to see statistics of a round
 - Refactor proposeController fucntion
 - On proposed goals show players
 - Allow to say if penalty or so on...

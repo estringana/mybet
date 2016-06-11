@@ -21,6 +21,12 @@
             @endif
     @endif
         <li><a href="{{Url::get('/matches')}}">{{ trans('messages.matches') }}</a></li>
+        <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{trans('messages.Statistics')}}<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/statistics/players">{{trans('messages.Players')}}</a></li>
+                  </ul>
+                </li>
         <li><a href="{{Url::get('/coupon/all')}}">{{ trans('messages.users') }}</a></li>    
     </ul>
     <ul class="nav navbar-nav navbar-right">

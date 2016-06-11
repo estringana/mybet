@@ -136,4 +136,9 @@ return array (
 'away' => 'Away',
 'bet' => 'Bet',
 'result' => 'Result',
+'Statistics - Players' => 'Statistics - Players',
+'Player' => 'Player',
+'Players' => 'Players',
+'Picked on % of bets' => 'Picked on % of bets',
+'Statistics' => 'Statistics',
   );

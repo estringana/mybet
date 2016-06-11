@@ -38,6 +38,28 @@ class PlayerStatisticsRepository extends StatisticsRepositoryAbstract
            return $this->betsWithPlayer($player) * 100 / $this->numberOfCoupons();
     }
 
+    protected function sortPlayersByPercentage($playersBreakDown)
+    {
+           return $playersBreakDown->sortByDesc(function ($playerStatistics, $key) {
+                return $playerStatistics->percentage;
+           });
+    }
+
+    public function all()
+    {
+            $playersBreakDown = collect([]);
+
+            foreach ($this->players() as $player)
+            {
+                $playerStatistics = new \App\Championship\Statistics\BreakDownPlayer();
+                $playerStatistics->player = $player;
+                $playerStatistics->percentage = $this->percentage($player->id);
+                $playersBreakDown->push($playerStatistics);
+            }
+
+            return $this->sortPlayersByPercentage($playersBreakDown);
+    }
+
     public function couponsWithPlayer($player_id)
     {
         $coupons = [];

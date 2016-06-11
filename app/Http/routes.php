@@ -94,6 +94,11 @@
                     'uses' => 'StatisticsController@player'
                 ]);
 
+                Route::get('/statistics/players', [
+                    'middleware' => 'auth',
+                    'uses' => 'StatisticsController@players'
+                ]);
+
                 Route::get('/statistics/team/{team_id}', [
                     'middleware' => 'auth',
                     'uses' => 'StatisticsController@team'
