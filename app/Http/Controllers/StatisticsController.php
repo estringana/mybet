@@ -60,7 +60,7 @@ class StatisticsController extends Controller
                 ->with( compact(['players']) );
         }
         catch (\Exception $error) {
-            Log::error($error);
+            \Log::error($error);
             alert()->error('Error', 'Error');
         }           
 
