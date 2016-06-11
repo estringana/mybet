@@ -59,7 +59,8 @@ class StatisticsController extends Controller
            return view('statistics.players')
                 ->with( compact(['players']) );
         }
-        catch (\Exception $e) {
+        catch (\Exception $error) {
+            Log::error($error);
             alert()->error('Error', 'Error');
         }           
 
