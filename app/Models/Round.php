@@ -15,6 +15,11 @@ class Round extends Model
         return $this->belongsToMany('App\Models\Team');
     }
 
+    public function bets()
+    {
+        return $this->hasMany('App\Models\RoundBet');
+    }
+
     public function matches(){
         return $this->hasMany('App\Models\Match');
     }

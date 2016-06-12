@@ -25,6 +25,12 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{trans('messages.Statistics')}}<span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="/statistics/players">{{trans('messages.Players')}}</a></li>
+                    <li><a href="/statistics/round/2">{{trans('messages.Round of 16')}}</a></li>
+                    <li><a href="/statistics/round/3">{{trans('messages.Quarter-Finals')}}</a></li>
+                    <li><a href="/statistics/round/4">{{trans('messages.Semi-Finals')}}</a></li>
+                    <li><a href="/statistics/round/5">{{trans('messages.Final')}}</a></li>
+                    <li><a href="/statistics/round/6">{{trans('messages.Champion')}}</a></li>
+                    <li><a href="/statistics/round/7">{{trans('messages.Runners-up')}}</a></li>
                   </ul>
                 </li>
         <li><a href="{{Url::get('/coupon/all')}}">{{ trans('messages.users') }}</a></li>    

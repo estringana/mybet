@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Repositories\PlayerStatisticsRepository;
 use App\Repositories\TeamStatisticsRepository;
 use App\Repositories\MatchStatisticsRepository;
+use App\Repositories\RoundStatisticsRepository;
 use App\Championship\Statistics\BreakDownMatchWithPrediction;
 use Cache;
 
@@ -16,6 +17,7 @@ class StatisticsController extends Controller
     private $playerRepository;
     private $teamRepository;
     private $matchRepository;
+    private $roundRepository;
 
     public function __construct()
     {
@@ -23,6 +25,7 @@ class StatisticsController extends Controller
         $this->playerRepository = new PlayerStatisticsRepository($this->championship);
         $this->teamRepository = new TeamStatisticsRepository($this->championship);
         $this->matchRepository = new MatchStatisticsRepository($this->championship);
+        $this->roundRepository = new RoundStatisticsRepository($this->championship);
     }
 
     public function player($player_id)
@@ -107,6 +110,22 @@ class StatisticsController extends Controller
            return view('statistics.team')
                 ->with( compact(['teamOnRounds','team']) );
 
+        }
+        catch (\Exception $e) {
+            alert()->error('Error', 'Error');
+        }           
+
+        return redirect('/');
+    }
+
+    public function round($round_id)
+    {
+        try {
+            $round = $this->roundRepository->getRound($round_id);
+            $teamOnRounds = $this->roundRepository->teamBreakDownOnRound($round_id);
+
+           return view('statistics.round')
+                ->with( compact(['teamOnRounds','round']) );
         }
         catch (\Exception $e) {
             alert()->error('Error', 'Error');
