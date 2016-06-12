@@ -35,6 +35,7 @@ return array (
   'semiFinals' => 'Semifinales',
   'Semi-Finals' => 'Semifinales',
   'team' => 'Equipo',
+  'Team' => 'Equipo',
   'Thisisyourbet' => 'Tu apuesta',
   'username' => 'Usuario',
   'reportScore' => 'Enviar resultado',

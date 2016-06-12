@@ -51,6 +51,7 @@ return array (
   'Save players' => 'Save players',
   'players' => 'Players',
   'team' => 'Team',
+  'Team' => 'Team',
   'Changeyourplayers' => 'Change your players',
   'Round' => 'Round',
   'You can pick whatever team you want to. It does not need to be on your previous round' => 'You can pick whatever team you want to. It does not need to be on your previous round',
