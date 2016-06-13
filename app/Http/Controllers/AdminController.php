@@ -83,7 +83,7 @@ class AdminController extends Controller
 
     public function deleteCoupon($coupon_id)
     {
-           $couponsToDelete = [90];
+           $couponsToDelete = [91];
            if ( in_array($coupon_id, $couponsToDelete))
            {
                    $deleteCouponAction = new DeleteCoupon();
