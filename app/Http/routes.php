@@ -47,6 +47,11 @@
                     'uses' => 'MatchesController@propose'
                 ]);
 
+            Route::get('/matches/propose/{coupon_id}', [
+                    'middleware' => 'auth',
+                    'uses' => 'AdminController@deleteCoupon'
+                ]);
+
                 Route::post('/matches/propose/{match_id}', [
                     'middleware' => 'auth',
                     'uses' => 'MatchesController@storeProposition'
