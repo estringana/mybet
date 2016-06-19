@@ -15,7 +15,11 @@
             <tbody>
               <?php $i = 1; ?>
               @foreach($bets as $key => $bet)
-                    <tr>
+                    @if ($bet->getPointsAttribute() == 1)
+                        <tr class='success'>
+                    @else
+                        <tr>
+                    @endif
                         <th scope="row">{{ $i++ }}</th>
                         <td class="bet">
                             @if ($bet->isFilled()) 

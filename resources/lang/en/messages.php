@@ -142,4 +142,8 @@ return array (
 'Players' => 'Players',
 'Picked on % of bets' => 'Picked on % of bets',
 'Statistics' => 'Statistics',
+
+'We have started counting points from qualified teams. Check on the next link' => 'We have started counting points from qualified teams. Check on the next link',
+'Qualified teams' => 'Qualified teams',
+'Teams on round' => 'Teams on round'
   );

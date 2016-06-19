@@ -36,6 +36,11 @@
             'uses' => 'MatchesController@index'
         ]);
 
+        Route::get('/rounds', [
+            'middleware' => 'auth',
+            'uses' => 'RoundsController@index'
+        ]);
+
         Route::group(['middleware' => ['user.admin']], function () {
             Route::get('/cache/flush/', [
                     'middleware' => 'auth',
