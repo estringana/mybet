@@ -139,7 +139,7 @@ return array (
 'Players' => 'Jugadores',
 'Picked on % of bets' => 'Jugador en % de apuestas',
 'Statistics' => 'Estadisticas',
-'We have started counting points from qualified teams. Check on the next link' => 'Hemos empezado a contar los puntos de los equipos clasificados. Haz en en el siguiente link para ver los equipos clasificados',
+'We have started counting points from qualified teams. Check on the next link' => 'Hemos empezado a contar los puntos de los equipos clasificados. Haz click en en el siguiente link para ver los equipos clasificados',
 'Qualified teams' => 'Equipos clasificados',
 'Teams on round' => 'Equipos en ronda',
 );
