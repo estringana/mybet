@@ -22,6 +22,19 @@
     @endif
         <li><a href="{{Url::get('/matches')}}">{{ trans('messages.matches') }}</a></li>
         <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{trans('messages.What Happens If')}}<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/whathappensif/FranceWinPortugal">{{trans('messages.FranceWinPortugal')}}</a></li>
+                    <li><a href="/whathappensif/FranceWinWales">{{trans('messages.FranceWinWales')}}</a></li>
+                    <li><a href="/whathappensif/GermanyWinPortugal">{{trans('messages.GermanyWinPortugal')}}</a></li>
+                    <li><a href="/whathappensif/GermanyWinWales">{{trans('messages.GermanyWinWales')}}</a></li>
+                    <li><a href="/whathappensif/PortugalWinFrance">{{trans('messages.PortugalWinFrance')}}</a></li>
+                    <li><a href="/whathappensif/PortugalWinGermany">{{trans('messages.PortugalWinGermany')}}</a></li>
+                    <li><a href="/whathappensif/WalesWinFrance">{{trans('messages.WalesWinFrance')}}</a></li>
+                    <li><a href="/whathappensif/WalesWinGermany">{{trans('messages.WalesWinGermany')}}</a></li>
+                  </ul>
+                </li>
+        <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{trans('messages.Statistics')}}<span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="/statistics/players">{{trans('messages.Players')}}</a></li>

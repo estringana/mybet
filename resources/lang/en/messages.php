@@ -145,5 +145,16 @@ return array (
 
 'We have started counting points from qualified teams. Check on the next link' => 'We have started counting points from qualified teams. Check on the next link',
 'Qualified teams' => 'Qualified teams',
-'Teams on round' => 'Teams on round'
+'Teams on round' => 'Teams on round',
+'wins' => 'wins',
+'Goals on Semifinal and Final not taken into account' => 'Goals on Semifinal and Final not taken into account',
+'What Happens If' => 'What would happen if...',
+'FranceWinPortugal' => '...France wins Portugal',
+'FranceWinWales' => '...France wins Wales',
+'GermanyWinPortugal' => '...Germany wins Portugal',
+'GermanyWinWales' => '...Germany wins Wales',
+'PortugalWinFrance' => '...Portugal wins France',
+'PortugalWinGermany' => '...Portugal wins Germany',
+'WalesWinFrance' => '...Wales wins France',
+'WalesWinGermany' => '...Wales wins Germany',
   );
