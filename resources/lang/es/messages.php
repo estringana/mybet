@@ -129,6 +129,7 @@ return array (
   'recollected02' => '50 porras pagadas en euros = 500 euros',
   'recollected03' => '28 porras pagadas en libras = 224 libras',
   'recollected04' => 'El precio final para los tres primeros clasificados se calculará en base a la cotización a la que se encuentre la divisa con la que pagaron estos tres primeros clasificados el día 10 de Julio depues de la final.',
+  'recollected05' => 'Tenemos ganadores! MarioTT en primera posicion, AIK Limotxo en segunda y Oriol Sala tercera. Enhorabuena! Hay un periodo de 24 horas(11 Julio a las 22:00 hora Inglesa, 23:00 hora Española) para reclamar cualquier fallo en el calculo de la clasificacion. Despues ya no se podra reclamar nada. El cambio actual es: 1.00 GBP  = 1.17146 EUR',
 'date' => 'Fecha',
 'local' => 'Local',
 'away' => 'Visitante',

@@ -38,6 +38,7 @@
     <ul class="nav navbar-nav navbar-right">
         <li>
             @if(Auth::check())
+                <li><a href="{{Url::get('/message')}}">{{ trans('messages.Send us a message') }}</a></li>
                 <li><a href="{{Url::get('/logout')}}">{{ trans('auth.logout') }}</a></li>
             @else
                 <li><a href="{{Url::get('/register')}}">{{ trans('auth.register') }}</a>

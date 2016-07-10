@@ -132,6 +132,7 @@ return array (
   'recollected02' => '50 bets paid with euros = 500 euros',
   'recollected03' => '28 bets paid with quid = 224 quid',
   'recollected04' => 'The final prize for the top three will be calculated using the exchange rate on 10th of July just after the final. The prize will be converted to the currency the top three paid with.',
+  'recollected05' => 'We have winners! They are: MarioTT on 1st position, AIK Limotxo on 2nd and Oriol Sala on 3rd. Congratulations! There is 24 hours for claiming any error dectected on the calculation of the table(11 July at 22:00 UK time, 23:00 ES time). After that moment, the prizes will be given and will not be able to claim. The current exchange rate is: 1.00 GBP  = 1.17146 EUR',
 'date' => 'Date',
 'local' => 'Local',
 'away' => 'Away',

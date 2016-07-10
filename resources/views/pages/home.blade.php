@@ -10,9 +10,13 @@
                 <ul>
                     <li>{{ trans('messages.recollected02') }}</li>
                     <li>{{ trans('messages.recollected03') }}</li>
+                    <li>{{ trans('messages.recollected03') }}</li>
                 </ul>
             <p>
                 {{ trans('messages.recollected04') }}
+            </p>
+            <p>
+                {{ trans('messages.recollected05') }}
             </p>
             <a class="btn btn-primary btn-lg" href="https://we.tl/rl90BsMKvx" role="button">
                 {{ trans('messages.Download the PDF from here') }}
