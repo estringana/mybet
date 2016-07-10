@@ -10,7 +10,6 @@
                 <ul>
                     <li>{{ trans('messages.recollected02') }}</li>
                     <li>{{ trans('messages.recollected03') }}</li>
-                    <li>{{ trans('messages.recollected03') }}</li>
                 </ul>
             <p>
                 {{ trans('messages.recollected04') }}
