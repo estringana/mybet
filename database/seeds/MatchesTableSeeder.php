@@ -12,7 +12,7 @@ class MatchesTableSeeder extends Seeder
      */
     public function run()
     {
-        $championship_id = App\Models\Championship::where('code','=','euro2016')->firstOrFail()->id;
+        $championship_id = App\Models\Championship::where('code','=','worldcup2018')->firstOrFail()->id;
         $round_id = App\Models\Round::where('order','=',1)
             ->where('championship_id','=',$championship_id)
             ->firstOrFail()

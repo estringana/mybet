@@ -12,7 +12,7 @@ class BetConfigurationTableSeeder extends Seeder
      */
     public function run()
     {
-        $championship_id = App\Models\Championship::where('code','=','euro2016')->firstOrFail()->id;
+        $championship_id = App\Models\Championship::where('code','=','worldcup2018')->firstOrFail()->id;
 
         $bet_configurations = [
             [ 
