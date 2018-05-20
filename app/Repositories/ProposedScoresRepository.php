@@ -15,7 +15,7 @@ class ProposedScoresRepository
 
     protected $user;
     protected $championship;
-    protected $goals;
+    protected $goals = [];
     protected $local_score;
     protected $away_score;
 
