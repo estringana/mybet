@@ -44,7 +44,7 @@ class TeamsTableSeeder extends Seeder
             ['id' => 25, 'name' => 'Belgium', 'code' => 'be'],
             ['id' => 26, 'name' => 'Panama', 'code' => 'pa'],
             ['id' => 27, 'name' => 'Tunisia', 'code' => 'tn'],
-            ['id' => 28, 'name' => 'England', 'code' => 'gb-eng'],
+            ['id' => 28, 'name' => 'England', 'code' => 'england'],
             ['id' => 29, 'name' => 'Poland', 'code' => 'pl'],
             ['id' => 30, 'name' => 'Senegal', 'code' => 'sn'],
             ['id' => 31, 'name' => 'Colombia', 'code' => 'co'],
