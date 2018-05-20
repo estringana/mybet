@@ -18,7 +18,7 @@ class BetConfigurationTableSeeder extends Seeder
             [ 
                 'bet_mapping_class' => 'App\Models\MatchBet', 
                 'order' => 1, 
-                'number_of_bets' => 36,
+                'number_of_bets' => 48,
                 'points_per_guess' => 1,
                 'round_id' => App\Models\Round::where('championship_id','=',$championship_id)
                     ->where('identifier','=','GroupStage')->firstOrFail()->id,
