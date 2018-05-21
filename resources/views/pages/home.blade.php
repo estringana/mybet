@@ -1,25 +1,13 @@
 @extends('pages.layout')
 
 @section('content')
-    <div class="jumbotron">    
+     <div class="jumbotron">
       <h1>{{ trans('messages.title') }}</h1>
-            <p>{{ trans('messages.Everything has been released now') }}</p>
-            <p>
-                {{ trans('messages.recollected01') }}
-            </p>
-                <ul>
-                    <li>{{ trans('messages.recollected02') }}</li>
-                    <li>{{ trans('messages.recollected03') }}</li>
-                </ul>
-            <p>
-                {{ trans('messages.recollected04') }}
-            </p>
-            <p>
-                {{ trans('messages.recollected05') }}
-            </p>
-            <a class="btn btn-primary btn-lg" href="https://we.tl/rl90BsMKvx" role="button">
-                {{ trans('messages.Download the PDF from here') }}
-            </a>     
+      <p>{{ trans('messages.create_a_team.message') }}</p>
+      <p>
+        <a class="btn btn-primary btn-lg" href="{{ Url::get('/coupon') }}" role="button">
+            {{ trans('messages.create_a_team.button') }}
+        </a>
     </p>
     </div>
     <div class="page-header">
@@ -45,7 +33,6 @@
                     <li>{{trans('rules.Website.002')}}</li>
                     <li>{{trans('rules.Website.003')}}</li>
                     <li>{{trans('rules.Website.004')}}</li>
-                    <li>{{trans('rules.Website.005')}}</li>                    
                 </ul>
             <li>{{trans('rules.Prizes.title')}}</li>
                 <ul>

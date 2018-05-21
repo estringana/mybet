@@ -24,7 +24,7 @@
                             @endif
                         </td>
                         <td class="bet">{!! $bet->isFilled() ? trans('teams.'.$bet->player->team->name) : '<span class="pending-bet label label-danger">Pending</span>' !!}</td>
-                        <td>{{$bet->player->countable_goals}}</td>
+                        <td>{{$bet->player->countable_goals ?? 0}}</td>
                     </tr>
               @endforeach
           </tbody>

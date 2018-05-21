@@ -12,13 +12,13 @@ class BetConfigurationTableSeeder extends Seeder
      */
     public function run()
     {
-        $championship_id = App\Models\Championship::where('code','=','euro2016')->firstOrFail()->id;
+        $championship_id = App\Models\Championship::where('code','=','worldcup2018')->firstOrFail()->id;
 
         $bet_configurations = [
             [ 
                 'bet_mapping_class' => 'App\Models\MatchBet', 
                 'order' => 1, 
-                'number_of_bets' => 36,
+                'number_of_bets' => 48,
                 'points_per_guess' => 1,
                 'round_id' => App\Models\Round::where('championship_id','=',$championship_id)
                     ->where('identifier','=','GroupStage')->firstOrFail()->id,
