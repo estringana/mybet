@@ -52,6 +52,7 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'is_friend_of' => 'max:255',
         ]);
     }
 
@@ -66,6 +67,7 @@ class AuthController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'is_friend_of' => $data['is_friend_of'],
             'password' => bcrypt($data['password']),
         ]);
     }

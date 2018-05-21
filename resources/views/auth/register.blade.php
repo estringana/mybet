@@ -66,6 +66,19 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('is_friend_of') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">{{ trans('auth.is_friend_of') }}</label>
+                            <div class="col-md-6">
+                                <input type="input" class="form-control" name="is_friend_of" placeholder="{{trans('auth.is_friend_of_info')}}" value="{{ old('is_friend_of') }}">
+
+                                @if ($errors->has('is_friend_of'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('is_friend_of') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
