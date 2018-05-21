@@ -154,4 +154,5 @@ return array (
 'PortugalWinGermany' => '...Portugal gana a Alemania',
 'WalesWinFrance' => '...Gales gana a Francia',
 'WalesWinGermany' => '...Gales gana a Alemania',
+'Players has not been confirmed by the teams yet. Keep filling everything else and we will send you and email when players are confirmed' => 'Los jugadores no han sido confirmados por las selecciones. Sigue con el resto y te avisaremos cuando las convocatorias esten confirmadas'
 );

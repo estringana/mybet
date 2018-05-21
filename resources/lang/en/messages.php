@@ -158,4 +158,5 @@ return array (
 'PortugalWinGermany' => '...Portugal wins to Germany',
 'WalesWinFrance' => '...Wales wins to France',
 'WalesWinGermany' => '...Wales wins to Germany',
+'Players has not been confirmed by the teams yet. Keep filling everything else and we will send you and email when players are confirmed' => 'Players has not been confirmed by the teams yet. Keep filling everything else and we will send you and email when players are confirmed'
   );
