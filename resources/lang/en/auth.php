@@ -13,4 +13,6 @@ return array (
   'resetpassword' => 'Reset password',
   'sendpasswordresetlink' => 'Send password reset link!',
   'confirmpassword' => 'Confirm password',
+  'is_friend_of' => 'Who told you about us?',
+  'is_friend_of_info' => 'We need to know this so we can identify you.',
 );

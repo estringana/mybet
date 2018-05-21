@@ -13,4 +13,6 @@ return array (
   'resetpassword' => 'Resetear password',
   'sendpasswordresetlink' => 'Enviame un email para resetear el password!',
   'throttle' => 'Te has pasado intentandolo. Prueba mas tarde',
+  'is_friend_of' => 'Quien te hablo de la porra?',
+  'is_friend_of_info' => 'Necesitamos saber esto para poder identificarte.',
 );
