@@ -43,7 +43,7 @@ return array (
   ),
   'Goals' => 
   array (
-    '001' => 'Utilizaremos los goles que la FIFA de por validos. En caso de goles en propia puerta o cosas parecidas, contaremos el gol solamente si la FIFA lo cuenta para pichihi.',
+    '001' => 'Utilizaremos los goles que la FIFA de por validos. En caso de goles en propia puerta o cosas parecidas, contaremos el gol solamente si la FIFA lo cuenta para pichichi.',
     'title' => 'Goles',
   ),  
   'Points' => 
