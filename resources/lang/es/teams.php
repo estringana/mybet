@@ -27,7 +27,7 @@ return array (
     'South Korea' => 'Corea del sur',
     'Belgium' => 'Belgica',
     'Panama' => 'Panama',
-    'Tunisia' => 'Tune',
+    'Tunisia' => 'Tunez',
     'England' => 'Inglaterra',
     'Poland' => 'Polonia',
     'Senegal' => 'Senegal',
