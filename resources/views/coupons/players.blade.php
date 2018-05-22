@@ -6,7 +6,7 @@
     </div>
     <div class="panel-body {{$collapsable or ''}}" id="players">
         <div class="alert alert-warning" role="alert">
-        {{trans('messages.Players has not been confirmed by the teams yet. Keep filling everything else and we will send you and email when players are confirmed')}}
+        {{trans('messages.players_alert')}}
     </div>
         <table class="table table-responsive table-striped">
             <thead>
@@ -32,7 +32,7 @@
               @endforeach
           </tbody>
         </table> 
-        @if (false && isset($editable) && $editable == true)
+        @if (isset($editable) && $editable == true)
             <a class="btn btn-primary btn-lg pull-right" href="{{ Url::get('/coupon/players/update') }}" role="button">
                         {{ trans('messages.Changeyourplayers') }}
             </a>
