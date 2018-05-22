@@ -158,5 +158,4 @@ return array (
 'PortugalWinGermany' => '...Portugal wins to Germany',
 'WalesWinFrance' => '...Wales wins to France',
 'WalesWinGermany' => '...Wales wins to Germany',
-'Players has not been confirmed by the teams yet. Keep filling everything else and we will send you and email when players are confirmed' => 'Players has not been confirmed by the teams yet. Keep filling everything else and we will send you and email when players are confirmed'
-  );
+'players_alert' => 'Players lists are still open by FIFA. Players can be changed by their national teams. Switzerland and Serbia have not provided even a pre-list yet. We will update lists in case of any change.'

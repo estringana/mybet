@@ -154,5 +154,5 @@ return array (
 'PortugalWinGermany' => '...Portugal gana a Alemania',
 'WalesWinFrance' => '...Gales gana a Francia',
 'WalesWinGermany' => '...Gales gana a Alemania',
-'Players has not been confirmed by the teams yet. Keep filling everything else and we will send you and email when players are confirmed' => 'Los jugadores no han sido confirmados por las selecciones. Sigue con el resto y te avisaremos cuando las convocatorias esten confirmadas'
+'players_alert' => 'Las convocatorias todavia estan abiertan a cambios por la FIFA. Suiza y Serbia todavia no han dado ni una lista preliminar. Si hay algun cambio de jugadores, lo actualizaremos.'
 );
