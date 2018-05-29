@@ -5,9 +5,11 @@
         </h4>        
     </div>
     <div class="panel-body {{$collapsable or ''}}" id="players">
-        <div class="alert alert-warning" role="alert">
-        {{trans('messages.players_alert')}}
-    </div>
+        @if (isset($editable) && $editable == true)
+            <a class="btn btn-primary btn-lg pull-right" href="{{ Url::get('/coupon/players/update') }}" role="button">
+                {{ trans('messages.Changeyourplayers') }}
+            </a>
+        @endif
         <table class="table table-responsive table-striped">
             <thead>
                 <tr>

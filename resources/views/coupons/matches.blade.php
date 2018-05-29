@@ -5,6 +5,11 @@
         </h4>   
     </div>
     <div class="panel-body {{$collapsable or ''}}" id="matches">
+        @if (isset($editable) && $editable == true)
+            <a class="btn btn-primary btn-lg pull-right" href="{{ Url::get('/coupon/matches/update') }}" role="button">
+                {{ trans('messages.Changeyourmatches') }}
+            </a>
+        @endif
         <table class="table table-responsive table-striped">
             <thead>
                 <tr>
