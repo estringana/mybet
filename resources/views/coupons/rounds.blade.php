@@ -5,6 +5,11 @@
         </h4>        
     </div>
     <div class="panel-body {{$collapsable or ''}}" id="{{strtolower(str_replace(' ','',$title))}}">
+        @if (isset($editable) && $editable == true)
+            <a class="btn btn-primary btn-lg pull-right" href="{{ Url::get('/coupon/round/'.strtolower(str_replace(' ','',str_replace('-','',$title))).'/update') }}" role="button">
+                {{ trans('messages.Changeyourteamsonthisround') }}
+            </a>
+        @endif
         <table class="table table-responsive table-striped">
             <thead>
                 <tr>
