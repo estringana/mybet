@@ -35,7 +35,7 @@
             <tbody>
               @foreach($matchBets as $key => $matchBet)
                     <tr>
-                        <th scope="row">{{ $key }}</th>
+                        <th scope="row">{{ $key + 1 }}</th>
                         <td data-title="Date">{{ $matchBet->match->date }}</td>
                         <td data-title="Local">{{ trans('teams.'.$matchBet->match->local->name) }}</td>
                         <td data-title="Away">{{ trans('teams.'.$matchBet->match->away->name) }}</td>
