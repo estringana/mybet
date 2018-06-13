@@ -158,5 +158,6 @@ return array (
 'PortugalWinGermany' => '...Portugal wins to Germany',
 'WalesWinFrance' => '...Wales wins to France',
 'WalesWinGermany' => '...Wales wins to Germany',
-'players_alert' => 'Players lists are still open by FIFA. Players can be changed by their national teams. Switzerland and Serbia have not provided even a pre-list yet. We will update lists in case of any change.'
+'players_alert' => 'Players lists are still open by FIFA. Players can be changed by their national teams. Switzerland and Serbia have not provided even a pre-list yet. We will update lists in case of any change.',
+'all_released' => 'We are 84 players - We have collected AUD$16(1 user), 27£(3 users) and 800€(80 users). Remember the prize will be paid using the exchange rates at the moment of paying the prize'
 );
