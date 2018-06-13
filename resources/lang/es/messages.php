@@ -154,5 +154,6 @@ return array (
 'PortugalWinGermany' => '...Portugal gana a Alemania',
 'WalesWinFrance' => '...Gales gana a Francia',
 'WalesWinGermany' => '...Gales gana a Alemania',
-'players_alert' => 'Las convocatorias todavia estan abiertan a cambios por la FIFA. Suiza y Serbia todavia no han dado ni una lista preliminar. Si hay algun cambio de jugadores, lo actualizaremos.'
+'players_alert' => 'Las convocatorias todavia estan abiertan a cambios por la FIFA. Suiza y Serbia todavia no han dado ni una lista preliminar. Si hay algun cambio de jugadores, lo actualizaremos.',
+'all_released' => 'Somos 84 jugadores - El total de dinero recaudado es AUD$16(1 usuario), 27£(3 usuarios) y 800€(80 usuarios). Tened en cuenta que los premios se pagaran utilizando el cambio del dia en que los premios son pagados'
 );

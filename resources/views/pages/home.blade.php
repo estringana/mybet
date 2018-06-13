@@ -2,12 +2,12 @@
 
 @section('content')
      <div class="jumbotron">
-      <h1>{{ trans('messages.title') }}</h1>
-      <p>{{ trans('messages.create_a_team.message') }}</p>
-      <p>
-        <a class="btn btn-primary btn-lg" href="{{ Url::get('/coupon') }}" role="button">
-            {{ trans('messages.create_a_team.button') }}
-        </a>
+       <h1>{{ trans('messages.title') }}</h1>
+            <p>{{ trans('messages.Everything has been released now') }}</p>
+            <p>{{ trans('messages.all_released') }}</p>
+            <a class="btn btn-primary btn-lg" href="https://wetransfer.com/downloads/1b35470a1e9c2b33d7d845b1395f1f9f20180613125647/86de4abbd975e17cd2a70cf52062d52820180613125647/7a489e" role="button">
+                {{ trans('messages.Download the PDF from here') }}
+            </a> 
     </p>
     </div>
     <div class="page-header">
