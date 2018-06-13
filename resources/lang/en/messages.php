@@ -159,5 +159,6 @@ return array (
 'WalesWinFrance' => '...Wales wins to France',
 'WalesWinGermany' => '...Wales wins to Germany',
 'players_alert' => 'Players lists are still open by FIFA. Players can be changed by their national teams. Switzerland and Serbia have not provided even a pre-list yet. We will update lists in case of any change.',
-'all_released' => 'We are 84 players - We have collected AUD$16(1 user), 27£(3 users) and 800€(80 users). Remember the prize will be paid using the exchange rates at the moment of paying the prize'
+'all_released' => 'We are 84 players - We have collected AUD$16(1 user), 27£(3 users) and 800€(80 users). Remember the prize will be paid using the exchange rates at the moment of paying the prize',
+'final_released' => 'The revision period is closed. There has been only one player change. On Toneti`s team. From Jordan Lukaku to Romelu Lukaku. The reason for the changed is that Jordan Lukaky is not on the worldcup. It is not allow to do more changes after now.'
 );

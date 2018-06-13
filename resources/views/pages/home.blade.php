@@ -5,7 +5,8 @@
        <h1>{{ trans('messages.title') }}</h1>
             <p>{{ trans('messages.Everything has been released now') }}</p>
             <p>{{ trans('messages.all_released') }}</p>
-            <a class="btn btn-primary btn-lg" href="https://wetransfer.com/downloads/1b35470a1e9c2b33d7d845b1395f1f9f20180613125647/86de4abbd975e17cd2a70cf52062d52820180613125647/7a489e" role="button">
+            <p>{{ trans('messages.final_released') }}</p>
+            <a class="btn btn-primary btn-lg" href="https://we.tl/W16Bz4xpro" role="button">
                 {{ trans('messages.Download the PDF from here') }}
             </a> 
     </p>
