@@ -3,12 +3,12 @@
 @section('content')
      <div class="jumbotron">
        <h1>{{ trans('messages.title') }}</h1>
-            <p>{{ trans('messages.Everything has been released now') }}</p>
-            <p>{{ trans('messages.all_released') }}</p>
-            <p>{{ trans('messages.final_released') }}</p>
-            <a class="btn btn-primary btn-lg" href="https://we.tl/W16Bz4xpro" role="button">
-                {{ trans('messages.Download the PDF from here') }}
-            </a> 
+            <p>{{ trans('messages.winners') }}</p>
+            <p>{{ trans('messages.1st_position') }}</p>
+            <p>{{ trans('messages.2nd_position') }}</p>
+            <p>{{ trans('messages.3rd_position') }}</p>
+            <p>{{ trans('messages.complaints') }}</p>            
+        <h3>{{ trans('messages.bye') }}</h3>
     </p>
     </div>
     <div class="page-header">

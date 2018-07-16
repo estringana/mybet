@@ -160,5 +160,11 @@ return array (
 'WalesWinGermany' => '...Wales wins to Germany',
 'players_alert' => 'Players lists are still open by FIFA. Players can be changed by their national teams. Switzerland and Serbia have not provided even a pre-list yet. We will update lists in case of any change.',
 'all_released' => 'We are 84 players - We have collected AUD$16(1 user), 27£(3 users) and 800€(80 users). Remember the prize will be paid using the exchange rates at the moment of paying the prize',
-'final_released' => 'The revision period is closed. There has been only one player change. On Toneti`s team. From Jordan Lukaku to Romelu Lukaku. The reason for the changed is that Jordan Lukaky is not on the worldcup. It is not allow to do more changes after now.'
+'final_released' => 'The revision period is closed. There has been only one player change. On Toneti`s team. From Jordan Lukaku to Romelu Lukaku. The reason for the changed is that Jordan Lukaky is not on the worldcup. It is not allow to do more changes after now.',
+'winners' => 'We have winners!! The prizes before the complaints period ends are:',
+'1st_position' => 'Smoking Cats wins theporra and gets 588 euros!',
+'2nd_position' => 'Crisaca got on 2nd position and gets 168 euros!',
+'3rd_position' => 'Battiatos and ivanet35 got on 3rd position and each of them gets 42 euros',
+'complaints' => 'There are 2 days(until 18th end of the day Madrid time) for complaints. Please do check everything before that time.',
+'bye' => 'Thanks for joining THEPORRA. We will be back in two years for the European Cup.',
 );
