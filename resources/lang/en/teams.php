@@ -1,6 +1,6 @@
 <?php
 
-return array (
+return array(
     'Russia' => 'Russia',
     'Saudi Arabia' => 'Saudi Arabia',
     'Egypt' => 'Egypt',

@@ -43,4 +43,6 @@ return array(
     'Czech Republic' => 'Republica Checa',
     'Slovakia' => 'Eslovaquia',
     'Hungary' => 'Hungria',
+    'Italy' => 'Italia',
+    'Austria' => 'Austria',
 );
