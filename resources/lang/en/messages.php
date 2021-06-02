@@ -1,7 +1,7 @@
 <?php
 
-return array (
-  'timeEndInscription' => '9th of June at 5pm(uk time), 18:00(Spain time)',
+return array(
+  'timeEndInscription' => '10th of June at 18:00(Spain time)',
   'name' => 'Name',
   'Alias' => 'Alias',
   'Reporting a score:' => 'Reporting a score:',
@@ -60,8 +60,8 @@ return array (
   'Changeyourteamsonthisround' => 'Change your teams on this round',
   'berightback' => 'Be Right Back!',
   'title' => 'Theporra',
-  'create_a_team' => 
-  array (
+  'create_a_team' =>
+  array(
     'message' => 'Do you like football? Are you one of those who things that knows a lot about footbal? Here we go, this is your website!',
     'button' => 'Let\'s create your awesome team',
   ),
@@ -125,14 +125,8 @@ return array (
   'means the away team win the match' => 'means the away team win the match',
   'means match ends in draw' => 'means match ends in draw',
   'total'=>'Total',
-  'The time for doing changes has been extended to 9pm(uk time) - 22:00(es time)' => 'The time for doing changes has been extended to 9th June at 9pm(uk time) - 22:00(es time)',
   'Everything has been released now' => 'Everything has been released now',
   'Download the PDF from here' => 'Download the PDF from here',
-  'recollected01' => 'We have collected the following amount of money:',
-  'recollected02' => '50 bets paid with euros = 500 euros',
-  'recollected03' => '28 bets paid with quid = 224 quid',
-  'recollected04' => 'The final prize for the top three will be calculated using the exchange rate on 10th of July just after the final. The prize will be converted to the currency the top three paid with.',
-  'recollected05' => 'We have winners! They are: MarioTT on 1st position, AIK Limotxo on 2nd and Oriol Sala on 3rd. Congratulations! There is 24 hours for claiming any error dectected on the calculation of the table(11 July at 22:00 UK time, 23:00 ES time). After that moment, the prizes will be given and will not be able to claim. The current exchange rate is: 1.00 GBP  = 1.17146 EUR',
 'date' => 'Date',
 'local' => 'Local',
 'away' => 'Away',

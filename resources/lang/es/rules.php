@@ -1,32 +1,32 @@
 <?php
 
-return array (
-  'Bets' => 
-  array (
-    '001' => 'No sera posible hacer cambios en las apuesta a partir del 12 de Junio a las 18:00(Horario español), 5pm(Horario UK) o 2am(13 Junio - horario Sydney)',
+return array(
+  'Bets' =>
+  array(
+    '001' => 'No sera posible hacer cambios en las apuesta a partir del 10 de Junio a las 18:00(Horario español)',
     '002' => 'Tu apuesta deberá estar terminada para entonces. En caso de no estar terminada, el dinero no será devuelto',
     '003' => 'No será posible hacer ningún cambio después de ese momento',
     '004' => 'Si uno de tus jugadores se lesiona cuando se ha cerrado el tiempo de hacer cambios, no será posible cambiarlo',
     'title' => 'Apuestas',
   ),
-  'Payments' => 
-  array (
-    '001' => 'Cada jugador deberá pagar 10€, £9 o AU$16 para unirse al campeonato',
+  'Payments' =>
+  array(
+    '001' => 'Cada jugador deberá pagar 10€ para unirse al campeonato',
     '002' => 'Los pagos deben hacerse directamente a la persona que conozcas en la organización de theporra(o a traves del amigo que te hablo de la porra)',
     '003' => 'Los premios serán pagados de la misma forma pero en sentido inverso',
-    '004' => 'Fecha limite para pagos es el 11 de Junio',
+    '004' => 'Fecha limite para pagos es el 10 de Junio',
     'title' => 'Pagos',
   ),
-  'Website' => 
-  array (
-    '001' => 'No se mostrará ninguna apuesta al resto de jugadores hasta el día 13 de Junio a las 20:00(Horario español), 7pm (Horario UK) o 2am(14 Junio - Horario Sydney)',
+  'Website' =>
+  array(
+    '001' => 'No se mostrará ninguna apuesta al resto de jugadores hasta el día 10 de Junio a las 20:00(Horario español)',
     '002' => 'Todas las apuestas serán enviadas en un fichero PDF. Esto lo hacemos para demostrar que ninguna apuesta cambia una vez cerrado el plazo. No queremos que la gente piense cosas que no son.',
     '003' => 'Una vez que el campeonato empiece será posible seguir los partidos y la clasificación en la web',
-    '004' => 'La clasificación la mantendremos actualizada',  
+    '004' => 'La clasificación la mantendremos actualizada',
     'title' => 'Website',
   ),
-  'Prizes' => 
-  array (
+  'Prizes' =>
+  array(
     '001' => '1ro - 70% del dinero',
     '002' => '2do 20% del dinero',
     '003' => '3ro 10% del dinero',
@@ -34,20 +34,20 @@ return array (
     '005' => 'El total de dinero recogido será publicado una vez que el plazo de las apuesta sea cerrado',
     '006' => 'En caso de que dos jugadores acaben con los mismo puntos, los premios serán combinados y divididos por la cantidad de jugadores que tengan los mismo puntos. Por ejemplo, si dos jugadores terminan con los mismos puntos en segunda posición, ambos se repartirán el 30% (10% del tercer premio y 20% del segundo). Si los cuatro primeros acabasen con los mismos puntos, todo el dinero sería repartido entre ellos, etc.',
     'title' => 'Premios',
-  ),  
-  'Clarifications' => 
-  array (
+  ),
+  'Clarifications' =>
+  array(
     '001' => 'El sistema de apuestas no es estricto. Con esto queremos decir que no tienes que pasar los equipos que deberían pasar si miras tus rondas anteriores. Por ejemplo, puedes poner que un equipo pierde todos los partidos pero aún así lo pasas en la siguiente ronda. Otro ejemplo podría ser que pases todos los equipo de un mismo grupo a la siguiente fase',
     '002' => 'Se puede coger 8 jugadores del mismo equipo. La única restricción es que no puedes coger al mismo jugador mas de una vez.',
     'title' => 'Aclaraciones',
   ),
-  'Goals' => 
-  array (
-    '001' => 'Utilizaremos los goles que la FIFA de por validos. En caso de goles en propia puerta o cosas parecidas, contaremos el gol solamente si la FIFA lo cuenta para pichichi.',
+  'Goals' =>
+  array(
+    '001' => 'Utilizaremos los goles que la UEFA de por validos. En caso de goles en propia puerta o cosas parecidas, contaremos el gol solamente si la UEFA lo cuenta para pichichi.',
     'title' => 'Goles',
-  ),  
-  'Points' => 
-  array (
+  ),
+  'Points' =>
+  array(
     '001' => '1 punto por cada partido acertado en la primera fase',
     '002' => '1 punto por cada gol de tus jugadores',
     '003' => '2 puntos por cada equipo que aciertes en octavos',
@@ -57,5 +57,5 @@ return array (
     '007' => '2 puntos si aciertas el subcampeón',
     '008' => '3 puntos si aciertas el campeón',
     'title' => 'Puntos',
-  ),  
+  ),
 );
