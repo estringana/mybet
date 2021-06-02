@@ -5,8 +5,9 @@ use Carbon\Carbon;
 
 class TeamsTableSeeder extends Seeder
 {
-    private function codify($name){
-        return strtolower(str_replace(' ','',$name));
+    private function codify($name)
+    {
+        return strtolower(str_replace(' ', '', $name));
     }
 
     /**
@@ -17,53 +18,45 @@ class TeamsTableSeeder extends Seeder
     public function run()
     {
         $teams = [
-	        ['id' => 1, 'name' => 'Russia', 'code' => 'ru'],
-            ['id' => 2, 'name' => 'Saudi Arabia', 'code' => 'sa'],
-            ['id' => 3, 'name' => 'Egypt', 'code' => 'eg'],
-            ['id' => 4, 'name' => 'Uruguay', 'code' => 'uy'],
-            ['id' => 5, 'name' => 'Portugal', 'code' => 'pt'],
-            ['id' => 6, 'name' => 'Spain', 'code' => 'es'],
-            ['id' => 7, 'name' => 'Morocco', 'code' => 'ma'],
-            ['id' => 8, 'name' => 'Iran', 'code' => 'ir'],
-            ['id' => 9, 'name' => 'France', 'code' => 'fr'],
-            ['id' => 10, 'name' => 'Australia', 'code' => 'au'],
-            ['id' => 11, 'name' => 'Peru', 'code' => 'pe'],
-            ['id' => 12, 'name' => 'Denmark', 'code' => 'dk'],
-            ['id' => 13, 'name' => 'Argentina', 'code' => 'ar'],
-            ['id' => 14, 'name' => 'Iceland', 'code' => 'is'],
-            ['id' => 15, 'name' => 'Croatia', 'code' => 'hr'],
-            ['id' => 16, 'name' => 'Nigeria', 'code' => 'ng'],
-            ['id' => 17, 'name' => 'Brazil', 'code' => 'br'],
-            ['id' => 18, 'name' => 'Switzerland', 'code' => 'ch'],
-            ['id' => 19, 'name' => 'Costa Rica', 'code' => 'cr'],
-            ['id' => 20, 'name' => 'Serbia', 'code' => 'rs'],
-            ['id' => 21, 'name' => 'Germany', 'code' => 'de'],
-            ['id' => 22, 'name' => 'Mexico', 'code' => 'mx'],
-            ['id' => 23, 'name' => 'Sweden', 'code' => 'se'],
-            ['id' => 24, 'name' => 'South Korea', 'code' => 'kr'],
-            ['id' => 25, 'name' => 'Belgium', 'code' => 'be'],
-            ['id' => 26, 'name' => 'Panama', 'code' => 'pa'],
-            ['id' => 27, 'name' => 'Tunisia', 'code' => 'tn'],
-            ['id' => 28, 'name' => 'England', 'code' => 'england'],
-            ['id' => 29, 'name' => 'Poland', 'code' => 'pl'],
-            ['id' => 30, 'name' => 'Senegal', 'code' => 'sn'],
-            ['id' => 31, 'name' => 'Colombia', 'code' => 'co'],
-            ['id' => 32, 'name' => 'Japan', 'code' => 'jp'],
+            ['id' => 1, 'name' => 'Finland', 'code' => 'FI'],
+            ['id' => 2, 'name' => 'Italy', 'code' => 'IT'],
+            ['id' => 3, 'name' => 'Switzerland', 'code' => 'CH'],
+            ['id' => 4, 'name' => 'North Macedonia', 'code' => 'MK'],
+            ['id' => 5, 'name' => 'Slovakia', 'code' => 'SK'],
+            ['id' => 6, 'name' => 'Ukraine', 'code' => 'UA'],
+            ['id' => 7, 'name' => 'Sweden', 'code' => 'SE'],
+            ['id' => 8, 'name' => 'Portugal', 'code' => 'PT'],
+            ['id' => 9, 'name' => 'Czech Republic', 'code' => 'CZ'],
+            ['id' => 10, 'name' => 'Germany', 'code' => 'DE'],
+            ['id' => 11, 'name' => 'Croatia', 'code' => 'HR'],
+            ['id' => 12, 'name' => 'Russia', 'code' => 'RU'],
+            ['id' => 13, 'name' => 'Belgium', 'code' => 'BE'],
+            ['id' => 14, 'name' => 'Netherlands', 'code' => 'NL'],
+            ['id' => 15, 'name' => 'Hungary', 'code' => 'HU'],
+            ['id' => 16, 'name' => 'France', 'code' => 'FR'],
+            ['id' => 17, 'name' => 'Wales', 'code' => 'WLS'],
+            ['id' => 18, 'name' => 'Denmark', 'code' => 'DK'],
+            ['id' => 19, 'name' => 'England', 'code' => 'EN'],
+            ['id' => 20, 'name' => 'Turkey', 'code' => 'TR'],
+            ['id' => 21, 'name' => 'Poland', 'code' => 'PL'],
+            ['id' => 22, 'name' => 'Spain', 'code' => 'ES'],
+            ['id' => 23, 'name' => 'Austria', 'code' => 'AT'],
+            ['id' => 24, 'name' => 'Scotland', 'code' => 'SCT'],
         ];
 
         foreach ($teams as $team) {
-        	DB::table('teams')->insert([
+            DB::table('teams')->insert([
                 'id' => $team['id'],
                 'name' => $team['name'],
                 'code' => $this->codify($team['name']),
                 'short_code' => $team['code'],
-                'championship_id' => 
-                    App\Models\Championship::where('code', '=', 'worldcup2018')
+                'championship_id' =>
+                    App\Models\Championship::where('code', '=', 'eurocup2020')
                     ->firstOrFail()
                     ->id,
-    	   'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-    	   'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-	]);
+           'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+           'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+    ]);
         }
     }
 }
