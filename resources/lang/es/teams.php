@@ -1,6 +1,6 @@
 <?php
 
-return array (
+return array(
     'Russia' => 'Rusia',
     'Saudi Arabia' => 'Arabia Saudi',
     'Egypt' => 'Egipto',
@@ -33,4 +33,14 @@ return array (
     'Senegal' => 'Senegal',
     'Colombia' => 'Colombia',
     'Japan' => 'Japon',
+    'Turkey' => 'Turquia',
+    'Wales' => 'Gales',
+    'Finland' => 'Finlandia',
+    'North Macedonia' => 'Macedonia del norte',
+    'Ukraine' => 'Ucrania',
+    'Netherlands' => 'Paises bajos',
+    'Scotland' => 'Escocia',
+    'Czech Republic' => 'Republica Checa',
+    'Slovakia' => 'Eslovaquia',
+    'Hungary' => 'Hungria',
 );
