@@ -11,6 +11,9 @@
     <li>{{trans('messages.You can not pick a player twice')}}</li>
   </ul>
 </div>
+<div class="alert alert-warning" role="alert">
+  <p>{{trans('messages.not_confirmed_players')}}</p>
+</div>
 
 
 <form class="form-horizontal" method="POST" action="store">

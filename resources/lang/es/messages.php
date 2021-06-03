@@ -154,4 +154,5 @@ return array(
 '3rd_position' => 'Battiatos y ivanet35 quedan ambos en tercera posicion y reparten premio. Cada uno se lleva 42 euros',
 'complaints' => 'Hay dos dias para reclamaciones(hasta que se acabe el dia 18 - hora Española). Mirad que todos los puntos esten correctos y cualquier cosa, avisad.',
 'bye' => 'Gracias por participar en THEPORRA en este 10 aniversario. Esperamos veros a todos(y a vuestros amigos) en la proxima Eurocopa.',
+'not_confirmed_players' => 'Ten en cuenta que la UEFA todavía permite cambios en caso de lesión o enfermedad. Estate al tanto de que esto no le pasa a tus jugadores. Una vez cerrado el tiempo para hacer cambios ya no podrás substituirlos.'
 );

@@ -161,4 +161,5 @@ return array(
 '3rd_position' => 'Battiatos and ivanet35 got on 3rd position and each of them gets 42 euros',
 'complaints' => 'There are 2 days(until 18th end of the day Madrid time) for complaints. Please do check everything before that time.',
 'bye' => 'Thanks for joining THEPORRA. We will be back in two years for the European Cup.',
+'not_confirmed_players' => 'Keep in mind that UEFA still allows changes of players in case of injury or illness. Keep an eye on your players. Once we stop allowing players changes, you will not be able to change them.'
 );
