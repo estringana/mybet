@@ -36,6 +36,7 @@ class User extends Authenticatable
 
     protected function createCouponForUserOnChampionshio(Championship $championship)
     {
+        throw new \Exception(); //No more update available
         $coupon = new Coupon();
         $coupon->associateUser($this);
         $championship->addCoupon($coupon);
