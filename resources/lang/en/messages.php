@@ -162,5 +162,5 @@ return array(
 'complaints' => 'There are 2 days(until 18th end of the day Madrid time) for complaints. Please do check everything before that time.',
 'bye' => 'Thanks for joining THEPORRA. We will be back in two years for the European Cup.',
 'not_confirmed_players' => 'Keep in mind that UEFA still allows changes of players in case of injury or illness. Keep an eye on your players. Once we stop allowing players changes, you will not be able to change them.',
-'eurocup2020released' => 'The inscription&changes period has ended. We are 80 player this year :) Today(11th) at 12:00(Spanish time) all the bets will be release. En email with all players BETS in pdf has been sent to all of you by email :)'
+'eurocup2020released' => 'The inscription&changes period has ended. We are 80 player this year :) Today(11th) at 12:00(Spanish time) all the bets will be release on this web. An email with all players BETS in pdf has been sent to all of you by email :)'
 );
