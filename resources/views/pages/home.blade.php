@@ -3,6 +3,7 @@
 @section('content')
      <div class="jumbotron">
        <h1>{{ trans('messages.title') }}</h1>
+       <p>{{ trans('messages.eurocup2020released') }}</p>
     </div>
     <div class="page-header">
       <h1>{{trans('messages.Rules')}}</h1>
