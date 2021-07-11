@@ -155,5 +155,8 @@ return array(
 'complaints' => 'Hay dos dias para reclamaciones(hasta que se acabe el dia 18 - hora Española). Mirad que todos los puntos esten correctos y cualquier cosa, avisad.',
 'bye' => 'Gracias por participar en THEPORRA en este 10 aniversario. Esperamos veros a todos(y a vuestros amigos) en la proxima Eurocopa.',
 'not_confirmed_players' => 'Ten en cuenta que la UEFA todavía permite cambios en caso de lesión o enfermedad. Estate al tanto de que esto no le pasa a tus jugadores. Una vez cerrado el tiempo para hacer cambios ya no podrás substituirlos.',
-'eurocup2020released' => 'Ya se ha cerrado el plazo de inscripciones y cambios! Somos 80 jugadores este año :) A las 12 de hoy(11 Junio) haremos público las apuestas de todos los usuarios en esta web. También, os hemos enviado un email con un PDF en el que tenéis todas las apuestas'
+'eurocup2020released' => 'Ya se ha cerrado el plazo de inscripciones y cambios! Somos 80 jugadores este año :) A las 12 de hoy(11 Junio) haremos público las apuestas de todos los usuarios en esta web. También, os hemos enviado un email con un PDF en el que tenéis todas las apuestas',
+'champions2021_01' => 'Tenemos campeones de la porra: 1er puesto Noelpo(premio €560) y 2do/3er puesto compartido: JUANMA Cuko´s team(premio €120) y Óscar carratala(premio €120)',
+'champions2021_02' => 'Si alguien tiene alguna reclamación, tiene hasta el día 14 de Julio a las 11am(hora Española) para comunicarselo a la administración',
+'champions2021_03' => 'Gracias por vuestra participación y nos vemos para el próximo Mundial!'
 );

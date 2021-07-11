@@ -162,5 +162,8 @@ return array(
 'complaints' => 'There are 2 days(until 18th end of the day Madrid time) for complaints. Please do check everything before that time.',
 'bye' => 'Thanks for joining THEPORRA. We will be back in two years for the European Cup.',
 'not_confirmed_players' => 'Keep in mind that UEFA still allows changes of players in case of injury or illness. Keep an eye on your players. Once we stop allowing players changes, you will not be able to change them.',
-'eurocup2020released' => 'The inscription&changes period has ended. We are 80 player this year :) Today(11th) at 12:00(Spanish time) all the bets will be release on this web. An email with all players BETS in pdf has been sent to all of you by email :)'
+'eurocup2020released' => 'The inscription&changes period has ended. We are 80 player this year :) Today(11th) at 12:00(Spanish time) all the bets will be release on this web. An email with all players BETS in pdf has been sent to all of you by email :)',
+'champions2021_01' => 'There are champions! 1st position Noelpo(premio €560) and 2do/3er position(shared between 2 players): JUANMA Cuko´s team(premio €120) y Óscar carratala(premio €120)',
+'champions2021_02' => 'If anyone has any claim, you can do it until 14th July at 11am(Spanish time) to contact us.',
+'champions2021_03' => 'Thank you very much to all of you and see you for the Worldcup!'
 );
