@@ -1,7 +1,7 @@
 <?php
 
-return array (
-  'timeEndInscription' => '9th of June at 5pm(uk time), 18:00(Spain time)',
+return array(
+  'timeEndInscription' => '10th of June at 18:00(Spain time)',
   'name' => 'Name',
   'Alias' => 'Alias',
   'Reporting a score:' => 'Reporting a score:',
@@ -60,8 +60,8 @@ return array (
   'Changeyourteamsonthisround' => 'Change your teams on this round',
   'berightback' => 'Be Right Back!',
   'title' => 'Theporra',
-  'create_a_team' => 
-  array (
+  'create_a_team' =>
+  array(
     'message' => 'Do you like football? Are you one of those who things that knows a lot about footbal? Here we go, this is your website!',
     'button' => 'Let\'s create your awesome team',
   ),
@@ -125,14 +125,8 @@ return array (
   'means the away team win the match' => 'means the away team win the match',
   'means match ends in draw' => 'means match ends in draw',
   'total'=>'Total',
-  'The time for doing changes has been extended to 9pm(uk time) - 22:00(es time)' => 'The time for doing changes has been extended to 9th June at 9pm(uk time) - 22:00(es time)',
   'Everything has been released now' => 'Everything has been released now',
   'Download the PDF from here' => 'Download the PDF from here',
-  'recollected01' => 'We have collected the following amount of money:',
-  'recollected02' => '50 bets paid with euros = 500 euros',
-  'recollected03' => '28 bets paid with quid = 224 quid',
-  'recollected04' => 'The final prize for the top three will be calculated using the exchange rate on 10th of July just after the final. The prize will be converted to the currency the top three paid with.',
-  'recollected05' => 'We have winners! They are: MarioTT on 1st position, AIK Limotxo on 2nd and Oriol Sala on 3rd. Congratulations! There is 24 hours for claiming any error dectected on the calculation of the table(11 July at 22:00 UK time, 23:00 ES time). After that moment, the prizes will be given and will not be able to claim. The current exchange rate is: 1.00 GBP  = 1.17146 EUR',
 'date' => 'Date',
 'local' => 'Local',
 'away' => 'Away',
@@ -167,4 +161,9 @@ return array (
 '3rd_position' => 'Battiatos and ivanet35 got on 3rd position and each of them gets 42 euros',
 'complaints' => 'There are 2 days(until 18th end of the day Madrid time) for complaints. Please do check everything before that time.',
 'bye' => 'Thanks for joining THEPORRA. We will be back in two years for the European Cup.',
+'not_confirmed_players' => 'Keep in mind that UEFA still allows changes of players in case of injury or illness. Keep an eye on your players. Once we stop allowing players changes, you will not be able to change them.',
+'eurocup2020released' => 'The inscription&changes period has ended. We are 80 player this year :) Today(11th) at 12:00(Spanish time) all the bets will be release on this web. An email with all players BETS in pdf has been sent to all of you by email :)',
+'champions2021_01' => 'There are champions! 1st position Noelpo(premio €560) and 2do/3er position(shared between 2 players): JUANMA Cuko´s team(premio €120) y Óscar carratala(premio €120)',
+'champions2021_02' => 'If anyone has any claim, you can do it until 14th July at 11am(Spanish time) to contact us.',
+'champions2021_03' => 'Thank you very much to all of you and see you for the Worldcup!'
 );

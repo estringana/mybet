@@ -40,7 +40,7 @@ class MatchesController extends \App\Http\Controllers\Controller
          $this->validate($request, [
                 'bet.*' => 'in:1,X,2',
             ]);
-           
+            throw new \Exception(); //No more update available
            $userBets = $this->repository->bets();
 
            foreach($request->input('bet') as $id => $value){

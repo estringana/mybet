@@ -3,13 +3,10 @@
 @section('content')
      <div class="jumbotron">
        <h1>{{ trans('messages.title') }}</h1>
-            <p>{{ trans('messages.winners') }}</p>
-            <p>{{ trans('messages.1st_position') }}</p>
-            <p>{{ trans('messages.2nd_position') }}</p>
-            <p>{{ trans('messages.3rd_position') }}</p>
-            <p>{{ trans('messages.complaints') }}</p>            
-        <h3>{{ trans('messages.bye') }}</h3>
-    </p>
+       <p>{{ trans('messages.eurocup2020released') }}</p>
+       <p>{{ trans('messages.champions2021_01') }}</p>
+       <p>{{ trans('messages.champions2021_02') }}</p>
+       <p>{{ trans('messages.champions2021_03') }}</p>
     </div>
     <div class="page-header">
       <h1>{{trans('messages.Rules')}}</h1>

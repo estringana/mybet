@@ -12,15 +12,15 @@ class ChampionshipsTableSeeder extends Seeder
      */
     public function run()
     {
-         DB::table('championships')->insert([
-            'name' => 'Worldcup 2018',
-            'code' => 'worldcup2018',
-	'start_date' => '2018-06-15 19:00',
-            'end_date' => '2018-08-16',
-            'end_inscription' => '2018-06-13 17:00',
-	'active' => true,
-	'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-	'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        DB::table('championships')->insert([
+            'name' => 'Eurocup 2020',
+            'code' => 'eurocup2020',
+    'start_date' => '2021-06-11 21:00',
+            'end_date' => '2021-07-11',
+            'end_inscription' => '2021-06-05 17:00',
+    'active' => true,
+    'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+    'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }
 }

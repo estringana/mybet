@@ -36,24 +36,22 @@ class User extends Authenticatable
 
     protected function createCouponForUserOnChampionshio(Championship $championship)
     {
-            throw new Exception();
-            $coupon = new Coupon();
-            $coupon->associateUser($this);
-            $championship->addCoupon($coupon);
-            $coupon->save();
+        throw new \Exception(); //No more update available
+        $coupon = new Coupon();
+        $coupon->associateUser($this);
+        $championship->addCoupon($coupon);
+        $coupon->save();
 
-            $coupon->createEmtpyBets();
+        $coupon->createEmtpyBets();
 
-            return $coupon;
+        return $coupon;
     }
 
     public function couponOfChampionsip(Championship $championship)
     {
         try {
-            $coupon = $this->coupons()->where('championship_id',$championship->id)->firstOrFail();
-        }
-        catch (\Exception $e)
-        {
+            $coupon = $this->coupons()->where('championship_id', $championship->id)->firstOrFail();
+        } catch (\Exception $e) {
             $coupon = $this->createCouponForUserOnChampionshio($championship);
         }
 

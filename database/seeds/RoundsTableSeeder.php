@@ -28,8 +28,8 @@ class RoundsTableSeeder extends Seeder
                 'order' => $round['order'],
                 'identifier' => $round['identifier'],
                 'points' => $round['order'],
-                'championship_id' => 
-                    App\Models\Championship::where('code', '=', 'worldcup2018')
+                'championship_id' =>
+                    App\Models\Championship::where('code', '=', 'eurocup2020')
                     ->firstOrFail()
                         ->id,
                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),

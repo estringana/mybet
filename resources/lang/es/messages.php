@@ -1,11 +1,11 @@
 <?php
 
-return array (
-  'timeEndInscription' => '9 de Junio a las 18:00(Horario español), 5pm(Horario UK)',
+return array(
+  'timeEndInscription' => '10 de Junio a las 18:00(Horario español)',
   'title' => 'Theporra',
   'Alias' => 'Alias',
-  'create_a_team' => 
-  array (
+  'create_a_team' =>
+  array(
     'message' => 'Te gusta el futbol? Eres de los que se cree que sabe mucho de futbol? Entonces estas en el sitio correcto!',
     'button' => 'Create tu propio equipo',
   ),
@@ -121,15 +121,6 @@ return array (
   'means the away team win the match' => 'significa que el equipo visitante gana el partido',
   'means match ends in draw' => 'significa que el partido acaba en empate',
   'total'=>'Total',
-  'The time for doing changes has been extended to 9pm(uk time) - 22:00(es time)' => 'Hemos extendido hasta hoy 9 Junio a las 9pm(hora uk) - 22:00(hora es) el tiempo para hacer cambios',
-  'Everything has been released now' => 'Ya podeis acceder a toda la web',
-  'We are 78 players - We will let you know how much money has been collected in £ and how much in € soon' => 'Al final hemos sido 78 jugadores. Record! En un par de horas os diremos cuanto se ha recaudado en euros y cuanto en pounds',
-  'Download the PDF from here' => 'Descargar el fichero PDF desde aqui',
-  'recollected01' => 'La recaudación después del cierre de la admisión de las porras ha sido la siguiente:',
-  'recollected02' => '50 porras pagadas en euros = 500 euros',
-  'recollected03' => '28 porras pagadas en libras = 224 libras',
-  'recollected04' => 'El precio final para los tres primeros clasificados se calculará en base a la cotización a la que se encuentre la divisa con la que pagaron estos tres primeros clasificados el día 10 de Julio depues de la final.',
-  'recollected05' => 'Tenemos ganadores! MarioTT en primera posicion, AIK Limotxo en segunda y Oriol Sala tercera. Enhorabuena! Hay un periodo de 24 horas(11 Julio a las 22:00 hora Inglesa, 23:00 hora Española) para reclamar cualquier fallo en el calculo de la clasificacion. Despues ya no se podra reclamar nada. El cambio actual es: 1.00 GBP  = 1.17146 EUR',
 'date' => 'Fecha',
 'local' => 'Local',
 'away' => 'Visitante',
@@ -163,4 +154,9 @@ return array (
 '3rd_position' => 'Battiatos y ivanet35 quedan ambos en tercera posicion y reparten premio. Cada uno se lleva 42 euros',
 'complaints' => 'Hay dos dias para reclamaciones(hasta que se acabe el dia 18 - hora Española). Mirad que todos los puntos esten correctos y cualquier cosa, avisad.',
 'bye' => 'Gracias por participar en THEPORRA en este 10 aniversario. Esperamos veros a todos(y a vuestros amigos) en la proxima Eurocopa.',
+'not_confirmed_players' => 'Ten en cuenta que la UEFA todavía permite cambios en caso de lesión o enfermedad. Estate al tanto de que esto no le pasa a tus jugadores. Una vez cerrado el tiempo para hacer cambios ya no podrás substituirlos.',
+'eurocup2020released' => 'Ya se ha cerrado el plazo de inscripciones y cambios! Somos 80 jugadores este año :) A las 12 de hoy(11 Junio) haremos público las apuestas de todos los usuarios en esta web. También, os hemos enviado un email con un PDF en el que tenéis todas las apuestas',
+'champions2021_01' => 'Tenemos campeones de la porra: 1er puesto Noelpo(premio €560) y 2do/3er puesto compartido: JUANMA Cuko´s team(premio €120) y Óscar carratala(premio €120)',
+'champions2021_02' => 'Si alguien tiene alguna reclamación, tiene hasta el día 14 de Julio a las 11am(hora Española) para comunicarselo a la administración',
+'champions2021_03' => 'Gracias por vuestra participación y nos vemos para el próximo Mundial!'
 );

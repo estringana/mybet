@@ -128,38 +128,6 @@
                     'middleware' => 'auth',
                     'uses' => 'TableController@index'
                 ]);
-
-                  Route::get('/whathappensif/FranceWinPortugal', function(){
-                    return view('whathappensif.FranceWinPortugal');
-                  });
-
-                  Route::get('/whathappensif/FranceWinWales', function(){
-                    return view('whathappensif.FranceWinWales');
-                  });
-
-                  Route::get('/whathappensif/GermanyWinPortugal', function(){
-                    return view('whathappensif.GermanyWinPortugal');
-                  });
-
-                  Route::get('/whathappensif/GermanyWinWales', function(){
-                    return view('whathappensif.GermanyWinWales');
-                  });
-
-                  Route::get('/whathappensif/PortugalWinFrance', function(){
-                    return view('whathappensif.PortugalWinFrance');
-                  });
-
-                  Route::get('/whathappensif/PortugalWinGermany', function(){
-                    return view('whathappensif.PortugalWinGermany');
-                  });
-
-                  Route::get('/whathappensif/WalesWinFrance', function(){
-                    return view('whathappensif.WalesWinFrance');
-                  });
-
-                  Route::get('/whathappensif/WalesWinGermany', function(){
-                    return view('whathappensif.WalesWinGermany');
-                  });
                 
         });
 

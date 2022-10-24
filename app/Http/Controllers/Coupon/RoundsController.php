@@ -62,7 +62,7 @@ class RoundsController extends \App\Http\Controllers\Controller
          $this->validate($request, [
                 'bet.*' => 'numeric',
             ]);
-
+            throw new \Exception(); //No more update available
          $teams_picked = [];
 
            foreach($request->input('bet') as $id => $value){
